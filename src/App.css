@@ -1,42 +1,39 @@
+html,
+body,
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  height: 100%;
+  font-family: "TT Commons Pro", sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+
+@font-face {
+  font-family: "TT Commons Pro";
+  src:
+    url("/fonts/TT_Commons_Pro_Medium.woff2") format("woff2"),
+    url("/fonts/TT_Commons_Pro_Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* The dashboard area stretches; footer stays at the bottom */
+.pageMain {
+  flex: 1 1 auto;
+  display: block; /* keep it simple; your dashboard handles its own grid */
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* Optional footer styling */
+.pageFooter {
+  border: none;
+  background: #caffbf;
+  color: #333;
+  padding: 14px 16px;
+  font-size: 13px;
 }
