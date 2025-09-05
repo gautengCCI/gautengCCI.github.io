@@ -910,7 +910,7 @@ export default [
   {
     id: "bag-factory",
     name: "The Bag Factory Artists' Studios",
-    category: "Non-profit",
+    category: ["Non-profit", "Artist studio"],
     type: "Artist studios (NPO)",
     domain: "Visual arts",
     lat: -26.2035941, lon: 28.0261917,
@@ -930,7 +930,7 @@ export default [
   {
     id: "asisebenze",
     name: "Asisebenze Art Atelier Studios",
-    category: "Artist studio",
+    category: ["Artist studio", "Commercial gallery"],
     type: "Studios",
     domain: "Visual arts",
     lat: -26.20011782, lon: 28.04266927,
@@ -994,21 +994,6 @@ export default [
     description: "Public library with makerspace/tech programming; offers digital-skills workshops and community creative labs.",
     website: ""
   })),
-
-  // ——— Galleries / Spaces (remaining) ———
-  {
-    id: "the-point-of-order",
-    name: "The Point of Order (TPO)",
-    category: "Academic partnership",
-    domain: "Visual arts",
-    type: "Project space",
-    lat: -26.192, lon: 28.0307,
-    description: "Experimental shows and open calls; a bridge between student practice and professional presentation.",
-    website: ""
-  },
-
-  // ——— Maker / Misc ———
-  // (nothing else pending in your list here)
 
 ];
 

@@ -263,6 +263,140 @@
   cursor: pointer;
 }
 
+.cardCount {
+  font-weight: 400;
+  opacity: 0.7;
+  margin-left: 6px;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto; /* the list scrolls, header stays fixed */
+  padding-block: 10px;
+}
+
+.cardList::before {
+    background-image: repeating-linear-gradient(#f4f4f6 0 1px, transparent 1px 40px);
+    background-size: 40px 40px;
+    background-position-y: 20px; /* shift first horizontal line down */
+  }
+  .cardList::after {
+    background-image: repeating-linear-gradient(90deg, #f4f4f6 0 1px, transparent 1px 40px);
+    background-size: 40px 40px;
+    background-position-x: 20px; /* shift first vertical line right (optional) */
+  }
+  
+
+.miniCard {
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 10px;
+  background: #0f0f10; /* match your left panel theme */
+}
+
+.miniCardHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.miniDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background-color: var(--cat-color, #111);
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.miniCardHot {
+  background: rgb(68, 2, 248);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.18);
+}
+
+.miniTitleBtn {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.miniDesc {
+  color: #e8e8e8;
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 6px 0 0;
+}
+
+.miniFooter {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.miniLink {
+  color: #9ee6ff;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.miniZoom {
+  appearance: none;
+  -webkit-appearance: none;
+  font-size: 12px;
+  border: 1px solid #f4f4f6;
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Keep your tap-highlight fixes consistent */
+.miniTitleBtn,
+.miniZoom {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* Keep the grid background behind the stacked list too */
+.cardList {
+    position: relative; /* anchor the pseudo-elements */
+  }
+  
+  .cardList::before,
+  .cardList::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .cardList::before {
+    background-image: repeating-linear-gradient(#f4f4f6 0 1px, transparent 1px 40px);
+    background-size: 40px 40px;
+  }
+  .cardList::after {
+    background-image: repeating-linear-gradient(90deg, #f4f4f6 0 1px, transparent 1px 40px);
+    background-size: 40px 40px;
+  }
+  
+  /* Ensure the list content sits above the grid */
+  .cardList > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+
 /* MAP PANEL */
 .map {
   background-color: #fff;
@@ -389,8 +523,8 @@
   cursor: pointer;
 }
 .legendClear:hover {
-    background: #caffbf;
-    color: #333;
+  background: #caffbf;
+  color: #333;
 }
 
 .domainList {
@@ -401,9 +535,9 @@
 }
 
 .domainChip {
-    -webkit-appearance: none;
-    appearance: none;
-    -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
   font-size: 12px;
   line-height: 1;
   padding: 6px 10px;
@@ -424,16 +558,20 @@
   border-color: #111;
 }
 
-.domainChip:focus { outline: none; }
-.domainChip::-moz-focus-inner { border: 0; } /* Firefox inner border */
+.domainChip:focus {
+  outline: none;
+}
+.domainChip::-moz-focus-inner {
+  border: 0;
+} /* Firefox inner border */
 
 /* Points */
 .pointGroup {
   cursor: pointer;
 }
-.point {
-  fill: var(--cat-color, #111);
-}
+
+
+
 .pointHit {
   fill: transparent;
 }
@@ -459,7 +597,7 @@
 .pointHalo {
   pointer-events: none; /* don’t block cursor */
   fill: none;
-  stroke: #fff; /* white outer halo for contrast */
+  stroke: #030303; /* white outer halo for contrast */
   stroke-width: 2px;
   opacity: 0.9;
   filter: drop-shadow(
@@ -469,12 +607,30 @@
 
 /* === MOBILE EXCEPTION: two columns (body | image) only on small screens === */
 @media (max-width: 1024px) {
-  .wrap {
-    grid-template-columns: 1fr;
+    .wrap {
+        display: flex;            /* switch grid → flex */
+        flex-direction: column;
+        min-height: 100svh;       /* safer on mobile than 100vh */
+      }
+
+      .left   { order: 1; }
+      .map    { order: 2; }
+      .legend { order: 3; }
+
+      .legend {
+        max-height: 40svh;   /* or remove this if you want full flow */
+        overflow: auto;
+      }
+
+  .map {
+    flex: 1 1 auto;                 /* grow to fill remaining space */
+    min-height: min(72svh, 720px);  /* floor so it feels substantial */
   }
 
-  .legend {
-    max-height: none;
+  .svgBlock {
+    display: block;
+    width: 100%;
+    height: 100%; /* key: match the .map height */
   }
 
   .title {

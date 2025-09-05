@@ -15,34 +15,35 @@ const getCategory = (p) =>
   p?.Group ??
   null;
 
-  const getDomains = (p) => {
-    const raw =
-      p?.domain ??
-      p?.Domain ??
-      p?.domains ??
-      p?.Domains ??
-      null;
-  
-    if (!raw) return [];
-    return Array.isArray(raw) ? raw : [String(raw)];
-  };
-  
+const getDomains = (p) => {
+  const raw = p?.domain ?? p?.Domain ?? p?.domains ?? p?.Domains ?? null;
 
+  if (!raw) return [];
+  return Array.isArray(raw) ? raw : [String(raw)];
+};
 
-  function jitterFromId(id, max = 6) {
-    // FNV-1a-ish tiny hash
-    let h = 2166136261 >>> 0;
-    const s = String(id);
-    for (let i = 0; i < s.length; i++) {
-      h ^= s.charCodeAt(i);
-      h = Math.imul(h, 16777619);
-    }
-    const angle = (h % 360) * (Math.PI / 180);
-    const r = (h % (max * 10)) / 10; // 0..max px
-    return [Math.cos(angle) * r, Math.sin(angle) * r];
+const getCategories = (p) => {
+  const raw =
+    p?.categories ?? p?.category ?? p?.Category ?? p?.group ?? p?.Group ?? null;
+
+  if (!raw) return [];
+  return Array.isArray(raw) ? raw : [String(raw)];
+};
+
+function jitterFromId(id, max = 6) {
+  // FNV-1a-ish tiny hash
+  let h = 2166136261 >>> 0;
+  const s = String(id);
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
   }
+  const angle = (h % 360) * (Math.PI / 180);
+  const r = (h % (max * 10)) / 10; // 0..max px
+  return [Math.cos(angle) * r, Math.sin(angle) * r];
+}
 
-  export default function GautengCreativeDashboard({
+export default function GautengCreativeDashboard({
   topoUrl = "/gauteng_adm2.topo.json",
   points = [],
   leftTitle = "GAUTENG CREATIVE SECTOR\nSUPPORTIVE INFRASTRUCTURE",
@@ -75,20 +76,23 @@ const getCategory = (p) =>
 
   // Legend filter
   const [activeCat, setActiveCat] = useState(null);
-  const toggleCategory = (c) => setActiveCat((prev) => (prev === c ? null : c));
+  // replace your existing toggleCategory
+  const toggleCategory = (c) => {
+    setFocused(null); // close any pinned card
+    setActiveCat((prev) => (prev === c ? null : c));
+  };
 
   const [activeDomains, setActiveDomains] = useState(new Set());
-// toggle helper
-const toggleDomain = (d) => {
-  setActiveDomains(prev => {
-    const next = new Set(prev);
-    if (next.has(d)) next.delete(d);
-    else next.add(d);
-    return next;
-  });
-};
-const clearDomains = () => setActiveDomains(new Set());
-
+  // toggle helper
+  const toggleDomain = (d) => {
+    setActiveDomains((prev) => {
+      const next = new Set(prev);
+      if (next.has(d)) next.delete(d);
+      else next.add(d);
+      return next;
+    });
+  };
+  const clearDomains = () => setActiveDomains(new Set());
 
   // Modal state (mobile bottom sheet)
   const [isMobile, setIsMobile] = useState(false);
@@ -114,7 +118,7 @@ const clearDomains = () => setActiveDomains(new Set());
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [activeCat]);
 
   // Lock body scroll when modal opens
   useEffect(() => {
@@ -202,6 +206,13 @@ const clearDomains = () => setActiveDomains(new Set());
     [topology, objName]
   );
 
+  const catPoints = useMemo(() => {
+    if (!activeCat) return [];
+    return points
+      .filter((p) => getCategories(p).includes(activeCat)) // <-- includes!
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [activeCat, points]);
+
   // ----- projection & path -----
   const pad = 0;
   const projection = useMemo(() => {
@@ -280,8 +291,8 @@ const clearDomains = () => setActiveDomains(new Set());
 
   // ----- categories & palette -----
   const categories = useMemo(() => {
-    const raw = points.map(getCategory).filter(Boolean);
-    const uniq = Array.from(new Set(raw));
+    const all = points.flatMap(getCategories).filter(Boolean);
+    const uniq = Array.from(new Set(all));
     if (categoryOrder?.length) {
       const order = new Set(categoryOrder);
       const extras = uniq.filter((c) => !order.has(c)).sort();
@@ -296,8 +307,6 @@ const clearDomains = () => setActiveDomains(new Set());
       a.localeCompare(b, undefined, { sensitivity: "base" })
     );
   }, [points]);
-  
-  
 
   const palette = useMemo(() => {
     if (categoryColors) return categoryColors;
@@ -320,6 +329,22 @@ const clearDomains = () => setActiveDomains(new Set());
     m["Uncategorised"] = m["Uncategorised"] || "#111";
     return m;
   }, [categories, categoryColors]);
+
+  // put this right after `const palette = useMemo(...)`
+// (so it can read the palette)
+const dotStyleFor = (p) => {
+    if (!p) return { "--cat-color": "#111" };
+    const cats = getCategories(p);
+    if (cats.length > 1) {
+      const cols = cats.map((c) => palette[c] || "#111").join(", ");
+      // gradient for multi-category
+      return { backgroundImage: `linear-gradient(90deg, ${cols})` };
+    }
+    // single category (or fallback)
+    const one = cats[0] ?? getCategory(p) ?? "Uncategorised";
+    return { "--cat-color": palette[one] || "#111" };
+  };
+  
 
   // ----- hover & focus (sticky card) -----
   const [hover, setHover] = useState(null); // { x, y, p }
@@ -357,69 +382,189 @@ const clearDomains = () => setActiveDomains(new Set());
             hasImage ? s.cardHasImage : ""
           }`}
         >
-          {info ? (
+          {focused ? (
+            // --- existing SINGLE pinned card (unchanged) ---
             <>
-              {/* HEADER */}
               <div className={s.cardHeader}>
                 <div className={s.cardDotandTitle}>
                   <span
                     className={s.cardDot}
-                    style={{ "--cat-color": palette[cat] }}
+                    style={dotStyleFor(focused.p)}
+
                   />
-                  <div className={s.cardTitle}>{info.p.name}</div>
+                  <div className={s.cardTitle}>{focused.p.name}</div>
                 </div>
-                {focused && (
-                  <div className={s.closeBtn} onClick={() => setFocused(null)}>
-                    <img src={closeIcon} alt="Close" />
-                  </div>
-                )}
+                <div className={s.closeBtn} onClick={() => setFocused(null)}>
+                  <img src={closeIcon} alt="Close" />
+                </div>
               </div>
 
-              {/* BODY */}
               <div className={s.cardBody}>
                 <div className={s.cardMeta}>
-                  {info.p.type ? `${info.p.type} · ` : ""}
-                  {cat ?? "Uncategorised"}
+                  {focused.p.type ? `${focused.p.type} · ` : ""}
+                  {getCategory(focused.p) ?? "Uncategorised"}
                 </div>
-                {info.p.description && (
-                  <p className={s.cardText}>{info.p.description}</p>
+                {focused.p.description && (
+                  <p className={s.cardText}>{focused.p.description}</p>
                 )}
-                {info.p.website && (
+                {focused.p.website && (
                   <a
                     className={s.cardLink}
-                    href={info.p.website}
+                    href={focused.p.website}
                     target="_blank"
                     rel="noreferrer"
                   >
                     Visit website →
                   </a>
                 )}
-                {focused && (
-                  <button
-                    className={s.clearBtn}
-                    onClick={() => setFocused(null)}
+                <button className={s.clearBtn} onClick={() => setFocused(null)}>
+                  Clear pin
+                </button>
+              </div>
+
+              {focused.p.image && (
+                <div className={s.cardImage}>
+                  <img src={focused.p.image} alt="" />
+                </div>
+              )}
+            </>
+          ) : activeCat ? (
+            <>
+              {/* List header */}
+              <div className={s.cardHeader}>
+                <div className={s.cardDotandTitle}>
+                  <span
+                    className={s.cardDot}
+                    style={{ "--cat-color": palette[activeCat] || "#111" }}
+                  />
+                  <div className={s.cardTitle}>
+                    {activeCat}{" "}
+                    <span className={s.cardCount}>({catPoints.length})</span>
+                  </div>
+                </div>
+                <div className={s.closeBtn} onClick={() => setActiveCat(null)}>
+                  <img src={closeIcon} alt="Close" />
+                </div>
+              </div>
+
+              {/* Scrollable list of mini cards */}
+              <div className={`${s.cardBody} ${s.cardList}`}>
+                {catPoints.map((p) => {
+                  const color =
+                    palette[getCategory(p) ?? "Uncategorised"] || "#111";
+                  const isHot =
+                    hover?.p?.id === p.id || focused?.p?.id === p.id;
+
+                  // simple word-based truncation (≈ 22 words)
+                  const desc = p.description
+                    ? (() => {
+                        const words = p.description.split(/\s+/);
+                        return words.length > 22
+                          ? words.slice(0, 22).join(" ") + "…"
+                          : p.description;
+                      })()
+                    : null;
+
+                  return (
+                    <article
+                      key={p.id}
+                      className={`${s.miniCard} ${isHot ? s.miniCardHot : ""}`}
+                      onMouseEnter={() => {
+                        if (canHoverRef.current) {
+                          const xy = projection([p.lon, p.lat]);
+                          if (xy) setHoverRAF({ x: xy[0], y: xy[1], p });
+                        }
+                      }}
+                      onMouseLeave={() =>
+                        canHoverRef.current && setHoverRAF(null)
+                      }
+                    >
+                      <header className={s.miniCardHead}>
+                        <span
+                          className={s.miniDot}
+                          style={dotStyleFor(p)}
+                        />
+                        <div
+                          className={s.miniTitleBtn}
+                          onClick={() => setFocused({ p })}
+                          title="Pin this entry"
+                        >
+                          {p.name}
+                        </div>
+                      </header>
+
+                      {desc && <p className={s.miniDesc}>{desc}</p>}
+
+                      <footer className={s.miniFooter}>
+                        {p.website && (
+                          <a
+                            className={s.miniLink}
+                            href={p.website}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Visit website →
+                          </a>
+                        )}
+                        <button
+                          className={s.miniZoom}
+                          onClick={() => setFocused({ p })}
+                          title="Zoom to location"
+                        >
+                          More
+                        </button>
+                      </footer>
+                    </article>
+                  );
+                })}
+              </div>
+            </>
+          ) : hover ? (
+            // — HOVER PREVIEW
+            <>
+              <div className={s.cardHeader}>
+                <div className={s.cardDotandTitle}>
+                  <span
+                    className={s.cardDot}
+                    style={dotStyleFor(hover.p)}
+                  />
+                  <div className={s.cardTitle}>{hover.p.name}</div>
+                </div>
+              </div>
+
+              <div className={s.cardBody}>
+                <div className={s.cardMeta}>
+                  {hover.p.type ? `${hover.p.type} · ` : ""}
+                  {getCategory(hover.p) ?? "Uncategorised"}
+                </div>
+                {hover.p.description && (
+                  <p className={s.cardText}>{hover.p.description}</p>
+                )}
+                {hover.p.website && (
+                  <a
+                    className={s.cardLink}
+                    href={hover.p.website}
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    Clear pin
-                  </button>
+                    Visit website →
+                  </a>
                 )}
               </div>
 
-              {/* IMAGE */}
-              {info.p.image && (
+              {hover.p.image && (
                 <div className={s.cardImage}>
-                  <img src={info.p.image} alt="" />
+                  <img src={hover.p.image} alt="" />
                 </div>
               )}
             </>
           ) : (
+            // — EMPTY —
             <>
-              {/* Empty state header sits ABOVE the grid */}
               <div className={s.cardEmptyHint}>
                 Hover a dot on the map to preview a venue here. Click a dot to
                 pin details.
               </div>
-
-              {/* Empty body: only used to show the grid overlay below the hint */}
               <div className={s.cardBody} />
             </>
           )}
@@ -481,30 +626,28 @@ const clearDomains = () => setActiveDomains(new Set());
             {points.map((p) => {
               if (!Number.isFinite(p.lon) || !Number.isFinite(p.lat))
                 return null;
-                let [x, y] = projection([p.lon, p.lat]) || [null, null];
-                if (x == null) return null;
-                
-                // optional deterministic spread:
-                const [jx, jy] = jitterFromId(p.id, 5); // try 4–8px
-                x += jx + (p.dx || 0);
-                y += jy + (p.dy || 0);
-                const pCat = getCategory(p) ?? "Uncategorised";
-                const pDomains = getDomains(p);
-                
-                // category pass
-                const passCat = !activeCat || pCat === activeCat;
-                
-                // domain pass: if none selected, pass; otherwise must intersect
-                const hasDomainFilter = activeDomains.size > 0;
-                const passDomain = !hasDomainFilter || pDomains.some(d => activeDomains.has(d));
-                
-                // final visibility
-                const visible = passCat && passDomain;
-                
-                // dim/size rules
-                const dimmed = !visible;
-                const r = visible ? dotRadius : Math.max(2, dotRadius * 0.2);
-                
+              let [x, y] = projection([p.lon, p.lat]) || [null, null];
+              if (x == null) return null;
+
+              const [jx, jy] = jitterFromId(p.id, 5);
+              x += jx + (p.dx || 0);
+              y += jy + (p.dy || 0);
+
+              const pCats = getCategories(p);
+              const colors = pCats.map((c) => palette[c] || "#111");
+              const hasMulti = colors.length > 1;
+              const gradId = `grad-${p.id}`;
+              const fill = hasMulti ? `url(#${gradId})` : colors[0];
+
+              const passCat = !activeCat || pCats.includes(activeCat);
+              const pDomains = getDomains(p);
+              const hasDomainFilter = activeDomains.size > 0;
+              const passDomain =
+                !hasDomainFilter || pDomains.some((d) => activeDomains.has(d));
+              const visible = passCat && passDomain;
+
+              const dimmed = !visible;
+              const r = visible ? dotRadius : Math.max(2, dotRadius * 0.2);
               const isHot = hover?.p?.id === p.id || focused?.p?.id === p.id;
 
               return (
@@ -512,26 +655,43 @@ const clearDomains = () => setActiveDomains(new Set());
                   key={p.id}
                   className={`${s.pointGroup} ${dimmed ? s.pointDim : ""}`}
                   transform={`translate(${x},${y})`}
-                  onMouseEnter={() => {
-                    if (canHoverRef.current) setHoverRAF({ x, y, p });
-                  }}
-                  onMouseLeave={() => {
-                    if (canHoverRef.current) setHoverRAF(null);
-                  }}
+                  onMouseEnter={() =>
+                    canHoverRef.current && setHoverRAF({ x, y, p })
+                  }
+                  onMouseLeave={() => canHoverRef.current && setHoverRAF(null)}
                   onClick={() => {
                     setFocused({ p });
                     if (isMobile) setIsModalOpen(true);
                   }}
-                  style={{ "--cat-color": palette[pCat] || "#111" }}
                 >
+                  {/* per-point gradient only if needed */}
+                  {hasMulti && (
+                    <defs>
+                      <linearGradient
+                        id={gradId}
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="0%"
+                      >
+                        {colors.map((col, i) => {
+                          const stop = (i / (colors.length - 1)) * 100;
+                          return (
+                            <stop key={i} offset={`${stop}%`} stopColor={col} />
+                          );
+                        })}
+                      </linearGradient>
+                    </defs>
+                  )}
+
                   {isHot && <circle className={s.pointHalo} r={r + 1} />}
                   <circle
                     className={s.point}
                     r={r}
                     filter="url(#shadow)"
+                    style={{ fill }} // 👈 inline fill always wins
                     fillOpacity={dotOpacity}
                   />
-                  {/* keep the invisible hit area comfortably large */}
                   <circle
                     className={s.pointHit}
                     r={Math.max(12, dotRadius * 1)}
@@ -608,45 +768,43 @@ const clearDomains = () => setActiveDomains(new Set());
               </div>
             );
           })}
-        </div>       
+        </div>
 
-
-          {/* Domains */}
-          {domains.length > 0 && (
-            <>
-              <div className={s.legendTitleRow} style={{ marginTop: 12 }}>
-                <div className={s.legendTitle}>Domains</div>
-                <div className={s.legendTitleNote}>Filter by domain or sector</div>
+        {/* Domains */}
+        {domains.length > 0 && (
+          <>
+            <div className={s.legendTitleRow} style={{ marginTop: 12 }}>
+              <div className={s.legendTitle}>Domains</div>
+              <div className={s.legendTitleNote}>
+                Filter by domain or sector
               </div>
+            </div>
 
-              {activeDomains.size > 0 && (
-                <button className={s.legendClear} onClick={clearDomains}>
-                  Clear domains
-                </button>
-              )}
+            {activeDomains.size > 0 && (
+              <button className={s.legendClear} onClick={clearDomains}>
+                Clear domains
+              </button>
+            )}
 
-              <div className={s.domainList}>
-                {domains.map((d) => {
-                  const on = activeDomains.has(d);
-                  return (
-                    <button
-                      key={d}
-                      className={`${s.domainChip} ${on ? s.domainChipOn : ""}`}
-                      onClick={() => toggleDomain(d)}
-                      aria-pressed={on}
-                      title={on ? "Remove filter" : `Filter: ${d}`}
-                    >
-                      {d}
-                    </button>
-                  );
-                })}
-              </div>
-            </>
-          )}
-
+            <div className={s.domainList}>
+              {domains.map((d) => {
+                const on = activeDomains.has(d);
+                return (
+                  <button
+                    key={d}
+                    className={`${s.domainChip} ${on ? s.domainChipOn : ""}`}
+                    onClick={() => toggleDomain(d)}
+                    aria-pressed={on}
+                    title={on ? "Remove filter" : `Filter: ${d}`}
+                  >
+                    {d}
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        )}
       </aside>
-
-      
 
       {/* MOBILE SHEET */}
       {isMobile &&
@@ -667,10 +825,7 @@ const clearDomains = () => setActiveDomains(new Set());
               <div className={s.cardHeader}>
                 <span
                   className={s.cardDot}
-                  style={{
-                    "--cat-color":
-                      palette[getCategory(focused.p) ?? "Uncategorised"],
-                  }}
+                  style={dotStyleFor(focused?.p)}
                 />
                 <div id="venue-title" className={s.cardTitle}>
                   {focused.p.name}
