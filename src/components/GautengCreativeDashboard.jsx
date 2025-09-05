@@ -15,6 +15,19 @@ const getCategory = (p) =>
   p?.Group ??
   null;
 
+  const getDomains = (p) => {
+    const raw =
+      p?.domain ??
+      p?.Domain ??
+      p?.domains ??
+      p?.Domains ??
+      null;
+  
+    if (!raw) return [];
+    return Array.isArray(raw) ? raw : [String(raw)];
+  };
+  
+
 
   function jitterFromId(id, max = 6) {
     // FNV-1a-ish tiny hash
@@ -63,6 +76,19 @@ const getCategory = (p) =>
   // Legend filter
   const [activeCat, setActiveCat] = useState(null);
   const toggleCategory = (c) => setActiveCat((prev) => (prev === c ? null : c));
+
+  const [activeDomains, setActiveDomains] = useState(new Set());
+// toggle helper
+const toggleDomain = (d) => {
+  setActiveDomains(prev => {
+    const next = new Set(prev);
+    if (next.has(d)) next.delete(d);
+    else next.add(d);
+    return next;
+  });
+};
+const clearDomains = () => setActiveDomains(new Set());
+
 
   // Modal state (mobile bottom sheet)
   const [isMobile, setIsMobile] = useState(false);
@@ -263,6 +289,14 @@ const getCategory = (p) =>
     }
     return uniq.sort();
   }, [points, categoryOrder]);
+
+  const domains = useMemo(() => {
+    const all = points.flatMap(getDomains).filter(Boolean);
+    return Array.from(new Set(all)).sort((a, b) =>
+      a.localeCompare(b, undefined, { sensitivity: "base" })
+    );
+  }, [points]);
+  
   
 
   const palette = useMemo(() => {
@@ -454,10 +488,23 @@ const getCategory = (p) =>
                 const [jx, jy] = jitterFromId(p.id, 5); // try 4–8px
                 x += jx + (p.dx || 0);
                 y += jy + (p.dy || 0);
-              const pCat = getCategory(p) ?? "Uncategorised";
-              const dimmed = activeCat && pCat !== activeCat;
-              const isActiveCat = !activeCat || pCat === activeCat;
-              const r = isActiveCat ? dotRadius : Math.max(2, dotRadius * 0.2);
+                const pCat = getCategory(p) ?? "Uncategorised";
+                const pDomains = getDomains(p);
+                
+                // category pass
+                const passCat = !activeCat || pCat === activeCat;
+                
+                // domain pass: if none selected, pass; otherwise must intersect
+                const hasDomainFilter = activeDomains.size > 0;
+                const passDomain = !hasDomainFilter || pDomains.some(d => activeDomains.has(d));
+                
+                // final visibility
+                const visible = passCat && passDomain;
+                
+                // dim/size rules
+                const dimmed = !visible;
+                const r = visible ? dotRadius : Math.max(2, dotRadius * 0.2);
+                
               const isHot = hover?.p?.id === p.id || focused?.p?.id === p.id;
 
               return (
@@ -561,8 +608,45 @@ const getCategory = (p) =>
               </div>
             );
           })}
-        </div>
+        </div>       
+
+
+          {/* Domains */}
+          {domains.length > 0 && (
+            <>
+              <div className={s.legendTitleRow} style={{ marginTop: 12 }}>
+                <div className={s.legendTitle}>Domains</div>
+                <div className={s.legendTitleNote}>Filter by domain or sector</div>
+              </div>
+
+              {activeDomains.size > 0 && (
+                <button className={s.legendClear} onClick={clearDomains}>
+                  Clear domains
+                </button>
+              )}
+
+              <div className={s.domainList}>
+                {domains.map((d) => {
+                  const on = activeDomains.has(d);
+                  return (
+                    <button
+                      key={d}
+                      className={`${s.domainChip} ${on ? s.domainChipOn : ""}`}
+                      onClick={() => toggleDomain(d)}
+                      aria-pressed={on}
+                      title={on ? "Remove filter" : `Filter: ${d}`}
+                    >
+                      {d}
+                    </button>
+                  );
+                })}
+              </div>
+            </>
+          )}
+
       </aside>
+
+      
 
       {/* MOBILE SHEET */}
       {isMobile &&
