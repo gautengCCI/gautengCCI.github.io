@@ -330,9 +330,23 @@ export default function GautengCreativeDashboard({
     return m;
   }, [categories, categoryColors]);
 
-  // put this right after `const palette = useMemo(...)`
-// (so it can read the palette)
-const dotStyleFor = (p) => {
+  const domainPoints = useMemo(() => {
+    if (activeDomains.size === 0) return [];
+    return points
+      .filter((p) => {
+        const pCats = getCategories(p);
+        const passCat = !activeCat || pCats.includes(activeCat);
+
+        const pDom = getDomains(p);
+        const passDom =
+          activeDomains.size === 0 || pDom.some((d) => activeDomains.has(d));
+
+        return passCat && passDom;
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [points, activeCat, activeDomains]);
+
+  const dotStyleFor = (p) => {
     if (!p) return { "--cat-color": "#111" };
     const cats = getCategories(p);
     if (cats.length > 1) {
@@ -344,7 +358,6 @@ const dotStyleFor = (p) => {
     const one = cats[0] ?? getCategory(p) ?? "Uncategorised";
     return { "--cat-color": palette[one] || "#111" };
   };
-  
 
   // ----- hover & focus (sticky card) -----
   const [hover, setHover] = useState(null); // { x, y, p }
@@ -368,7 +381,6 @@ const dotStyleFor = (p) => {
   const info = focused ?? hover;
   const cat = info ? getCategory(info.p) ?? "Uncategorised" : null;
   const hasImage = Boolean(info?.p?.image);
-  
 
   return (
     <div className={s.wrap} ref={wrapRef}>
@@ -387,11 +399,7 @@ const dotStyleFor = (p) => {
             <>
               <div className={s.cardHeader}>
                 <div className={s.cardDotandTitle}>
-                  <span
-                    className={s.cardDot}
-                    style={dotStyleFor(focused.p)}
-
-                  />
+                  <span className={s.cardDot} style={dotStyleFor(focused.p)} />
                   <div className={s.cardTitle}>{focused.p.name}</div>
                 </div>
                 <div className={s.closeBtn} onClick={() => setFocused(null)}>
@@ -402,7 +410,9 @@ const dotStyleFor = (p) => {
               <div className={s.cardBody}>
                 <div className={s.cardMeta}>
                   {focused.p.type ? `${focused.p.type} · ` : ""}
-                  {getCategory(focused.p) ?? "Uncategorised"}
+                  {getCategories(focused.p).length > 0
+                    ? getCategories(focused.p).join(" · ")
+                    : "Uncategorised"}
                 </div>
                 {focused.p.description && (
                   <p className={s.cardText}>{focused.p.description}</p>
@@ -480,10 +490,7 @@ const dotStyleFor = (p) => {
                       }
                     >
                       <header className={s.miniCardHead}>
-                        <span
-                          className={s.miniDot}
-                          style={dotStyleFor(p)}
-                        />
+                        <span className={s.miniDot} style={dotStyleFor(p)} />
                         <div
                           className={s.miniTitleBtn}
                           onClick={() => setFocused({ p })}
@@ -519,15 +526,101 @@ const dotStyleFor = (p) => {
                 })}
               </div>
             </>
+          ) : domainPoints.length > 0 ? (
+            <>
+              {/* Header */}
+              <div className={s.cardHeader}>
+                <div className={s.cardDotandTitle}>
+                  {/* Neutral dot (or pick a domain color system later) */}
+                  <span
+                    className={s.cardDot}
+                    style={{ "--cat-color": "#f9f9f9" }}
+                  />
+                  <div className={s.cardTitle}>
+                    {activeDomains.size === 1
+                      ? `Domain: ${Array.from(activeDomains)[0]}`
+                      : `Multiple Domains (${domainPoints.length})`}
+                  </div>
+                </div>
+                <div className={s.closeBtn} onClick={clearDomains}>
+                  <img src={closeIcon} alt="Close" />
+                </div>
+              </div>
+
+              {/* Scrollable list of mini cards */}
+              <div className={`${s.cardBody} ${s.cardList}`}>
+                {domainPoints.map((p) => {
+                  const isHot =
+                    hover?.p?.id === p.id || focused?.p?.id === p.id;
+
+                  // truncate like your category list
+                  const desc = p.description
+                    ? (() => {
+                        const words = p.description.split(/\s+/);
+                        return words.length > 22
+                          ? words.slice(0, 22).join(" ") + "…"
+                          : p.description;
+                      })()
+                    : null;
+
+                  return (
+                    <article
+                      key={p.id}
+                      className={`${s.miniCard} ${isHot ? s.miniCardHot : ""}`}
+                      onMouseEnter={() => {
+                        if (canHoverRef.current) {
+                          const xy = projection([p.lon, p.lat]);
+                          if (xy) setHoverRAF({ x: xy[0], y: xy[1], p });
+                        }
+                      }}
+                      onMouseLeave={() =>
+                        canHoverRef.current && setHoverRAF(null)
+                      }
+                    >
+                      <header className={s.miniCardHead}>
+                        {/* category-aware gradient dot */}
+                        <span className={s.miniDot} style={dotStyleFor(p)} />
+                        <div
+                          className={s.miniTitleBtn}
+                          onClick={() => setFocused({ p })}
+                          title="Pin this entry"
+                        >
+                          {p.name}
+                        </div>
+                      </header>
+
+                      {desc && <p className={s.miniDesc}>{desc}</p>}
+
+                      <footer className={s.miniFooter}>
+                        {p.website && (
+                          <a
+                            className={s.miniLink}
+                            href={p.website}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Visit website →
+                          </a>
+                        )}
+                        <button
+                          className={s.miniZoom}
+                          onClick={() => setFocused({ p })}
+                          title="More details"
+                        >
+                          More
+                        </button>
+                      </footer>
+                    </article>
+                  );
+                })}
+              </div>
+            </>
           ) : hover ? (
             // — HOVER PREVIEW
             <>
               <div className={s.cardHeader}>
                 <div className={s.cardDotandTitle}>
-                  <span
-                    className={s.cardDot}
-                    style={dotStyleFor(hover.p)}
-                  />
+                  <span className={s.cardDot} style={dotStyleFor(hover.p)} />
                   <div className={s.cardTitle}>{hover.p.name}</div>
                 </div>
               </div>
@@ -823,10 +916,7 @@ const dotStyleFor = (p) => {
 
               {/* reuse your card content */}
               <div className={s.cardHeader}>
-                <span
-                  className={s.cardDot}
-                  style={dotStyleFor(focused?.p)}
-                />
+                <span className={s.cardDot} style={dotStyleFor(focused?.p)} />
                 <div id="venue-title" className={s.cardTitle}>
                   {focused.p.name}
                 </div>
@@ -842,7 +932,9 @@ const dotStyleFor = (p) => {
               <div className={s.cardBody}>
                 <div className={s.cardMeta}>
                   {focused.p.type ? `${focused.p.type} · ` : ""}
-                  {getCategory(focused.p) ?? "Uncategorised"}
+                  {getCategories(focused.p).length > 0
+                    ? getCategories(focused.p).join(" · ")
+                    : "Uncategorised"}
                 </div>
                 {focused.p.description && (
                   <p className={s.cardText}>{focused.p.description}</p>
