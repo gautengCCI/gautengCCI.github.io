@@ -98,6 +98,7 @@ export default function GautengCreativeDashboard({
   const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+
   // Track viewport for mobile
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 1024px)");
@@ -289,6 +290,33 @@ export default function GautengCreativeDashboard({
       .call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
   };
 
+
+  // Mobile list modal
+  const [isListOpen, setIsListOpen] = useState(false);
+
+  // Points that match current filters (category + domains)
+  const filteredPoints = useMemo(() => {
+    return points
+      .filter((p) => {
+        const passCat = !activeCat || getCategories(p).includes(activeCat);
+        const pDomains = getDomains(p);
+        const passDomain =
+          activeDomains.size === 0 ||
+          pDomains.some((d) => activeDomains.has(d));
+        return passCat && passDomain;
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [points, activeCat, activeDomains]);
+
+  // Title + color for the list header
+  const listTitle = activeCat
+    ? `${activeCat} (${filteredPoints.length})`
+    : activeDomains.size
+    ? `Filtered (${filteredPoints.length})`
+    : `All entries (${filteredPoints.length})`;
+
+
+
   // ----- categories & palette -----
   const categories = useMemo(() => {
     const all = points.flatMap(getCategories).filter(Boolean);
@@ -322,6 +350,7 @@ export default function GautengCreativeDashboard({
       "#F171EC",
       "#F5D824",
     ];
+
     const m = {};
     categories.forEach((c, i) => {
       m[c] = base[i % base.length];
@@ -329,6 +358,11 @@ export default function GautengCreativeDashboard({
     m["Uncategorised"] = m["Uncategorised"] || "#111";
     return m;
   }, [categories, categoryColors]);
+
+      const listColor = useMemo(() => {
+        if (activeCat) return palette[activeCat] || "#111";
+        return "#111";
+      }, [activeCat, palette]);
 
   const domainPoints = useMemo(() => {
     if (activeDomains.size === 0) return [];
@@ -816,6 +850,21 @@ export default function GautengCreativeDashboard({
         <div className={s.hint}>
           Click a district to zoom • Double-click to reset
         </div>
+
+        {isMobile && (
+          <button
+            className={s.fab}
+            onClick={() => setIsListOpen(true)}
+            aria-label="Open list"
+            title="Open list"
+          >
+            {activeCat
+              ? `View ${activeCat}`
+              : activeDomains.size
+              ? "View filtered"
+              : "Browse list"}
+          </button>
+        )}
       </div>
 
       {/* LEGEND */}
@@ -965,6 +1014,120 @@ export default function GautengCreativeDashboard({
                   <img src={focused.p.image} alt="" />
                 </div>
               )}
+            </div>
+          </div>,
+          document.body
+        )}
+
+      {isMobile &&
+        isListOpen &&
+        createPortal(
+          <div className={s.modalBackdrop} onClick={() => setIsListOpen(false)}>
+            <div
+              className={s.modalSheet}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="list-title"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className={s.modalHandle} aria-hidden />
+
+              {/* Header */}
+              <div className={s.cardHeader}>
+              <span className={s.cardDot} style={{ "--cat-color": listColor }} />
+
+                <div id="list-title" className={s.cardTitle}>
+                  {listTitle}
+                </div>
+                <button
+                  className={s.modalClose}
+                  onClick={() => setIsListOpen(false)}
+                  aria-label="Close"
+                >
+                  <img src={closeIcon} alt="Close" />
+                </button>
+              </div>
+
+              {/* List body */}
+              <div className={`${s.cardBody} ${s.cardList}`}>
+                {filteredPoints.map((p) => {
+                  const isHot =
+                    hover?.p?.id === p.id || focused?.p?.id === p.id;
+                  const desc = p.description
+                    ? (() => {
+                        const words = p.description.split(/\s+/);
+                        return words.length > 22
+                          ? words.slice(0, 22).join(" ") + "…"
+                          : p.description;
+                      })()
+                    : null;
+
+                  return (
+                    <article
+                      key={p.id}
+                      className={`${s.miniCard} ${isHot ? s.miniCardHot : ""}`}
+                      onMouseEnter={() => {
+                        if (
+                          canHoverRef.current &&
+                          Number.isFinite(p.lon) &&
+                          Number.isFinite(p.lat)
+                        ) {
+                          const xy = projection([p.lon, p.lat]);
+                          if (xy) setHoverRAF({ x: xy[0], y: xy[1], p });
+                        }
+                      }}
+                      onMouseLeave={() =>
+                        canHoverRef.current && setHoverRAF(null)
+                      }
+                    >
+                      <header className={s.miniCardHead}>
+                        <span className={s.miniDot} style={dotStyleFor(p)} />
+                        <div
+                          className={s.miniTitleBtn}
+                          onClick={() => {
+                            setFocused({ p });
+                            setIsListOpen(false);
+                            setIsModalOpen(true); // open the venue sheet
+                          }}
+                          title="Open details"
+                        >
+                          {p.name}
+                        </div>
+                      </header>
+                      {desc && <p className={s.miniDesc}>{desc}</p>}
+                      <footer className={s.miniFooter}>
+                        {p.website && (
+                          <a
+                            className={s.miniLink}
+                            href={p.website}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Visit website →
+                          </a>
+                        )}
+                        {Number.isFinite(p.lon) && Number.isFinite(p.lat) ? (
+                          <button
+                            className={s.miniZoom}
+                            onClick={() => {
+                              setFocused({ p });
+                              setIsListOpen(false);
+                              setIsModalOpen(true);
+                            }}
+                            title="Open details"
+                          >
+                            More
+                          </button>
+                        ) : (
+                          <span className={s.miniBadge}>
+                            Nomadic / no fixed site
+                          </span>
+                        )}
+                      </footer>
+                    </article>
+                  );
+                })}
+              </div>
             </div>
           </div>,
           document.body

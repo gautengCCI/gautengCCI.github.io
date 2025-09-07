@@ -605,6 +605,31 @@
   ); /* subtle legibility boost */
 }
 
+/* Floating action button for mobile */
+.fab {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: #111;
+    color: #fff;
+    border: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  /* Small “nomadic” badge */
+  .miniBadge {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #334155;
+  }
+  
+
 /* === MOBILE EXCEPTION: two columns (body | image) only on small screens === */
 @media (max-width: 1024px) {
     .wrap {
