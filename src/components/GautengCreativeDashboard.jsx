@@ -98,7 +98,6 @@ export default function GautengCreativeDashboard({
   const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-
   // Track viewport for mobile
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 1024px)");
@@ -290,9 +289,22 @@ export default function GautengCreativeDashboard({
       .call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
   };
 
-
   // Mobile list modal
   const [isListOpen, setIsListOpen] = useState(false);
+
+  // NEW: top "About" sheet state
+  const [isAboutSheetOpen, setIsAboutSheetOpen] = useState(false);
+
+  // Consolidated body-scroll lock for any open sheet
+  useEffect(() => {
+    const anyOpen = isModalOpen || isListOpen || isAboutSheetOpen;
+    if (!anyOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [isModalOpen, isListOpen, isAboutSheetOpen]);
 
   // Points that match current filters (category + domains)
   const filteredPoints = useMemo(() => {
@@ -314,8 +326,6 @@ export default function GautengCreativeDashboard({
     : activeDomains.size
     ? `Filtered (${filteredPoints.length})`
     : `All entries (${filteredPoints.length})`;
-
-
 
   // ----- categories & palette -----
   const categories = useMemo(() => {
@@ -359,10 +369,10 @@ export default function GautengCreativeDashboard({
     return m;
   }, [categories, categoryColors]);
 
-      const listColor = useMemo(() => {
-        if (activeCat) return palette[activeCat] || "#111";
-        return "#111";
-      }, [activeCat, palette]);
+  const listColor = useMemo(() => {
+    if (activeCat) return palette[activeCat] || "#111";
+    return "#111";
+  }, [activeCat, palette]);
 
   const domainPoints = useMemo(() => {
     if (activeDomains.size === 0) return [];
@@ -420,9 +430,21 @@ export default function GautengCreativeDashboard({
     <div className={s.wrap} ref={wrapRef}>
       {/* LEFT PANEL */}
       <aside className={s.left}>
-        <h1 className={s.title}>{leftTitle}</h1>
+        <div className={s.leftHeader}>
+          <h1 className={s.title}>{leftTitle}</h1>
+
+          {isMobile && (
+            <button
+              className={s.aboutTopBtn}
+              onClick={() => setIsAboutSheetOpen(true)}
+              aria-label="About this map"
+              title="About this map"
+            >
+              About
+            </button>
+          )}
+        </div>
         <p className={s.intro}>{leftIntro}</p>
-        <p className={s.mobilemessage}>Click a dot for more info</p>
         <div
           className={`${s.card} ${!info ? s.cardEmpty : ""} ${
             hasImage ? s.cardHasImage : ""
@@ -850,21 +872,6 @@ export default function GautengCreativeDashboard({
         <div className={s.hint}>
           Click a district to zoom • Double-click to reset
         </div>
-
-        {isMobile && (
-          <button
-            className={s.fab}
-            onClick={() => setIsListOpen(true)}
-            aria-label="Open list"
-            title="Open list"
-          >
-            {activeCat
-              ? `View ${activeCat}`
-              : activeDomains.size
-              ? "View filtered"
-              : "Browse list"}
-          </button>
-        )}
       </div>
 
       {/* LEGEND */}
@@ -910,6 +917,20 @@ export default function GautengCreativeDashboard({
               </div>
             );
           })}
+          {isMobile && (
+            <button
+              className={s.fab}
+              onClick={() => setIsListOpen(true)}
+              aria-label="Open list"
+              title="Open list"
+            >
+              {activeCat
+                ? `View ${activeCat}`
+                : activeDomains.size
+                ? "View filtered"
+                : "Browse list"}
+            </button>
+          )}
         </div>
 
         {/* Domains */}
@@ -1034,7 +1055,10 @@ export default function GautengCreativeDashboard({
 
               {/* Header */}
               <div className={s.cardHeader}>
-              <span className={s.cardDot} style={{ "--cat-color": listColor }} />
+                <span
+                  className={s.cardDot}
+                  style={{ "--cat-color": listColor }}
+                />
 
                 <div id="list-title" className={s.cardTitle}>
                   {listTitle}
@@ -1128,6 +1152,41 @@ export default function GautengCreativeDashboard({
                   );
                 })}
               </div>
+            </div>
+          </div>,
+          document.body
+        )}
+      {isMobile &&
+        isAboutSheetOpen &&
+        createPortal(
+          <div
+            className={s.modalBackdrop}
+            onClick={() => setIsAboutSheetOpen(false)}
+          >
+            <div
+              className={s.topSheet}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="about-title"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className={s.topSheetHeader}>
+                <div id="about-title" className={s.cardTitle}>
+                  About this map
+                </div>
+                <button
+                  className={s.modalClose}
+                  onClick={() => setIsAboutSheetOpen(false)}
+                  aria-label="Close"
+                >
+                  <img src={closeIcon} alt="Close" />
+                </button>
+              </div>
+
+              <div className={s.topSheetBody}>
+                <p className={s.introSheet}>{leftIntro}</p>
+              </div>
+              <p className={s.mobilemessage}>Click a dot on the map for more info or explore Data categories or Domain filters in the Key.</p>
             </div>
           </div>,
           document.body

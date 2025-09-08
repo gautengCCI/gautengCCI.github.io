@@ -278,16 +278,22 @@
 }
 
 .cardList::before {
-    background-image: repeating-linear-gradient(#f4f4f6 0 1px, transparent 1px 40px);
-    background-size: 40px 40px;
-    background-position-y: 20px; /* shift first horizontal line down */
-  }
-  .cardList::after {
-    background-image: repeating-linear-gradient(90deg, #f4f4f6 0 1px, transparent 1px 40px);
-    background-size: 40px 40px;
-    background-position-x: 20px; /* shift first vertical line right (optional) */
-  }
-  
+  background-image: repeating-linear-gradient(
+    #f4f4f6 0 1px,
+    transparent 1px 40px
+  );
+  background-size: 40px 40px;
+  background-position-y: 20px; /* shift first horizontal line down */
+}
+.cardList::after {
+  background-image: repeating-linear-gradient(
+    90deg,
+    #f4f4f6 0 1px,
+    transparent 1px 40px
+  );
+  background-size: 40px 40px;
+  background-position-x: 20px; /* shift first vertical line right (optional) */
+}
 
 .miniCard {
   border: 1px solid #e8e8e8;
@@ -369,33 +375,39 @@
 
 /* Keep the grid background behind the stacked list too */
 .cardList {
-    position: relative; /* anchor the pseudo-elements */
-  }
-  
-  .cardList::before,
-  .cardList::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-  }
-  
-  .cardList::before {
-    background-image: repeating-linear-gradient(#f4f4f6 0 1px, transparent 1px 40px);
-    background-size: 40px 40px;
-  }
-  .cardList::after {
-    background-image: repeating-linear-gradient(90deg, #f4f4f6 0 1px, transparent 1px 40px);
-    background-size: 40px 40px;
-  }
-  
-  /* Ensure the list content sits above the grid */
-  .cardList > * {
-    position: relative;
-    z-index: 1;
-  }
-  
+  position: relative; /* anchor the pseudo-elements */
+}
+
+.cardList::before,
+.cardList::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cardList::before {
+  background-image: repeating-linear-gradient(
+    #f4f4f6 0 1px,
+    transparent 1px 40px
+  );
+  background-size: 40px 40px;
+}
+.cardList::after {
+  background-image: repeating-linear-gradient(
+    90deg,
+    #f4f4f6 0 1px,
+    transparent 1px 40px
+  );
+  background-size: 40px 40px;
+}
+
+/* Ensure the list content sits above the grid */
+.cardList > * {
+  position: relative;
+  z-index: 1;
+}
 
 /* MAP PANEL */
 .map {
@@ -570,8 +582,6 @@
   cursor: pointer;
 }
 
-
-
 .pointHit {
   fill: transparent;
 }
@@ -607,49 +617,67 @@
 
 /* Floating action button for mobile */
 .fab {
-    position: absolute;
-    right: 12px;
-    bottom: 12px;
-    padding: 10px 14px;
-    border-radius: 999px;
-    background: #111;
-    color: #fff;
-    border: 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    font-weight: 600;
-    cursor: pointer;
-  }
-  
-  /* Small “nomadic” badge */
-  .miniBadge {
-    font-size: 12px;
-    padding: 2px 8px;
-    border-radius: 999px;
-    background: #f1f5f9;
-    color: #334155;
-  }
-  
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  border: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Small “nomadic” badge */
+.miniBadge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+}
+
+/* default: no button on desktop */
+.aboutTopBtn {
+  display: none;
+}
+
+/* header is plain on desktop, sticky only on mobile */
+.leftHeader {
+  display: block;
+}
+
 
 /* === MOBILE EXCEPTION: two columns (body | image) only on small screens === */
 @media (max-width: 1024px) {
     .wrap {
-        display: flex;            /* switch grid → flex */
+        display: flex;
         flex-direction: column;
-        min-height: 100svh;       /* safer on mobile than 100vh */
+        min-height: 100svh;
       }
+  .intro {display: none;}
 
-      .left   { order: 1; }
-      .map    { order: 2; }
-      .legend { order: 3; }
+  .left {
+    order: 1;
+  }
+  .map {
+    order: 2;
+  }
+  .legend {
+    order: 3;
+  }
 
-      .legend {
-        max-height: 40svh;   /* or remove this if you want full flow */
-        overflow: auto;
-      }
+  .legend {
+    max-height: 40svh; /* or remove this if you want full flow */
+    overflow: auto;
+  }
 
   .map {
-    flex: 1 1 auto;                 /* grow to fill remaining space */
-    min-height: min(72svh, 720px);  /* floor so it feels substantial */
+    flex: 1 1 auto; /* grow to fill remaining space */
+    min-height: min(72svh, 720px); /* floor so it feels substantial */
   }
 
   .svgBlock {
@@ -659,8 +687,16 @@
   }
 
   .title {
-    font-size: 20px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.1;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
   }
+
+
   .cardHasImage {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: var(--card-header-h) minmax(0, 1fr);
@@ -671,10 +707,6 @@
 
   .card {
     display: none;
-  }
-
-  .left {
-    min-width: 0;
   }
 
   .cardBody {
@@ -694,6 +726,88 @@
     aspect-ratio: auto; /* override if you previously set aspect-ratio */
   }
 
+  /* .intro { display: none; } */
+
+  /* Top-of-screen sheet (mobile) */
+  .topSheet {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    max-height: 80vh;
+    z-index: 1001;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    transform: translateY(-100%);
+    animation: slideDown 220ms ease-out forwards;
+  }
+
+  @keyframes slideDown {
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .topSheetHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px 16px;
+    border-bottom: 1px solid #eee;
+    background: #111;
+    color: #fff;
+  }
+
+  .topSheetBody {
+    padding: 12px 16px 16px;
+    background: #111;
+    color: #fff;
+  }
+
+  .leftHeader {
+    position: sticky;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: inherit;
+    min-height: 48px;   /* fixed height */
+    max-height: 48px;   /* fixed height */
+    overflow: hidden;   /* hide scrollbar */
+    box-sizing: border-box;
+    flex: 0 0 auto;
+  }
+
+  .aboutTopBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 0;
+    background: #caffbf;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;      /* keep it compact */
+    white-space: nowrap; /* prevent wrapping -> no extra height */
+    flex: 0 0 auto;
+  }
+
+  .aboutTopBtn:focus {
+    outline: none;
+  }
+  .aboutTopBtn:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+  }
+
+  /* hide the inline intro on mobile so it only appears in the top sheet */
+  .introInline {
+    display: none;
+  }
+
   .modalSheet .cardHeader {
     position: sticky;
     top: 0;
@@ -701,11 +815,20 @@
     z-index: 2;
   }
 
+  .card { display: none;}
+
+  .cardEmpty {
+    display: none;
+  }
+
   .mobilemessage {
-    padding: 20px;
+    padding-top: 1rem;
     margin: 0;
     display: block;
     border-top: solid 1px #e8e8e8;
+    background: #111;
+    color: #fff;
+    border-radius: 0 0 16px 16px;
   }
 
   .clearBtn {
@@ -733,4 +856,73 @@
     width: 40px; /* scale the glyph inside the 32px button */
     height: 40px;
   }
+
+  .leftHeader,
+  .left {
+    -webkit-overflow-scrolling: auto;
+  }
 }
+
+@media (max-width: 1024px) {
+    /* Make the left column just a single row for the sticky header */
+    .left {
+      /* keep it a grid, but with ONE row */
+      display: grid;
+      grid-template-rows: 48px;   /* match your header height */
+      gap: 0;                     /* kill the leftover spacer */
+      height: auto !important;    /* don’t stretch to viewport */
+      min-height: 0;
+      flex: 0 0 auto;             /* don’t grow in the column layout */
+      overflow: visible;          /* no inner scrollbars here */
+    }
+  
+    /* Hide the inline intro and card strongly so they don't create implicit tracks */
+    .left .intro,
+    .left .card,
+    .left .cardEmpty,
+    .left .cardBody,
+    .left .cardEmptyHint {
+      display: none !important;
+    }
+  
+    /* Compact, balanced header */
+    .leftHeader {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 48px;
+      padding: 0 12px;
+      margin: 0;                 /* just in case */
+      overflow: hidden;          /* avoid header scrollbars */
+      background: inherit;
+      box-sizing: border-box;
+    }
+  
+    .title {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+      line-height: 1.1;
+      min-width: 0;
+    }
+  
+    .aboutTopBtn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 0;
+      background: #caffbf;
+      color: #333;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+  }
+  
