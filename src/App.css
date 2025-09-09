@@ -43,17 +43,13 @@ body,
 
   .page {
     min-height: 100svh;    /* mobile-safe viewport height */
-    max-height: 100svh;
+    /* max-height: 100svh; */
     overflow: hidden;       /* 🚫 prevent window from scrolling */
-    display: flex;
-    flex-direction: column;
   }
   
   .pageMain {
-    flex: 1 1 auto;
-    min-height: 0;          /* allow children to define their own scroll */
-    display: flex;
-    flex-direction: column;
+    min-height: 0; 
+    width: 100%;         /* allow children to define their own scroll */
   }
 
   html, body, .page, .pageMain {
