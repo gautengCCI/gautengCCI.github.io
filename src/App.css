@@ -1,10 +1,18 @@
-html,
-body,
-#root {
-  height: 100%;
-  font-family: "TT Commons Pro", sans-serif;
+/* Let the page be at least full height, but not rigidly fixed */
+html, body {
+  min-height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;   /* kill the Safari “extra column” */
 }
 
+/* Root fills the viewport vertically; flex stacks your sections nicely */
+#root {
+  min-height: 100svh;   /* plays nicer on mobile than 100vh */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: "TT Commons Pro", sans-serif;
+}
 
 
 @font-face {

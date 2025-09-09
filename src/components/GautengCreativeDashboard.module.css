@@ -792,6 +792,7 @@ left: 12px;
     line-height: 1;      /* keep it compact */
     white-space: nowrap; /* prevent wrapping -> no extra height */
     flex: 0 0 auto;
+    cursor: pointer;
   }
 
   .aboutTopBtn:focus {
@@ -973,5 +974,10 @@ left: 12px;
       }
 
     
+  }
+  
+  /* Critical Safari fix: allow grid/flex children to shrink */
+.left, .map, .legend {
+    min-width: 0;
   }
   
