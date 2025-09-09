@@ -37,3 +37,29 @@ body,
   padding: 14px 16px;
   font-size: 13px;
 }
+
+
+@media (max-width: 1024px) {
+
+  .page {
+    min-height: 100svh;    /* mobile-safe viewport height */
+    max-height: 100svh;
+    overflow: hidden;       /* 🚫 prevent window from scrolling */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pageMain {
+    flex: 1 1 auto;
+    min-height: 0;          /* allow children to define their own scroll */
+    display: flex;
+    flex-direction: column;
+  }
+
+  html, body, .page, .pageMain {
+    overscroll-behavior: contain;
+  }
+
+  .pageFooter { display: none; }
+}
+

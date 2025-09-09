@@ -292,7 +292,76 @@ export default function GautengCreativeDashboard({
   // Mobile list modal
   const [isListOpen, setIsListOpen] = useState(false);
 
-  // NEW: top "About" sheet state
+  // --- Legend drawer state/refs (MOBILE ONLY UI) ---
+  const legendRef = useRef(null);
+  const [legendOpen, setLegendOpen] = useState(true);
+  const [legendOffset, setLegendOffset] = useState(0);
+  // scratch values used during drag
+  const dragRef = useRef({
+    dragging: false,
+    startY: 0,
+    startOffset: 0,
+    min: 0, // fully open (translateY = 0)
+    max: 0, // fully hidden (translateY = maxHide)
+    maxHide: 0, // computed from element height
+  });
+
+  // compute how far we can hide the drawer (leave the handle peeking)
+  useEffect(() => {
+    if (!isMobile) return; // only matters on mobile
+    const el = legendRef.current;
+    if (!el) return;
+
+    // Ensure we have layout to measure after it’s in the DOM
+    const handle = el.querySelector(`.${s.legendHandle}`);
+    const handleH = handle ? handle.getBoundingClientRect().height : 36;
+
+    const rect = el.getBoundingClientRect();
+    const fullH = rect.height || 0;
+
+    // how much to push the legend down to show only the handle
+    const maxHide = Math.max(0, fullH - handleH);
+
+    dragRef.current.maxHide = maxHide;
+    dragRef.current.min = 0;
+    dragRef.current.max = maxHide;
+
+    
+
+    // If it was open/closed before, keep that feel
+    setLegendOffset(legendOpen ? 0 : maxHide);
+  }, [isMobile, legendOpen]);
+
+  // Drag handlers
+  const onLegendDragStart = (clientY) => {
+    if (!isMobile) return;
+    dragRef.current.dragging = true;
+    dragRef.current.startY = clientY;
+    dragRef.current.startOffset = legendOffset;
+  };
+
+  const onLegendDragMove = (clientY) => {
+    if (!isMobile || !dragRef.current.dragging) return;
+    const dy = clientY - dragRef.current.startY;
+    const next = Math.min(
+      dragRef.current.max,
+      Math.max(dragRef.current.min, dragRef.current.startOffset + dy)
+    );
+    setLegendOffset(next);
+  };
+
+  const onLegendDragEnd = () => {
+    if (!isMobile) return;
+    if (!dragRef.current.dragging) return;
+    dragRef.current.dragging = false;
+
+    // snap to open/closed depending on where we stopped (50% threshold)
+    const snapClosed = legendOffset > dragRef.current.maxHide * 0.5;
+    setLegendOpen(!snapClosed);
+    setLegendOffset(snapClosed ? dragRef.current.maxHide : 0);
+  };
+
+  // "About" sheet state
   const [isAboutSheetOpen, setIsAboutSheetOpen] = useState(false);
 
   // Consolidated body-scroll lock for any open sheet
@@ -434,14 +503,14 @@ export default function GautengCreativeDashboard({
           <h1 className={s.title}>{leftTitle}</h1>
 
           {isMobile && (
-            <button
+            <div
               className={s.aboutTopBtn}
               onClick={() => setIsAboutSheetOpen(true)}
               aria-label="About this map"
               title="About this map"
             >
               About
-            </button>
+            </div>
           )}
         </div>
         <p className={s.intro}>{leftIntro}</p>
@@ -711,7 +780,7 @@ export default function GautengCreativeDashboard({
             // — EMPTY —
             <>
               <div className={s.cardEmptyHint}>
-                Hover a dot on the map to preview a venue here. Click a dot to
+                Hover a dot on the map to preview a venue or entity here. Click a dot to
                 pin details.
               </div>
               <div className={s.cardBody} />
@@ -872,52 +941,8 @@ export default function GautengCreativeDashboard({
         <div className={s.hint}>
           Click a district to zoom • Double-click to reset
         </div>
-      </div>
 
-      {/* LEGEND */}
-      <aside className={s.legend} aria-label="Category key">
-        <div className={s.legendTitleRow}>
-          <div className={s.legendTitle}>Key</div>
-          <div className={s.legendTitleNote}>Data category</div>
-        </div>
-        {/* Optional clear pill */}
-        {activeCat && (
-          <button className={s.legendClear} onClick={() => setActiveCat(null)}>
-            Show all
-          </button>
-        )}
-
-        <div className={s.legendList}>
-          {categories.map((c) => {
-            const isActive = activeCat === c;
-            const isDim = activeCat && !isActive;
-            return (
-              <div
-                key={c}
-                className={`${s.legendRow} ${
-                  isActive ? s.legendRowActive : ""
-                } ${isDim ? s.legendRowDim : ""}`}
-                role="button"
-                tabIndex={0}
-                aria-pressed={isActive}
-                onClick={() => toggleCategory(c)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    toggleCategory(c);
-                  }
-                }}
-                title={isActive ? "Click to show all" : `Highlight: ${c}`}
-              >
-                <span
-                  className={s.legendSwatch}
-                  style={{ "--cat-color": palette[c] }}
-                />
-                <div className={s.legendCategory}>{c}</div>
-              </div>
-            );
-          })}
-          {isMobile && (
+        {isMobile && (
             <button
               className={s.fab}
               onClick={() => setIsListOpen(true)}
@@ -931,43 +956,230 @@ export default function GautengCreativeDashboard({
                 : "Browse list"}
             </button>
           )}
-        </div>
 
-        {/* Domains */}
-        {domains.length > 0 && (
-          <>
-            <div className={s.legendTitleRow} style={{ marginTop: 12 }}>
-              <div className={s.legendTitle}>Domains</div>
-              <div className={s.legendTitleNote}>
-                Filter by domain or sector
-              </div>
+      </div>
+
+
+
+      {/* LEGEND */}
+      {isMobile ? (
+        // --- Mobile: draggable bottom drawer ---
+        <aside
+          ref={legendRef}
+          className={`${s.legend} ${s.legendDrawer}`}
+          style={{ transform: `translateY(${legendOffset}px)` }}
+          onMouseMove={(e) => onLegendDragMove(e.clientY)}
+          onMouseUp={onLegendDragEnd}
+          onMouseLeave={onLegendDragEnd}
+          onTouchMove={(e) => onLegendDragMove(e.touches[0].clientY)}
+          onTouchEnd={onLegendDragEnd}
+        >
+          {/* handle / grip area */}
+          <div
+            className={s.legendHandle}
+            role="button"
+            aria-label={legendOpen ? "Collapse legend" : "Expand legend"}
+            onMouseDown={(e) => onLegendDragStart(e.clientY)}
+            onTouchStart={(e) => onLegendDragStart(e.touches[0].clientY)}
+            onClick={() => {
+              // tap toggles
+              const closing = legendOffset === 0;
+              const peek = dragRef.current.maxHide;
+              setLegendOpen(!closing);
+              setLegendOffset(closing ? peek : 0);
+            }}
+          >
+            <div className={s.legendGrip} />
+            <div className={s.legendHandleLabel}>Key</div>
+          </div>
+
+          {/* the actual legend content */}
+          <div className={s.legendInner} aria-label="Category key">
+            <div className={s.legendTitleRow}>
+              <div className={s.legendTitle}>Key</div>
+              <div className={s.legendTitleNote}>Data category</div>
             </div>
 
-            {activeDomains.size > 0 && (
-              <button className={s.legendClear} onClick={clearDomains}>
-                Clear domains
+            {activeCat && (
+              <button
+                className={s.legendClear}
+                onClick={() => setActiveCat(null)}
+              >
+                Show all
               </button>
             )}
 
-            <div className={s.domainList}>
-              {domains.map((d) => {
-                const on = activeDomains.has(d);
+            <div className={s.legendList}>
+              {categories.map((c) => {
+                const isActive = activeCat === c;
+                const isDim = activeCat && !isActive;
                 return (
-                  <button
-                    key={d}
-                    className={`${s.domainChip} ${on ? s.domainChipOn : ""}`}
-                    onClick={() => toggleDomain(d)}
-                    aria-pressed={on}
-                    title={on ? "Remove filter" : `Filter: ${d}`}
+                  <div
+                    key={c}
+                    className={`${s.legendRow} ${
+                      isActive ? s.legendRowActive : ""
+                    } ${isDim ? s.legendRowDim : ""}`}
+                    role="button"
+                    tabIndex={0}
+                    aria-pressed={isActive}
+                    onClick={() => toggleCategory(c)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        toggleCategory(c);
+                      }
+                    }}
+                    title={isActive ? "Click to show all" : `Highlight: ${c}`}
                   >
-                    {d}
-                  </button>
+                    <span
+                      className={s.legendSwatch}
+                      style={{ "--cat-color": palette[c] }}
+                    />
+                    <div className={s.legendCategory}>{c}</div>
+                  </div>
                 );
               })}
             </div>
-          </>
-        )}
-      </aside>
+
+            {/* Domains */}
+            {domains.length > 0 && (
+              <>
+                <div className={s.legendTitleRow} style={{ marginTop: 12 }}>
+                  <div className={s.legendTitle}>Domains</div>
+                  <div className={s.legendTitleNote}>
+                    Filter by domain or sector
+                  </div>
+                </div>
+
+                {activeDomains.size > 0 && (
+                  <button className={s.legendClear} onClick={clearDomains}>
+                    Clear domains
+                  </button>
+                )}
+
+                <div className={s.domainList}>
+                  {domains.map((d) => {
+                    const on = activeDomains.has(d);
+                    return (
+                      <button
+                        key={d}
+                        className={`${s.domainChip} ${
+                          on ? s.domainChipOn : ""
+                        }`}
+                        onClick={() => toggleDomain(d)}
+                        aria-pressed={on}
+                        title={on ? "Remove filter" : `Filter: ${d}`}
+                      >
+                        {d}
+                      </button>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+          </div>
+        </aside>
+      ) : (
+        // --- Desktop: original static legend ---
+        <aside className={s.legend} aria-label="Category key">
+          <div className={s.legendTitleRow}>
+            <div className={s.legendTitle}>Key</div>
+            <div className={s.legendTitleNote}>Data category</div>
+          </div>
+
+          {activeCat && (
+            <button
+              className={s.legendClear}
+              onClick={() => setActiveCat(null)}
+            >
+              Show all
+            </button>
+          )}
+
+          <div className={s.legendList}>
+            {categories.map((c) => {
+              const isActive = activeCat === c;
+              const isDim = activeCat && !isActive;
+              return (
+                <div
+                  key={c}
+                  className={`${s.legendRow} ${
+                    isActive ? s.legendRowActive : ""
+                  } ${isDim ? s.legendRowDim : ""}`}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={isActive}
+                  onClick={() => toggleCategory(c)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      toggleCategory(c);
+                    }
+                  }}
+                  title={isActive ? "Click to show all" : `Highlight: ${c}`}
+                >
+                  <span
+                    className={s.legendSwatch}
+                    style={{ "--cat-color": palette[c] }}
+                  />
+                  <div className={s.legendCategory}>{c}</div>
+                </div>
+              );
+            })}
+
+            {/* If you already render a FAB in the map, you can delete this block */}
+            {isMobile && (
+              <button
+                className={s.fab}
+                onClick={() => setIsListOpen(true)}
+                aria-label="Open list"
+                title="Open list"
+              >
+                {activeCat
+                  ? `View ${activeCat}`
+                  : activeDomains.size
+                  ? "View filtered"
+                  : "Browse list"}
+              </button>
+            )}
+          </div>
+
+          {/* Domains */}
+          {domains.length > 0 && (
+            <>
+              <div className={s.legendTitleRow} style={{ marginTop: 12 }}>
+                <div className={s.legendTitle}>Domains</div>
+                <div className={s.legendTitleNote}>
+                  Filter by domain or sector
+                </div>
+              </div>
+
+              {activeDomains.size > 0 && (
+                <button className={s.legendClear} onClick={clearDomains}>
+                  Clear domains
+                </button>
+              )}
+
+              <div className={s.domainList}>
+                {domains.map((d) => {
+                  const on = activeDomains.has(d);
+                  return (
+                    <button
+                      key={d}
+                      className={`${s.domainChip} ${on ? s.domainChipOn : ""}`}
+                      onClick={() => toggleDomain(d)}
+                      aria-pressed={on}
+                      title={on ? "Remove filter" : `Filter: ${d}`}
+                    >
+                      {d}
+                    </button>
+                  );
+                })}
+              </div>
+            </>
+          )}
+        </aside>
+      )}
 
       {/* MOBILE SHEET */}
       {isMobile &&
@@ -1171,9 +1383,7 @@ export default function GautengCreativeDashboard({
               onClick={(e) => e.stopPropagation()}
             >
               <div className={s.topSheetHeader}>
-                <div id="about-title" className={s.cardTitle}>
-                  About this map
-                </div>
+              <h1 className={s.title}>{leftTitle}</h1>
                 <button
                   className={s.modalClose}
                   onClick={() => setIsAboutSheetOpen(false)}
@@ -1186,11 +1396,16 @@ export default function GautengCreativeDashboard({
               <div className={s.topSheetBody}>
                 <p className={s.introSheet}>{leftIntro}</p>
               </div>
-              <p className={s.mobilemessage}>Click a dot on the map for more info or explore Data categories or Domain filters in the Key.</p>
+              <p className={s.mobilemessage}>
+                Click a dot on the map for more info or explore Data categories
+                or Domain filters in the Key.
+              </p>
             </div>
           </div>,
           document.body
         )}
+
+        
     </div>
   );
 }

@@ -618,8 +618,8 @@
 /* Floating action button for mobile */
 .fab {
   position: absolute;
-  right: 12px;
-  bottom: 12px;
+left: 12px;
+  top: 12px;
   padding: 10px 14px;
   border-radius: 999px;
   background: #111;
@@ -671,7 +671,6 @@
   }
 
   .legend {
-    max-height: 40svh; /* or remove this if you want full flow */
     overflow: auto;
   }
 
@@ -786,8 +785,8 @@
     padding: 8px 12px;
     border-radius: 999px;
     border: 0;
-    background: #caffbf;
-    color: #333;
+    color: #fff;
+    background-color: none;
     font-size: 14px;
     font-weight: 600;
     line-height: 1;      /* keep it compact */
@@ -914,15 +913,65 @@
       align-items: center;
       justify-content: center;
       padding: 8px 12px;
-      border-radius: 999px;
-      border: 0;
-      background: #caffbf;
-      color: #333;
       font-size: 12px;
       font-weight: 600;
       line-height: 1;
       white-space: nowrap;
       flex: 0 0 auto;
     }
+
+    .legendDrawer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;               /* slides over the map */
+        max-height: 35svh;       /* how tall it can grow */
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        box-shadow: 0 -8px 30px rgba(0,0,0,0.25);
+        transition: transform 160ms ease-out; /* smooth snap */
+        padding: 0;              /* we’ll pad inner content */
+        background: #fff;
+        overflow: hidden;        /* content scrolls inside */
+        z-index: 100;            /* above map, below modals */
+      }
+    
+      .legendHandle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: center;
+        padding: 10px 12px;
+        border-bottom: 1px solid #eee;
+        cursor: grab;
+        touch-action: none;      /* allow vertical drag */
+        background: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+      }
+      .legendGrip {
+        width: 40px;
+        height: 4px;
+        border-radius: 999px;
+        background: #d1d5db;
+      }
+      .legendHandleLabel {
+        font-weight: 700;
+        font-size: 13px;
+        color: #111;
+      }
+    
+      .legendInner {
+        max-height: calc(55svh - 40px); /* minus handle area */
+        overflow: auto;
+        padding: 12px;                  /* your original legend padding */
+      }
+
+      .pageFooter {
+        display: none;
+      }
+
+    
   }
   

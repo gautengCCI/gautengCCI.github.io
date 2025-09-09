@@ -4,37 +4,40 @@ import points from "./data/dataset";
 
 // 1) Exact category → color mapping (keys must match your dataset strings)
 const catColors = {
-  "Industry association or network": "#AAEFC5",
-  "Collective management organisation (CMO)": "#FB7185",
-  "Incubator or creative hub": "#FA2692",
-  "Cultural and natural heritage site": "#B8525C",
-  "Private initiative": "#FF7F50",
-  "Maker Space": "#4B6895",
-  "4IR Library": "#7F24B8",
-  "Public-private partnership": "#F5D824",
-  "Artist studio": "#EEFA3B",
-  "Theatre": "#C2B8FA",
+  "Industry associations or networks": "#AAEFC5",
+  "Collective management organisations (CMO)": "#FB7185",
+  "Incubators or creative hubs": "#ffc6ff",
+  "Cultural and natural heritage sites": "#B8525C",
+  "Private initiatives": "#f95738",
+  "Maker Spaces": "#4B6895",
+  "4IR": "#7F24B8",
+  "Libraries": "#f4d35e",
+  "Public-private partnerships": "#072ac8",
+  "Artist studios": "#EEFA3B",
+  "Theatres": "#C2B8FA",
   "Government": "#0EA5A5",
   "Government SEZs": "#10B981",
-  "Academic partnership": "#3B82F6",
-  "International organisation": "#6366F1",
-  "Corporate collection": "#F59E0B",
-  "Commercial gallery": "#EC4899",
-  "Non-profit": "#22C55E",
-
-  // NEW split for events:
-  "Festival": "#F97316",
-  "Conference": "#8B5CF6",
-  "Trade Fair / Market": "#14B8A6",
-  // Optional specific event types
-  "Book Fair": "#EF4444",
-  "Art Fair": "#06B6D4",
+  "Academic partnerships": "#3B82F6",
+  "International organisations": "#6366F1",
+  "Corporate collections": "#F59E0B",
+  "Commercial galleries": "#EC4899",
+  "Non-profits": "#22C55E",
+  "Festivals": "#ef233c",
+  "Conferences": "#8B5CF6",
+  "Trade Fairs / Markets": "#14B8A6",
+  "Book Fairs": "#f5cac3",
+  "Art Fairs": "#3a5a40",
+  "Artist Residencies": "#97802D",
+  "Project spaces": "#b9fbc0",
+  "Museums / Galleries": "#1c1341",
 };
 
 // 2) Legend order (optional, but nice to keep things consistent)
 const catOrder = Object.keys(catColors);
 
 export default function App() {
+  const isMobile = window.innerWidth <= 1024;
+
   return (
     <div className="page">
       <main className="pageMain">
@@ -42,7 +45,7 @@ export default function App() {
           <GautengCreativeDashboard
             topoUrl="/gauteng_adm2.topo.json"
             points={points}
-            leftTitle={"GAUTENG CREATIVE SECTOR\nSUPPORTIVE INFRASTRUCTURE"}
+            leftTitle={"Gauteng Creative Sector\nSupportive Infrastructure"}
             leftIntro={
               <>
                 Developed by{" "}
@@ -69,19 +72,38 @@ export default function App() {
             categoryColors={catColors}
             categoryOrder={[
               // Events first (split)
-              "Festival", "Conference", "Trade Fair / Market", "Book Fair", "Art Fair",
+              "Festivals",
+              "Conferences",
+              "Trade Fairs / Markets",
+              "Book Fairs",
+              "Art Fairs",
               // Organisations / infra
-              "Government", "Government SEZs", "Public-private partnership",
-              "Industry association or network", "Collective management organisation (CMO)", "Incubator or creative hub",
-              "Academic partnership", "International organisation",
-              "Non-profit", "Private initiative",
+              "Government",
+              "Government SEZs",
+              "Public-private partnerships",
+              "Industry associations or networks",
+              "Collective management organisations (CMO)",
+              "Incubators or creative hubs",
+              "Academic partnerships",
+              "International organisations",
+              "Non-profits",
+              "Private initiatives",
               // Places / spaces
-              "Commercial gallery", "Corporate collection", "Artist studio",
-              "Maker Space", "4IR Library", "Theatre",
-              "Cultural and natural heritage site",
+              "Commercial galleries",
+              "Corporate collections",
+              "Artist studios",
+              "Maker Spaces",
+              "4IR",
+              "Libraries",
+              "Theatres",
+              "Cultural and natural heritage sites",
+              "Artist Residencies",
+              "Project spaces",
+              "Museums / Galleries",
             ]}
             dotRadius={4}
             dotOpacity={0.9}
+            initialZoom={isMobile ? 2.2 : 1.5}
           />
         </div>
       </main>
