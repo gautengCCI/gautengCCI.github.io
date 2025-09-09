@@ -3,6 +3,7 @@ html, body {
   min-height: 100%;
   max-width: 100%;
   overflow-x: hidden;   /* kill the Safari “extra column” */
+  font-family: "TT Commons Pro", sans-serif;
 }
 
 /* Root fills the viewport vertically; flex stacks your sections nicely */
