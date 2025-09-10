@@ -36,7 +36,8 @@ export default [
     lon: 28.04211239,
     description:
       "Supports film/TV with permits, locations, funding calls, and crew listings; coordinates training and export missions for screen creatives.",
-    website: "",
+    website: "https://gautengfilm.org.za/",
+    image: "/images/gfc.jpeg",
   },
   {
     id: "nfvf",
@@ -48,7 +49,8 @@ export default [
     lon: 28.06080834,
     description:
       "Public agency issuing regular open calls for development, production, post and training grants; supports market access and industry research.",
-    website: "",
+    website: "https://www.nfvf.co.za/",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "phrag",
@@ -61,6 +63,7 @@ export default [
     description:
       "Safeguards provincial heritage sites enabling cultural programming, public art approvals and adaptive reuse that benefits creatives.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "nhc",
@@ -73,6 +76,7 @@ export default [
     description:
       "Funds heritage projects and community initiatives; periodic calls support curation, festivals, research and education in culture.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "origins-centre",
@@ -84,8 +88,21 @@ export default [
     lon: 28.0309,
     description:
       "Museum infrastructure hosting exhibitions, public programmes and research access for artists, designers and storytellers.",
-    website: "",
+    website: "https://www.wits.ac.za/origins/",
+    image: "/images/origins.png",
   },
+  {
+    id: "johannesburg-art-gallery",
+    name: "Johannesburg Art Gallery (JAG)",
+    categories: ["Museums / Galleries", "Government"],
+    type: "Public art museum",
+    lat: -26.1950,
+    lon: 28.0567,
+    description: "The Johannesburg Art Gallery (JAG) holds one of the largest and most historically significant art collections in Africa. Housed in an iconic building in Joubert Park, the gallery has faced severe challenges in recent years due to financial constraints and a deteriorating structure. Despite this, JAG continues to thrive through partnerships and collaborative projects, including hosting the annual FNB Art Prize and landmark exhibitions such as Wolfgang Tillmans, supported by the Goethe-Institut and ifa. These initiatives help sustain JAG as a vital part of Johannesburg’s cultural landscape and as a platform for both local and international contemporary art.",
+    website: "https://friendsofjag.org",
+    image: "/images/jag.jpg"
+  },
+  
   {
     id: "kagiso-memorial",
     name: "Kagiso Memorial & Recreation Centre",
@@ -97,6 +114,7 @@ export default [
     description:
       "Community venue with halls and rehearsal spaces used for training, performances and local creative entrepreneurship events.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
 
   // ——— Incubators & Creative Hubs ———
@@ -110,7 +128,8 @@ export default [
     lon: 28.3086202,
     description:
       "Provides incubation, maker spaces and business mentorship; runs open calls for cohorts and hosts showcases linking creatives to markets.",
-    website: "",
+    website: "https://sa-creative-industries-incubator.co.za/",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "transwerke-creative-uprising",
@@ -122,7 +141,8 @@ export default [
     lon: 28.04131142,
     description:
       "Studios and shared facilities for early-stage creatives; pop-ups, residencies and pitch events that connect to buyers and festivals.",
-    website: "",
+    website: "https://www.constitutionhill.org.za/home",
+    image: "/images/transwerke.jpg",
   },
   {
     id: "innovation-hub-tshwane",
@@ -134,19 +154,21 @@ export default [
     lon: 28.2749,
     description:
       "Tech and digital incubation with labs, training and investor readiness; supports gaming, animation and digital media ventures.",
-    website: "",
+    website: "https://www.theinnovationhub.com/",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "act-trust",
     name: "The Arts & Culture Trust (ACT)",
-    category: "Incubators or creative hubs",
+    category: ["Incubators or creative hubs", "Non-profits"],
     type: "Non-profit",
     domain: "Various",
     lat: -26.18699096,
     lon: 28.0416372,
     description:
       "Grants, fellowships and business-skills programmes; regular open calls and awards that grow creative careers nationally.",
-    website: "",
+    website: "https://act.org.za/",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "industrial-hive",
@@ -159,6 +181,7 @@ export default [
     description:
       "Hands-on production and digital-skills facilities for makers; short courses and enterprise support linked to real commissions.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "hammanskraal-skills",
@@ -171,20 +194,34 @@ export default [
     description:
       "Accredited training and trade testing that benefits set-building, fabrication and related creative production pipelines.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
+  {
+    id: "kromdraai-creativity-impact-hub",
+    name: "Kromdraai Creativity & Impact Hub",
+    categories: ["Incubators or creative hubs", "Artist Residencies"],
+    type: "Community hub",
+    lat: -25.9645,
+    lon: 27.7967,
+    description: "Located in the Cradle of Humankind, the Kromdraai Creativity & Impact Hub provides a space for artists, youth and local entrepreneurs to develop projects with social and cultural impact. Through skills workshops, open calls and residencies, it offers infrastructure for collaboration between creative practitioners and the surrounding community.",
+    website: "https://www.kromdraaihub.com/",
+    image: "/images/kromdraai.jpg",
+  },
+  
 
   // ——— International Organisations ———
   {
     id: "goethe-joburg",
     name: "Goethe-Institut Johannesburg",
-    category: "International organisations",
+    category: ["International organisations", "Libraries"],
     type: "Cultural institute",
     domain: "Various",
     lat: -26.15367334113326,
     lon: 28.033378373015548,
     description:
       "Residencies, labs and funding calls; mobility support and project grants that foster international collaboration.",
-    website: "",
+    website: "https://www.goethe.de/ins/za/en/index.html",
+    image: "/images/goethe.jpg",
   },
   {
     id: "ifas",
@@ -196,7 +233,8 @@ export default [
     lon: 28.0471,
     description:
       "Open calls and co-productions; festivals, residencies and market access programmes for cross-border creative exchange.",
-    website: "",
+    website: "https://frenchinstitute.org.za/",
+    image: "/images/ifas.png",
   },
   {
     id: "pro-helvetia",
@@ -208,7 +246,8 @@ export default [
     lon: 28.03600992,
     description:
       "Regular project grants and mobility support; residencies and research trips for artists and curators across regions.",
-    website: "",
+    website: "https://prohelvetia.ch/en/our-offices-abroad/pro-helvetia-johannesburg/",
+    image: "/images/prohelvetia.jpg",
   },
 
   // ——— Academic Partnerships ———
@@ -222,7 +261,8 @@ export default [
     lon: 28.0314,
     description:
       "Exhibitions, archives and internships; artist talks and research access supporting curatorship and practice-based learning.",
-    website: "",
+    website: "https://www.wits.ac.za/wam/",
+    image: "/images/wam.jpeg",
   },
   {
     id: "wits-tpo",
@@ -234,19 +274,8 @@ export default [
     lon: 28.0307,
     description:
       "Experimental project space offering open calls, critiques and public programmes that platform emerging artists.",
-    website: "",
-  },
-  {
-    id: "tut-digital-innovation-hub",
-    name: "TUT Arts & Design Digital Innovation Hub",
-    category: ["Academic partnerships", "Incubators or creative hubs"],
-    type: "University hub",
-    domain: "",
-    lat: -25.7461,
-    lon: 28.1881,
-    description:
-      "Digital labs and prototyping support for animation, XR and design; student–industry challenges and hackathons.",
-    website: "",
+    website: "https://www.thepointoforder.org/",
+    image: "/images/tpo.png",
   },
   {
     id: "uj-fada-gallery",
@@ -258,19 +287,8 @@ export default [
     lon: 28.0126,
     description:
       "Curated exhibitions, student showcases and open calls; professional practice workshops and networks for graduates.",
-    website: "",
-  },
-  {
-    id: "uj-fablab",
-    name: "University of Johannesburg FabLab",
-    category: ["Academic partnerships", "Maker Spaces"],
-    type: "Makers lab",
-    domain: "",
-    lat: -26.183,
-    lon: 28.0126,
-    description:
-      "Rapid prototyping equipment for design and product development; training and challenge briefs with industry partners.",
-    website: "",
+    website: "https://www.uj.ac.za/faculties/art-design-and-architecture/fada-gallery/",
+    image: "/images/fada.png",
   },
   {
     id: "tshimologong",
@@ -282,11 +300,12 @@ export default [
     lon: 28.0314,
     description:
       "Animation, gaming and XR programmes; accelerators, residencies, hackathons and market pipelines (e.g., festivals and buyers).",
-    website: "",
+    website: "https://tshimologong.joburg/",
+    image: "/images/tshimologong.jpg",
   },
   {
     id: "javett",
-    name: "Javett Art Centre",
+    name: "Javett-UP",
     category: ["Academic partnerships", "Museums / Galleries"],
     type: "University museum",
     domain: ["Visual arts", "Cultural and natural heritage"],
@@ -294,19 +313,8 @@ export default [
     lon: 28.2313,
     description:
       "Major exhibition spaces linking students and professionals; awards, residencies and commissioning opportunities.",
-    website: "",
-  },
-  {
-    id: "gibs-cisf",
-    name: "GIBS Creative Industries Strategy Forum",
-    category: "Academic partnerships",
-    type: "Business school forum",
-    domain: "",
-    lat: -26.1334,
-    lon: 28.055,
-    description:
-      "Executive dialogues and research on the creative economy; convenings provide networking, mentorship and policy engagement.",
-    website: "",
+    website: "https://javettup.com/",
+    image: "/images/Javett.jpg",
   },
   {
     id: "vut",
@@ -318,7 +326,8 @@ export default [
     lon: 27.86252176,
     description:
       "Facilities and programmes in design and media; student industry projects, internships and community innovation.",
-    website: "",
+    website: "https://vut.ac.za/visual-arts-and-design/",
+    image: "/images/vut.jpg",
   },
 
   // ——— Public–Private Partnerships ———
@@ -333,6 +342,7 @@ export default [
     description:
       "Grants, awards and capacity-building that link business to the arts; open calls for funding, mentorships and market access.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "joziburg-lane",
@@ -345,6 +355,7 @@ export default [
     description:
       "Mixed-use precinct hosting markets, showcases and pop-ups that platform designers and food/creative entrepreneurs.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "one-fox",
@@ -357,6 +368,7 @@ export default [
     description:
       "Event and market spaces for festivals, craft and design fairs; affordable venues for independent producers.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "victoria-yards",
@@ -371,6 +383,7 @@ export default [
     description:
       "Studios and workshops with open-studio days; skills programmes, gardens and social enterprises supporting makers.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "sibikwa",
@@ -383,6 +396,7 @@ export default [
     description:
       "Training, youth programmes and festivals; community theatre commissions and educator development in the arts.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
 
   // ——— Festivals / Conferences / Trade Fairs ———
@@ -397,30 +411,54 @@ export default [
     description:
       "Panels, showcases and deal-making; open calls for performers and pitches connect artists with labels and markets.",
     website: "",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "basha-uhuru-freedom-festival",
+    name: "Basha Uhuru Freedom Festival",
+    categories: ["Festivals", "Project spaces"],
+    domains: ["Music", "Visual arts", "Design"],
+    lat: -26.18886842356017,  lon: 28.042717564417718,
+    website: "https://constitutionhill.org.za/basha-uhuru/",
+    description: "Annual multi-disciplinary youth culture festival hosted at Constitution Hill. Runs creative sessions, awards, design competitions and mentorships to grow emerging talent across music, fashion, and visual arts.",
+    type: "Festival"
+  },
+  {
+    id: "human-rights-festival",
+    name: "Human Rights Festival",
+    categories: ["Festivals", "Cultural and natural heritage sites"],
+    domains: ["Civic culture", "Visual arts"],
+    lat: -26.18886842356017,  lon: 28.042717564417718,
+    website: "https://www.constitutionhill.org.za/",
+    description: "Festival marking Human Rights Day at Constitution Hill. Combines exhibitions, talks, performances and open-call civic art projects, creating a supportive platform for artists and activists engaging rights-based themes.",
+    type: "Festival",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "decorex-joburg",
     name: "Decorex Joburg",
     category: "Trade Fairs / Markets",
     type: "Trade fair",
-    domain: "",
+    domain: "Design",
     lat: -26.10585293,
     lon: 28.05335878,
     description:
       "Design and interiors expo offering trade leads, awards and feature installations; exhibitor open calls for designers and makers.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "fakugesi",
     name: "Fak’ugesi African Digital Innovation Festival",
-    category: "Festivals",
+    category: ["Festivals", "4IR"],
     type: "Festival",
-    domain: "",
+    domain: "Audio-visual and interactive media",
     lat: -26.18432985,
     lon: 28.03057589,
     description:
       "XR, games and animation labs, residencies and open calls; showcases connect studios and graduates to global buyers.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "jozi-book-fair",
@@ -433,6 +471,7 @@ export default [
     description:
       "Independent publishing marketplace, readings and workshops; open calls for authors, small presses and youth programmes.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "sharpeville-market",
@@ -445,6 +484,7 @@ export default [
     description:
       "Regular vendor stalls for craft and design; visibility and direct sales opportunities for township creators.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "merafong-doc-fest",
@@ -457,6 +497,7 @@ export default [
     description:
       "Doc screenings, training and community discussions; open calls for submissions and youth workshops.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "redfest",
@@ -469,16 +510,33 @@ export default [
     description:
       "Multi-disciplinary festival platforming theatre, music and visual arts; open calls and mentorship for schools and pros.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "fnb-art-joburg",
     name: "FNB Art Joburg",
     categories: ["Art Fairs", "Conferences"],
     domains: ["Visual arts"],
-    lat: -26.106243620213196,  lon: 28.054394498214986,
+    lat: -26.106243620213196,
+    lon: 28.054394498214986,
     website: "https://fnbartjoburg.com/",
-    description: "Annual art fair with a talks and public programme, sector roundtables, and curated sections that platform emerging practitioners. Includes awards and open calls linked to the fair ecosystem.",
-    type: "Art fair"
+    description:
+      "Annual art fair with a talks and public programme, sector roundtables, and curated sections that platform emerging practitioners. Includes awards and open calls linked to the fair ecosystem.",
+    type: "Art fair",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "rmb-latitudes",
+    name: "RMB Latitudes",
+    categories: ["Art Fairs", "Conferences"],
+    domains: ["Visual arts"],
+    lat: -26.16811702287582,
+    lon: 28.079289268411664,
+    website: "https://latitudesartfair.com/",
+    description:
+      "Annual contemporary art fair platforming galleries and independent artists from across Africa. Includes open calls for artists, mentorship opportunities, and a programme of talks and collector-focused events throughout the year.",
+    type: "Art fair",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "roedean-art-fair",
@@ -491,8 +549,9 @@ export default [
     description:
       "Annual art fair supporting education; open calls and sales channels for emerging and established artists.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
-  
+
   {
     id: "kingsmead-book-fair",
     name: "Kingsmead Book Fair",
@@ -504,18 +563,20 @@ export default [
     description:
       "Talks, launches and workshops; visibility and networking for authors, illustrators and small publishers.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "afro-geek-fest",
     name: "Afro-Geek Fest",
-    category: "Festivals",
+    category: ["Festivals", "4IR"],
     type: "Festival",
-    domain: "",
+    domain: "Audio-visual and interactive media",
     lat: -26.23286934,
     lon: 27.90893946,
     description:
       "Celebrates pop culture, gaming and tech-creative crossovers; community showcases, cosplay and indie dev exposure.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
 
   // ——— CMOs (separate category) ———
@@ -530,6 +591,7 @@ export default [
     description:
       "Performs rights administration and distributions; membership, documentation clinics and compliance workshops.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "sampra",
@@ -542,6 +604,7 @@ export default [
     description:
       "Neighbouring rights licensing and payouts; artist support programmes and industry compliance training.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "capasso",
@@ -554,6 +617,7 @@ export default [
     description:
       "Mechanical rights collections for digital and physical; education drives and portals for registrations.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "dalro",
@@ -566,6 +630,7 @@ export default [
     description:
       "Licensing and secondary rights for dramatic, literary and visual works; rights clearance support for producers.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
 
   // ——— Industry Associations / Networks / Guilds ———
@@ -580,6 +645,7 @@ export default [
     description:
       "Member exhibitions and awards; juried shows provide visibility and sales channels for artists.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "vansa",
@@ -592,6 +658,7 @@ export default [
     description:
       "National network publishing open calls, residencies and opportunities; policy advocacy and professional resources.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "sasfed",
@@ -604,6 +671,7 @@ export default [
     description:
       "Umbrella for screen guilds; advocacy, codes and collective initiatives that improve conditions for screen workers.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "aip",
@@ -616,6 +684,7 @@ export default [
     description:
       "Capacity-building for small publishers; legal templates, awards and advertising market access.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "nab",
@@ -628,18 +697,20 @@ export default [
     description:
       "Represents radio/TV broadcasters; policy advocacy, standards and industry research supporting content markets.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "animation-sa",
     name: "Animation SA",
     category: "Industry associations or networks",
     type: "Association",
-    domain: "",
+    domain: "Audio-visual and interactive media",
     lat: -26.18690867,
     lon: 28.04131142,
     description:
       "Community of studios and artists; job boards, showcases and export initiatives for animation and VFX.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "gifa",
@@ -652,6 +723,7 @@ export default [
     description:
       "CPD talks, awards and competitions; connects architects and spatial designers to public and private commissions.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "saia",
@@ -664,6 +736,7 @@ export default [
     description:
       "National body for architecture; awards, advocacy and practice resources benefitting built-environment creatives.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "idi-sa",
@@ -676,6 +749,7 @@ export default [
     description:
       "Training and community for interior design; portfolio showcases and certification supporting employability.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "ta-da",
@@ -688,6 +762,7 @@ export default [
     description:
       "Performer training, examinations and festivals; youth programmes and showcases build pathways into theatre.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "saga",
@@ -700,6 +775,7 @@ export default [
     description:
       "Performer advocacy and contracts guidance; workshops on rates, rights and safe sets strengthen livelihoods.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "music-in-africa",
@@ -712,6 +788,7 @@ export default [
     description:
       "Pan-African info portal and grants; open calls, mobility funds and training for music professionals.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "sa-books-online",
@@ -724,6 +801,7 @@ export default [
     description:
       "Directory and discovery platform for the SA book ecosystem; exposure and listing services for publishers and authors.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "pmsa",
@@ -736,6 +814,7 @@ export default [
     description:
       "Industry body for print and publishing; advocacy, standards and market insights for member businesses.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
 
   // ——— Non-profits & Programmes ———
@@ -750,6 +829,7 @@ export default [
     description:
       "Printmaking school and studio; bursaries, residencies and an annual student print fair creating sales and exposure.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "art-aid",
@@ -762,6 +842,7 @@ export default [
     description:
       "Community arts development, workshops and creative enterprise support; small grants and showcase opportunities.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "centre-less-good-idea",
@@ -774,6 +855,7 @@ export default [
     description:
       "Seasonal programmes commissioning experimental work; open calls, micro-grants and mentorship for interdisciplinary artists.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "market-photo-workshop",
@@ -786,42 +868,46 @@ export default [
     description:
       "Photography training, grants and incubations; regular open calls, mentorships and exhibitions launching new talent.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "assitej-sa",
     name: "ASSITEJ South Africa",
     category: "Non-profits",
     type: "Network / NGO",
-    domain: "",
+    domain: "Performing arts",
     lat: -26.19245376,
     lon: 28.05133085,
     description:
       "Theatre for young audiences; festivals, grants and training opportunities for writers, directors and educators.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "moving-into-dance",
     name: "Moving into Dance",
     category: "Non-profits",
     type: "Dance company / School",
-    domain: "",
+    domain: "Performing arts",
     lat: -26.20446683,
     lon: 28.0322669,
     description:
       "Dance training and community outreach; residencies, choreographic labs and touring opportunities.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "lalela",
     name: "Lalela",
     category: "Non-profits",
     type: "NGO",
-    domain: "",
+    domain: "Various",
     lat: -26.20159156,
     lon: 28.05693007,
     description:
       "Creative education programmes with showcases; learner exhibitions and pathways into creative industries.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "cdi",
@@ -834,42 +920,46 @@ export default [
     description:
       "Market access, product development and business support; regular open calls for craft and design producers.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "makers-valley",
     name: "Makers Valley",
     category: "Non-profits",
     type: "Neighbourhood initiative",
-    domain: "",
+    domain: "Various",
     lat: -26.19276548,
     lon: 28.07110635,
     description:
       "Network of makerspaces and social enterprises; open studios, training and circular-economy design projects.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "imbali-vlp",
     name: "Imbali Visual Literacy Project",
     category: "Non-profits",
     type: "Education NGO",
-    domain: "Visual arts",
+    domain: ["Visual arts", "Craft"],
     lat: -26.2036979,
     lon: 28.03241445,
     description:
       "Teacher training, learner programmes and exhibitions; provides curricula, kits and calls for facilitators.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "lesedi-lasechaba",
     name: "Lesedi Lasechaba Arts & Crafts",
     category: "Non-profits",
     type: "Community project",
-    domain: "",
+    domain: "Craft",
     lat: -26.33076686,
     lon: 28.19618212,
     description:
       "Community craft development and markets; training and sales days create direct income for artisans.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "of-soul-and-joy",
@@ -882,6 +972,7 @@ export default [
     description:
       "Photography training and exhibitions in communities; scholarships and open calls for youth participation.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
 
   // ——— Private Initiatives & Corporate Collections ———
@@ -896,6 +987,7 @@ export default [
     description:
       "Mentorship, commissions and global placements for designers and artists; annual open calls and showcases.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "nirox",
@@ -908,6 +1000,7 @@ export default [
     description:
       "Residencies and exhibitions in a sculpture park; open days and commissions support large-scale practice.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "villa-legodi",
@@ -920,6 +1013,7 @@ export default [
     description:
       "Sculpture centre with residencies and masterclasses; fabrication support and opportunities to exhibit.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "sanlam-lounge",
@@ -932,6 +1026,7 @@ export default [
     description:
       "Corporate collection and exhibition space; supports curated shows and artist talks with collectors.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "standard-bank-gallery",
@@ -944,6 +1039,45 @@ export default [
     description:
       "Flagship gallery with major surveys and the Young Artist Awards; high-visibility platform for artists.",
     website: "",
+    image: "/images/placeholder.jpg",
+  },
+
+  {
+    id: "something-good-studio",
+    name: "Something Good Studio",
+    categories: ["Private initiatives", "Project spaces"],
+    domains: ["Design", "Visual Arts"],
+    lat: null,
+    lon: null,
+    website: "https://somethinggoodstudio.com/",
+    description:
+      "Independent textile and design initiative collaborating with artists through open calls, the Young Designer Competition, and limited-edition product launches that extend creative practices into sustainable markets.",
+    type: "Collaborative design Studio",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "standard-bank-art-lab",
+    name: "Standard Bank Art Lab",
+    categories: ["Corporate collections", "Non-profits"], 
+    type: "Corporate–cultural initiative",
+    domains: ["Visual Arts"],
+    lat: -26.2041,
+    lon: 28.0473,
+    description: "A new platform of Standard Bank’s long-standing arts commitment, the Art Lab supports emerging and mid-career practitioners through commissions, exhibitions and development opportunities. Building on the bank’s history with the Standard Bank Young Artist Awards, the Lab provides infrastructure for experimentation, mentorship and access to wider audiences.",
+    website: "https://standardbank.com/southafrica/arts",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "keyes-art-mile",
+    name: "Keyes Art Mile",
+    categories: ["Private initiatives"],
+    type: "Cultural precinct",
+    domains: ["Design", "Visual Arts"],
+    lat: -26.1427,
+    lon: 28.0356,
+    description: "A mixed-use precinct in Rosebank, Johannesburg, bringing together galleries, design studios and restaurants. Through the annual Keyes x American Express Design Competition, the precinct provides a high-profile platform for designers to showcase innovative work, gain exposure, and connect with collectors and industry leaders.",
+    website: "https://www.keyesartmile.co.za",
+    image: "/images/placeholder.jpg",
   },
 
   // ——— Commercial Galleries ———
@@ -958,6 +1092,7 @@ export default [
     description:
       "Artist-led gallery and project space; open calls and curated programmes elevate emerging voices.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "bkhz",
@@ -972,6 +1107,7 @@ export default [
     description:
       "Contemporary gallery championing new talent; exhibitions, editions and fair participation build markets.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "stevenson-jhb",
@@ -986,6 +1122,7 @@ export default [
     description:
       "Internationally networked gallery; career-building exhibitions and global fair access for represented artists.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "goodman-gallery-jhb",
@@ -1000,6 +1137,7 @@ export default [
     description:
       "Blue-chip gallery offering museum-level exposure; commissions, international placements and publications.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "blvck-block",
@@ -1007,11 +1145,13 @@ export default [
     category: ["Commercial galleries", "Artist Residencies"],
     type: "Gallery",
     domain: "Visual arts",
-    lat: -26.18690867,
-    lon: 28.04131142,
+    lat: null,
+    lon: null,
     description:
       "Contemporary project space; open calls and collaborative shows platform experimental practice.",
     website: "",
+    nomadic: "This entity is either nomadic or has no fixed space",
+    image: "/images/placeholder.jpg",
   },
 
   // ——— Theatres ———
@@ -1026,6 +1166,7 @@ export default [
     description:
       "Stages, rehearsal rooms and technical crew; community festivals, auditions and open venue hire for creatives.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "dumisani-masilela",
@@ -1038,6 +1179,7 @@ export default [
     description:
       "Performance venue supporting youth productions; training, showcases and local theatre circuits.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "state-theatre",
@@ -1050,21 +1192,47 @@ export default [
     description:
       "Multiple stages and festivals; open calls for productions, residencies and development programmes.",
     website: "",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "market-theatre",
+    name: "Market Theatre",
+    categories: ["Theatres", "Non-profits"],
+    domains: ["Performing arts"],
+    lat: -26.20186797249262,
+    lon: 28.03282184907603,
+    website: "https://markettheatre.co.za/",
+    description:
+      "Iconic theatre institution offering training programmes, open calls for new plays, residencies and public festivals. A key supportive space for playwrights, actors and directors developing original work.",
+    type: "Theatre",
+    image: "/images/placeholder.jpg",
   },
 
   // ——— 4IR Libraries / Maker Spaces ———
+  // {
+  //   id: "british-council-maker",
+  //   name: "Maker Library Network at British Council",
+  //   category: ["Maker Spaces", "International organisations"],
+  //   type: "Maker / Network",
+  //   domain: "",
+  //   lat: -26.03311789,
+  //   lon: 28.03059999,
+  //   description:
+  //     "Combines library, gallery and maker space; mentorship and showcases for design-led prototyping.",
+  //   website: "",
+  // },
   {
-    id: "british-council-maker",
-    name: "Maker Library Network at British Council",
-    category: "Maker Spaces",
-    type: "Maker / Network",
-    domain: "",
-    lat: -26.03311789,
-    lon: 28.03059999,
-    description:
-      "Combines library, gallery and maker space; mentorship and showcases for design-led prototyping.",
-    website: "",
+    id: "jcaf-library",
+    name: "JCAF (Joburg Contemporary Art Foundation) Academic Research Institute",
+    categories: ["Libraries", "Museums / Galleries"],
+    type: "Academic Research Institute / Technology Laboratory",
+    lat: -26.2043,
+    lon: 28.0478,
+    description: "The JCAF Academic Research Institute is part of the Joburg Contemporary Art Foundation, a hybrid institution combining an academic research institute, a technology laboratory, and a platform for museum-quality exhibitions. Dedicated to research, technology and art, JCAF advances knowledge through curated exhibitions, cultural discussions, and publications. Its library and research resources provide valuable infrastructure for scholars, artists and curators. Note: access is by appointment only.",
+    website: "https://jcaf.org.za/",
+    image: "/images/placeholder.jpg",
   },
+  
   {
     id: "up-maker",
     name: "University of Pretoria Library MakerSpace",
@@ -1076,6 +1244,7 @@ export default [
     description:
       "3D printing, laser cutting and VR labs; training and open access for students and partners.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "house4hack",
@@ -1087,7 +1256,8 @@ export default [
     lon: 28.2888,
     description:
       "Community prototyping space; meetups, hack nights and maker challenges for tech-creatives.",
-    website: "",
+    website: "",    
+    image: "/images/placeholder.jpg",
   },
 
   // ——— Artist Studios & Complexes ———
@@ -1102,6 +1272,7 @@ export default [
     description:
       "Historic NPO with subsidised studios; residencies, awards and open studios link artists to curators and buyers.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "august-house",
@@ -1114,6 +1285,7 @@ export default [
     description:
       "Large studio building with regular open-studio days; discovery platform for collectors and curators.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "asisebenze",
@@ -1126,6 +1298,7 @@ export default [
     description:
       "Artist studios and project space; showcases and collaborative exhibitions build visibility.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "ellis-house",
@@ -1138,6 +1311,7 @@ export default [
     description:
       "Affordable studios; periodic open days and exhibitions connect artists to audiences.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
   {
     id: "oovookoo",
@@ -1150,6 +1324,18 @@ export default [
     description:
       "Studio cluster and gallery-style displays; open studios and sales events for emerging artists.",
     website: "",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "still-artist-residency",
+    name: "STILL Artist Residency",
+    categories: ["Artist Residencies"],
+    type: "Live-in artist residency",
+    lat: -26.2035,
+    lon: 28.0480,
+    description: "STILL (named in homage to the founder – Ayana V Jackson’s grandmother) is a three-month live-in artist residency for emerging Southern African contemporary artists, housed in Ellis House in Johannesburg’s CBD. Up to two artists per quarter share adjoining studio-living loft spaces (~3 000 sq ft), and receive stipends for materials, transport, and a modest honorarium.",
+    website: "https://www.stillartistresidency.org/",
+    image: "/images/placeholder.jpg",
   },
 
   // ——— Government (additional) ———
@@ -1164,22 +1350,47 @@ export default [
     description:
       "Project and organisational grants across disciplines; periodic open calls and touring support.",
     website: "",
+    image: "/images/placeholder.jpg",
   },
 
   // ——— Libraries (4IR) ———
+
+  {
+    id: "keleketla-library",
+    name: "Keleketla! Library",
+    categories: ["Libraries", "Non-profits"],
+    type: "Community research library & cultural hub",
+    lat: -26.2079,
+    lon: 28.0406,
+    description: "The Keleketla! Library blends a public research facility with an archive, music studio, and community gathering space. Focusing on creativity, oral histories, and social justice, it hosts open workshops, artist residencies, publications and participatory programmes that enrich the cultural ecosystem of Johannesburg.",
+    website: "https://keleketla.org/library",
+    image: "https://keleketla.org/wp-content/uploads/logo-library.svg"
+  },
+  {
+    id: "johannesburg-public-library",
+    name: "Johannesburg Public Library",
+    categories: ["Libraries"],
+    type: "Historic public library",
+    lat: -26.2043,
+    lon: 28.0473,
+    description: "Established in 1934, the Johannesburg Public Library is an architectural and cultural landmark in the city’s civic core. After a long closure due to renovation and accessibility upgrades, it has recently reopened, restoring public access to its collections and reading rooms. It continues to offer exhibitions, educational programmes and digital services—with renewed energy and partnerships strengthening its role in public knowledge infrastructure.",
+    website: "https://joburg.org.za/services_/Libraries/Pages/Johannesburg-Public-Library.aspx",
+    image: "/images/placeholder.jpg",
+  },
+
   ...[
     ["alberton-library", "Alberton Library", -26.26381561, 28.1236083],
     ["boksburg-library", "Boksburg Library", -26.21977053, 28.25250035],
-    ["bracken-library", "Bracken Library", -26.32577964, 28.099242],
-    ["dinwiddie-library", "Dinwiddie Library", -26.25684543, 28.16537136],
-    ["elsburg-library", "Elsburg Library", -26.24493351, 28.20108745],
-    ["leondale-library", "Leondale Library", -26.30266352, 28.18168154],
-    ["palm-ridge-library", "Palm Ridge Library", -26.38740749, 28.14313477],
-    ["reiger-park-library", "Reiger Park Library", -26.22860582, 28.22766727],
-    ["spruitview-library", "Spruitview Library", -26.32339695, 28.17954454],
+    // ["bracken-library", "Bracken Library", -26.32577964, 28.099242],
+    // ["dinwiddie-library", "Dinwiddie Library", -26.25684543, 28.16537136],
+    // ["elsburg-library", "Elsburg Library", -26.24493351, 28.20108745],
+    // ["leondale-library", "Leondale Library", -26.30266352, 28.18168154],
+    // ["palm-ridge-library", "Palm Ridge Library", -26.38740749, 28.14313477],
+    // ["reiger-park-library", "Reiger Park Library", -26.22860582, 28.22766727],
+    // ["spruitview-library", "Spruitview Library", -26.32339695, 28.17954454],
     // ["thokoza-library", "Thokoza Library", -26.3582741, 28.1331834],
     ["vosloorus-library", "Vosloorus Library", -26.34989472, 28.1991432],
-    ["zonkizizwe-library", "Zonkizizwe Library", -26.40490076, 28.1889459],
+    // ["zonkizizwe-library", "Zonkizizwe Library", -26.40490076, 28.1889459],
     ["germiston-library", "Germiston Library", -26.2167335, 28.1643704],
   ].map(([id, name, lat, lon]) => ({
     id,
@@ -1192,5 +1403,6 @@ export default [
     description:
       "Public library with makerspace/tech programming; offers digital-skills workshops and community creative labs.",
     website: "",
+    image: "/images/placeholder.jpg",
   })),
 ];

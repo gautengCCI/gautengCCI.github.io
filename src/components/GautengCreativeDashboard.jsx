@@ -326,8 +326,6 @@ export default function GautengCreativeDashboard({
     dragRef.current.min = 0;
     dragRef.current.max = maxHide;
 
-    
-
     // If it was open/closed before, keep that feel
     setLegendOffset(legendOpen ? 0 : maxHide);
   }, [isMobile, legendOpen]);
@@ -552,6 +550,11 @@ export default function GautengCreativeDashboard({
                     Visit website →
                   </a>
                 )}
+                {focused.p.nomadic && (
+                  <p className={s.cardText}>
+                    <strong>{focused.p.nomadic}</strong>
+                  </p>
+                )}
                 <button className={s.clearBtn} onClick={() => setFocused(null)}>
                   Clear pin
                 </button>
@@ -626,7 +629,6 @@ export default function GautengCreativeDashboard({
                       </header>
 
                       {desc && <p className={s.miniDesc}>{desc}</p>}
-
                       <footer className={s.miniFooter}>
                         {p.website && (
                           <a
@@ -638,13 +640,31 @@ export default function GautengCreativeDashboard({
                             Visit website →
                           </a>
                         )}
-                        <button
-                          className={s.miniZoom}
-                          onClick={() => setFocused({ p })}
-                          title="Zoom to location"
-                        >
-                          More
-                        </button>
+                        {Number.isFinite(p.lon) && Number.isFinite(p.lat) ? (
+                          <button
+                            className={s.miniZoom}
+                            onClick={() => {
+                              setFocused({ p });
+                              setIsListOpen(false);
+                              setIsModalOpen(true);
+                            }}
+                            title="Open details"
+                          >
+                            More
+                          </button>
+                        ) : (
+                          <button
+                            className={s.miniBadge}
+                            onClick={() => {
+                              setFocused({ p });
+                              setIsListOpen(false);
+                              setIsModalOpen(true);
+                            }}
+                            title="Open details"
+                          >
+                            Nomadic / no fixed site
+                          </button>
+                        )}
                       </footer>
                     </article>
                   );
@@ -727,13 +747,31 @@ export default function GautengCreativeDashboard({
                             Visit website →
                           </a>
                         )}
-                        <button
-                          className={s.miniZoom}
-                          onClick={() => setFocused({ p })}
-                          title="More details"
-                        >
-                          More
-                        </button>
+                        {Number.isFinite(p.lon) && Number.isFinite(p.lat) ? (
+                          <button
+                            className={s.miniZoom}
+                            onClick={() => {
+                              setFocused({ p });
+                              setIsListOpen(false);
+                              setIsModalOpen(true);
+                            }}
+                            title="Open details"
+                          >
+                            More
+                          </button>
+                        ) : (
+                          <button
+                            className={s.miniBadge}
+                            onClick={() => {
+                              setFocused({ p });
+                              setIsListOpen(false);
+                              setIsModalOpen(true);
+                            }}
+                            title="Open details"
+                          >
+                            Nomadic / no fixed site
+                          </button>
+                        )}
                       </footer>
                     </article>
                   );
@@ -753,7 +791,9 @@ export default function GautengCreativeDashboard({
               <div className={s.cardBody}>
                 <div className={s.cardMeta}>
                   {hover.p.type ? `${hover.p.type} · ` : ""}
-                  {getCategory(hover.p) ?? "Uncategorised"}
+                  {getCategories(hover.p).length > 0
+                    ? getCategories(hover.p).join(" · ")
+                    : "Uncategorised"}
                 </div>
                 {hover.p.description && (
                   <p className={s.cardText}>{hover.p.description}</p>
@@ -780,8 +820,8 @@ export default function GautengCreativeDashboard({
             // — EMPTY —
             <>
               <div className={s.cardEmptyHint}>
-                Hover a dot on the map to preview a venue or entity here. Click a dot to
-                pin details.
+                Hover a dot on the map to preview a venue or entity here. Click
+                a dot to pin details.
               </div>
               <div className={s.cardBody} />
             </>
@@ -943,23 +983,20 @@ export default function GautengCreativeDashboard({
         </div>
 
         {isMobile && (
-            <button
-              className={s.fab}
-              onClick={() => setIsListOpen(true)}
-              aria-label="Open list"
-              title="Open list"
-            >
-              {activeCat
-                ? `View ${activeCat}`
-                : activeDomains.size
-                ? "View filtered"
-                : "Browse list"}
-            </button>
-          )}
-
+          <button
+            className={s.fab}
+            onClick={() => setIsListOpen(true)}
+            aria-label="Open list"
+            title="Open list"
+          >
+            {activeCat
+              ? `View ${activeCat}`
+              : activeDomains.size
+              ? "View filtered"
+              : "Browse list"}
+          </button>
+        )}
       </div>
-
-
 
       {/* LEGEND */}
       {isMobile ? (
@@ -1231,6 +1268,11 @@ export default function GautengCreativeDashboard({
                     Visit website →
                   </a>
                 )}
+                {focused.p.nomadic && (
+                  <p className={s.cardText}>
+                    <strong>{focused.p.nomadic}</strong>
+                  </p>
+                )}
                 <button
                   className={s.clearBtn}
                   onClick={() => {
@@ -1355,9 +1397,17 @@ export default function GautengCreativeDashboard({
                             More
                           </button>
                         ) : (
-                          <span className={s.miniBadge}>
+                          <button
+                            className={s.miniBadge}
+                            onClick={() => {
+                              setFocused({ p });
+                              setIsListOpen(false);
+                              setIsModalOpen(true);
+                            }}
+                            title="Open details"
+                          >
                             Nomadic / no fixed site
-                          </span>
+                          </button>
                         )}
                       </footer>
                     </article>
@@ -1383,7 +1433,7 @@ export default function GautengCreativeDashboard({
               onClick={(e) => e.stopPropagation()}
             >
               <div className={s.topSheetHeader}>
-              <h1 className={s.title}>{leftTitle}</h1>
+                <h1 className={s.title}>{leftTitle}</h1>
                 <button
                   className={s.modalClose}
                   onClick={() => setIsAboutSheetOpen(false)}
@@ -1404,8 +1454,6 @@ export default function GautengCreativeDashboard({
           </div>,
           document.body
         )}
-
-        
     </div>
   );
 }
