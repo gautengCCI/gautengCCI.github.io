@@ -341,7 +341,7 @@ export default [
     lon: 28.00198953,
     description:
       "Grants, awards and capacity-building that link business to the arts; open calls for funding, mentorships and market access.",
-    website: "",
+    website: "https://basa.co.za/",
     image: "/images/placeholder.jpg",
   },
   {
