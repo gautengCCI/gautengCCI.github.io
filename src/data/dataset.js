@@ -5,7 +5,7 @@ export default [
     name: "Gauteng Industrial Development Zone (IDZ)",
     category: "Government SEZs",
     type: "Government",
-    domain: "Various",
+    domain: "",
     lat: -26.2682,
     lon: 28.0807,
     description:
@@ -18,7 +18,7 @@ export default [
     name: "Gauteng Growth and Development Agency (GGDA)",
     category: "Government",
     type: "Government",
-    domain: "Various",
+    domain: "",
     lat: -26.20657136,
     lon: 28.04629067,
     description:
@@ -123,7 +123,7 @@ export default [
     name: "South African Creative Industries Incubator (SACCI)",
     category: "Incubators or creative hubs",
     type: "Incubator",
-    domain: "Various",
+    domain: "",
     lat: -25.71585209,
     lon: 28.3086202,
     description:
@@ -136,7 +136,7 @@ export default [
     name: "Creative Uprising Hub (Transwerke, Constitution Hill)",
     category: ["Incubators or creative hubs", "Artist studios"],
     type: "Hub / Workspace",
-    domain: "Various",
+    domain: "",
     lat: -26.18690867,
     lon: 28.04131142,
     description:
@@ -149,7 +149,7 @@ export default [
     name: "The Innovation Hub (City of Tshwane)",
     category: "Incubators or creative hubs",
     type: "Tech Park",
-    domain: "Various",
+    domain: "",
     lat: -25.7485,
     lon: 28.2749,
     description:
@@ -162,7 +162,7 @@ export default [
     name: "The Arts & Culture Trust (ACT)",
     category: ["Incubators or creative hubs", "Non-profits"],
     type: "Non-profit",
-    domain: "Various",
+    domain: "",
     lat: -26.18699096,
     lon: 28.0416372,
     description:
@@ -175,7 +175,7 @@ export default [
     name: "Industrial Hive & Computer Centre",
     category: "Incubators or creative hubs",
     type: "Training centre",
-    domain: "Various",
+    domain: "",
     lat: -26.00831762,
     lon: 28.23290447,
     description:
@@ -188,7 +188,7 @@ export default [
     name: "Hammanskraal Skills Training & Trade Test Centre",
     category: "Incubators or creative hubs",
     type: "Training centre",
-    domain: "Various",
+    domain: "",
     lat: -25.40397465,
     lon: 28.28595182,
     description:
@@ -215,7 +215,7 @@ export default [
     name: "Goethe-Institut Johannesburg",
     category: ["International organisations", "Libraries"],
     type: "Cultural institute",
-    domain: "Various",
+    domain: "",
     lat: -26.15367334113326,
     lon: 28.033378373015548,
     description:
@@ -228,7 +228,7 @@ export default [
     name: "The French Institute of South Africa (IFAS)",
     category: "International organisations",
     type: "Cultural institute",
-    domain: "Various",
+    domain: "",
     lat: -26.1951,
     lon: 28.0471,
     description:
@@ -241,7 +241,7 @@ export default [
     name: "Pro Helvetia Johannesburg",
     category: "International organisations",
     type: "Cultural foundation",
-    domain: "Various",
+    domain: "",
     lat: -26.19313857,
     lon: 28.03600992,
     description:
@@ -321,7 +321,7 @@ export default [
     name: "Vaal University of Technology",
     category: "Academic partnerships",
     type: "University",
-    domain: "Various",
+    domain: "",
     lat: -26.70945087,
     lon: 27.86252176,
     description:
@@ -336,7 +336,7 @@ export default [
     name: "Business Arts South Africa (BASA)",
     category: "Public-private partnerships",
     type: "Non-profit",
-    domain: "Various",
+    domain: "",
     lat: -26.17635807,
     lon: 28.00198953,
     description:
@@ -349,7 +349,7 @@ export default [
     name: "Joziburg Lane",
     category: "Public-private partnerships",
     type: "Precinct",
-    domain: "Various",
+    domain: "",
     lat: -26.21104084,
     lon: 28.04562421,
     description:
@@ -362,7 +362,7 @@ export default [
     name: "1 Fox Precinct",
     category: "Public-private partnerships",
     type: "Precinct",
-    domain: "Various",
+    domain: "",
     lat: -26.20752338,
     lon: 28.03165808,
     description:
@@ -375,7 +375,7 @@ export default [
     name: "Victoria Yards",
     category: ["Public-private partnerships", "Artist studios"],
     type: "Precinct",
-    domain: "Various",
+    domain: "",
     lat: -26.1887,
     lon: 28.0744,
     dx: 8,
@@ -390,7 +390,7 @@ export default [
     name: "Sibikwa Arts Centre",
     category: ["Public-private partnerships", "Non-profits"],
     type: "Arts centre",
-    domain: "Various",
+    domain: "",
     lat: -26.20129495,
     lon: 28.31144142,
     description:
@@ -417,7 +417,7 @@ export default [
     id: "basha-uhuru-freedom-festival",
     name: "Basha Uhuru Freedom Festival",
     categories: ["Festivals", "Project spaces"],
-    domains: ["Music", "Visual arts", "Design"],
+    domains: ["Music", "Visual arts", "Design and creative services"],
     lat: -26.18886842356017,  lon: 28.042717564417718,
     website: "https://constitutionhill.org.za/basha-uhuru/",
     description: "Annual multi-disciplinary youth culture festival hosted at Constitution Hill. Runs creative sessions, awards, design competitions and mentorships to grow emerging talent across music, fashion, and visual arts.",
@@ -439,7 +439,7 @@ export default [
     name: "Decorex Joburg",
     category: "Trade Fairs / Markets",
     type: "Trade fair",
-    domain: "Design",
+    domain: "Design and creative services",
     lat: -26.10585293,
     lon: 28.05335878,
     description:
@@ -478,7 +478,7 @@ export default [
     name: "Sharpeville Arts & Craft Market",
     category: "Trade Fairs / Markets",
     type: "Market",
-    domain: "Various",
+    domain: "",
     lat: -26.68743431,
     lon: 27.87135367,
     description:
@@ -504,7 +504,7 @@ export default [
     name: "RedFest",
     category: "Festivals",
     type: "Arts festival",
-    domain: "Various",
+    domain: "",
     lat: -26.07587031,
     lon: 28.06065483,
     description:
@@ -578,6 +578,207 @@ export default [
     website: "",
     image: "/images/placeholder.jpg",
   },
+  {
+    id: "puisano-live-music",
+    name: "Puisano Live Music Programme",
+    categories: ["Festivals", "Government"],
+    type: "Provincial live-music development programme",
+    lat: null,
+    lon: null,
+    nomadic: true,
+    description:
+      "Province-wide showcasing platform for bands and live music, activating existing community venues (e.g. jazz taverns) to support new and established talent. Aligned to Gauteng’s creative industries framework and music strategy.",
+    website: null,
+    domains: ["Music",],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "ishashalazi-theatre-festival",
+    name: "Ishashalazi Theatre Festival",
+    categories: ["Festivals", "Government"],
+    type: "Provincial theatre platform",
+    lat: null,
+    lon: null,
+    nomadic: true,
+    description:
+      "Gauteng programme spotlighting local theatre talent through showcases and capacity-building opportunities across community venues.",
+    website: null,
+    domains: ["Performing arts",],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "back-to-the-city",
+    name: "Hennessy Back To The City Festival SA",
+    categories: ["Festivals", "Art Fairs"],
+    type: "Hip-hop culture festival",
+    lat: -26.2029,
+    lon: 28.0341, // Mary Fitzgerald Square, Newtown
+    description:
+      "Africa’s largest hip-hop festival, anchoring a platform for live performance, urban art and youth culture with open calls and city activation.",
+    website: "https://www.backtothecityfestival.com",
+    domains: ["Music",],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "joy-of-jazz",
+    name: "Standard Bank Joy of Jazz",
+    categories: ["Festivals"],
+    type: "Jazz festival",
+    lat: -26.1076,
+    lon: 28.0567, // Sandton
+    description:
+      "Flagship South African jazz festival presenting local and international artists alongside education and industry initiatives that strengthen the jazz ecosystem.",
+    website: "https://www.joyofjazz.co.za",
+    domains: ["Music"],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "dstv-delicious",
+    name: "DStv Delicious Festival Powered by LottoStar",
+    categories: ["Festivals"],
+    type: "Music, food & culture festival",
+    lat: -25.9979,
+    lon: 28.0688, // Kyalami Grand Prix Circuit
+    description:
+      "Major festival in Kyalami combining music, culinary showcases and fashion, with platforms for chefs, designers and performers.",
+    website: "https://www.dstvdelicious.com",
+    domains: ["Music", "Fashion"],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "so-creative-summit",
+    name: "So Creative Summit",
+    categories: ["Conferences", "Academic partnerships"],
+    type: "Creative industries summit",
+    lat: -26.2041,
+    lon: 28.0473, // Johannesburg (general)
+    description:
+      "Summit convening artists, designers, filmmakers and creative entrepreneurs to share trends, skills and opportunities through talks, labs and peer exchange.",
+    website: null,
+    domains: ["Design and creative services", "Film",],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "gauteng-heritage-carnival",
+    name: "Gauteng Heritage Carnival",
+    categories: ["Festivals", "Government"],
+    type: "Cultural carnival & skills platform",
+    lat: -26.2041,
+    lon: 28.0473, // Johannesburg CBD (general)
+    description:
+      "Province-wide cultural celebration creating temporary jobs and skills training across production, event management and creative trades.",
+    website: null,
+    domains: ["Cultural and natural heritage"],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "arts-alive-festival",
+    name: "Arts Alive Festival",
+    categories: ["Festivals", "Government"],
+    type: "Multidisciplinary city festival",
+    lat: null,
+    lon: null,
+    nomadic: true,
+    description:
+      "City of Johannesburg’s multidisciplinary programme activating venues and public spaces with performance, visual arts and community workshops.",
+    website: null,
+    domains: [""],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "soweto-theatre-fairs-markets",
+    name: "Fairs & Markets at Soweto Theatre",
+    categories: ["Trade Fairs / Markets", "Festivals"],
+    type: "Creative market & events platform",
+    lat: -26.2467,
+    lon: 27.8896, // Soweto Theatre, Jabulani
+    description:
+      "Regular fairs (e.g. Soweto Art & Craft Fair, Seven Colour Sundays) expand access for makers and food entrepreneurs, turning the theatre into a multi-use creative hub.",
+    website: "https://www.sowetotheatre.com",
+    domains: ["Craft"],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "black-labone",
+    name: "Black Labone at the State Theatre",
+    categories: ["Festivals", "Theatres"],
+    type: "Weekly creative platform",
+    lat: -25.7465,
+    lon: 28.1950, // SA State Theatre, Pretoria
+    description:
+      "Thursday-night platform with live performance, screenings, open mic and a night market—supporting emerging artists and audience development.",
+    website: "https://www.statetheatre.co.za",
+    domains: ["Music", "Film",],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "spring-jazz-nirox",
+    name: "SPRING JAZZ at NIROX",
+    categories: ["Festivals"],
+    type: "Jazz at sculpture park",
+    lat: -26.0079,
+    lon: 27.7401, // NIROX Sculpture Park (Kromdraai)
+    description:
+      "Seasonal jazz programme hosting local and international artists in an outdoor sculpture park setting, linking performance, place and audience development.",
+    website: "https://niroxarts.com",
+    domains: ["Music"],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "kagiso-centre-series",
+    name: "Kagiso Centre: Music & Awards Series",
+    categories: ["Festivals"],
+    type: "Venue-based festival & awards events",
+    lat: -26.1446,
+    lon: 27.7790, // Kagiso Memorial & Recreation Centre (approx.)
+    description:
+      "A host venue for events including West Rand Hangout Music Festival, Crown Gospel Music Awards, and Soul & R&B Fest—expanding performance access in the West Rand.",
+    website: null,
+    domains: ["Music",],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "rmb-talent-unlocked",
+    name: "RMB Talent Unlocked",
+    categories: ["Artist Residencies", "Incubators or creative hubs"],
+    type: "Mentorship & training programme",
+    lat: null,
+    lon: null,
+    nomadic: true,
+    description:
+      "Five-month mentorship for emerging artists in Gauteng: industry training, one-on-one creative mentorship and professional development to advance careers.",
+    website: "https://latitudes.online", // umbrella; specific programme page varies
+    domains: ["Visual arts",],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "nedbank-arts-affinity-act-thuthukisani",
+    name: "Nedbank Arts Affinity × ACT Thuthukisani",
+    categories: ["Public-private partnerships", "Non-profits"],
+    type: "Entrepreneurial training & grants",
+    lat: null,
+    lon: null,
+    nomadic: true,
+    description:
+      "Partnership with the Arts & Culture Trust supporting arts, culture and heritage development through entrepreneurial training, seed funding and project support.",
+    website: "https://act.org.za",
+    domains: "",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "abadali-art-development",
+    name: "Abadali Art Development Programme",
+    categories: ["Incubators or creative hubs", "Non-profits"],
+    type: "Skills & mentorship programme",
+    lat: null,
+    lon: null,
+    nomadic: true,
+    description:
+      "J.P. Morgan–supported programme focused on career enhancement through practical skills development, mentorship and pathways to professional opportunities.",
+    website: null,
+    domains: ["Visual arts",],
+    image: "/images/placeholder.jpg",
+  },
 
   // ——— CMOs (separate category) ———
   {
@@ -624,7 +825,7 @@ export default [
     name: "Dramatic, Artistic and Literary Rights Organisation (DALRO)",
     category: "Collective management organisations (CMO)",
     type: "CMO",
-    domain: "Various",
+    domain: "",
     lat: -26.1266165,
     lon: 28.07315265,
     description:
@@ -717,7 +918,7 @@ export default [
     name: "Gauteng Institute for Architecture (GIfA)",
     category: "Industry associations or networks",
     type: "Association",
-    domain: "",
+    domain: "Design and creative services",
     lat: -26.10254094,
     lon: 28.05136583,
     description:
@@ -730,7 +931,7 @@ export default [
     name: "South African Institute of Architects (SAIA)",
     category: "Industry associations or networks",
     type: "Institute",
-    domain: "",
+    domain: "Design and creative services",
     lat: -26.14538492,
     lon: 28.03687028,
     description:
@@ -743,7 +944,7 @@ export default [
     name: "The Interior Design Institute – South Africa",
     category: "Industry associations or networks",
     type: "Education / Community",
-    domain: "",
+    domain: "Design and creative services",
     lat: -26.02029329,
     lon: 28.02206698,
     description:
@@ -836,7 +1037,7 @@ export default [
     name: "Art Aid",
     category: "Non-profits",
     type: "Non-profit",
-    domain: "Various",
+    domain: "",
     lat: -26.18690867,
     lon: 28.04131142,
     description:
@@ -901,7 +1102,7 @@ export default [
     name: "Lalela",
     category: "Non-profits",
     type: "NGO",
-    domain: "Various",
+    domain: "",
     lat: -26.20159156,
     lon: 28.05693007,
     description:
@@ -914,7 +1115,7 @@ export default [
     name: "Craft and Design Institute (CDI)",
     category: ["Non-profits", "Incubators or creative hubs"],
     type: "Sector development",
-    domain: "Craft",
+    domain: ["Craft", "Design and creative services"],
     lat: -26.18690867,
     lon: 28.04131142,
     description:
@@ -927,7 +1128,7 @@ export default [
     name: "Makers Valley",
     category: "Non-profits",
     type: "Neighbourhood initiative",
-    domain: "Various",
+    domain: "Design and creative services",
     lat: -26.19276548,
     lon: 28.07110635,
     description:
@@ -981,7 +1182,7 @@ export default [
     name: "Nando’s Creative Exchange",
     category: "Private initiatives",
     type: "Corporate programme",
-    domain: "Various",
+    domain: "",
     lat: -26.18673493,
     lon: 28.0680888,
     description:
@@ -994,7 +1195,7 @@ export default [
     name: "Nirox Sculpture Park",
     category: ["Private initiatives", "Artist Residencies"],
     type: "Foundation / Park",
-    domain: "Various",
+    domain: "",
     lat: -25.98435061,
     lon: 27.78514061,
     description:
@@ -1046,7 +1247,7 @@ export default [
     id: "something-good-studio",
     name: "Something Good Studio",
     categories: ["Private initiatives", "Project spaces"],
-    domains: ["Design", "Visual Arts"],
+    domains: ["Design and creative services", "Visual arts"],
     lat: null,
     lon: null,
     website: "https://somethinggoodstudio.com/",
@@ -1060,7 +1261,7 @@ export default [
     name: "Standard Bank Art Lab",
     categories: ["Corporate collections", "Non-profits"], 
     type: "Corporate–cultural initiative",
-    domains: ["Visual Arts"],
+    domains: ["Visual arts"],
     lat: -26.2041,
     lon: 28.0473,
     description: "A new platform of Standard Bank’s long-standing arts commitment, the Art Lab supports emerging and mid-career practitioners through commissions, exhibitions and development opportunities. Building on the bank’s history with the Standard Bank Young Artist Awards, the Lab provides infrastructure for experimentation, mentorship and access to wider audiences.",
@@ -1072,11 +1273,64 @@ export default [
     name: "Keyes Art Mile",
     categories: ["Private initiatives"],
     type: "Cultural precinct",
-    domains: ["Design", "Visual Arts"],
+    domains: ["Design and creative services", "Visual arts"],
     lat: -26.1427,
     lon: 28.0356,
     description: "A mixed-use precinct in Rosebank, Johannesburg, bringing together galleries, design studios and restaurants. Through the annual Keyes x American Express Design Competition, the precinct provides a high-profile platform for designers to showcase innovative work, gain exposure, and connect with collectors and industry leaders.",
     website: "https://www.keyesartmile.co.za",
+    image: "/images/placeholder.jpg",
+  },
+
+  {
+    id: "mtn-collection-new-contemporaries",
+    name: "MTN SA Foundation · Art Collection & New Contemporaries Award",
+    categories: ["Corporate collections", "Awards / Programmes"],
+    type: "Corporate collection & curator prize",
+    lat: -26.1899,
+    lon: 28.0337, // MTN HQ, Fairland, Johannesburg (approx)
+    description:
+      "The MTN Art Collection, grown over 25 years, reflects the country’s cultural diversity and is one of the most significant corporate collections in South Africa. Through the New Contemporaries Award, in partnership with UJ Art Gallery, the Foundation supports emergent curators and creates opportunities for young artists.",
+    website: "https://www.mtn.co.za/foundation",
+    domains: ["Visual arts",],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "sabc-art-collection",
+    name: "SABC Art Collection",
+    categories: ["Corporate collections", "Public-private partnerships"],
+    type: "Public collection with national loan programme",
+    lat: -26.1485,
+    lon: 28.0837, // SABC HQ, Auckland Park
+    description:
+      "A prominent public collection with an active loan schedule, the SABC Art Collection circulates artworks nationally and internationally, providing visibility for South African artists through collaborations with museums, galleries and embassies.",
+    website: "https://www.sabc.co.za",
+    domains: ["Visual arts",],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "sasol-art-collection-new-signatures",
+    name: "Sasol Art Collection & Sasol New Signatures",
+    categories: ["Corporate collections", "Awards / Programmes"],
+    type: "Corporate collection & national competition",
+    lat: -26.1076,
+    lon: 28.0567, // Sasol Place, Sandton
+    description:
+      "Sasol’s art collection, established in the 1960s, spans six decades and is displayed throughout Sasol Place in Sandton. The building also features a large-scale sculpture commissioning project by leading South African artists. The Sasol New Signatures competition, run in partnership with the Association of Arts Pretoria, is a nationally recognised platform for emerging artists.",
+    website: "https://www.sasolsignatures.co.za",
+    domains: ["Visual arts",],
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "fnb-art-prize",
+    name: "FNB Art Prize",
+    categories: ["Corporate collections", "Awards / Programmes"],
+    type: "Annual prize & exhibition",
+    lat: -26.2041,
+    lon: 28.0473, // Johannesburg Art Gallery for prize exhibition
+    description:
+      "Awarded annually since 2011, the FNB Art Prize supports the continent’s cultural landscape through a cash award and solo exhibition at the Johannesburg Art Gallery. Artists are nominated by galleries participating in FNB Art Joburg, expanding recognition and institutional opportunities for contemporary African practice.",
+    website: "https://fnbartjoburg.com",
+    domains: ["Visual arts",],
     image: "/images/placeholder.jpg",
   },
 
@@ -1173,7 +1427,7 @@ export default [
     name: "Dumisani Masilela Theatre",
     category: ["Theatres", "4IR"],
     type: "Municipal theatre",
-    domain: "",
+    domain: "Performing arts",
     lat: -26.20635495,
     lon: 28.16089404,
     description:
@@ -1186,7 +1440,7 @@ export default [
     name: "The South African State Theatre",
     category: "Theatres",
     type: "National theatre",
-    domain: "",
+    domain: "Performing arts",
     lat: -25.74710798,
     lon: 28.19425262,
     description:
@@ -1279,7 +1533,7 @@ export default [
     name: "August House",
     category: "Artist studios",
     type: "Studio complex",
-    domain: "",
+    domain: "Visual arts",
     lat: -26.20100772,
     lon: 28.05369011,
     description:
@@ -1344,7 +1598,7 @@ export default [
     name: "National Arts Council of South Africa",
     category: "Government",
     type: "Public entity",
-    domain: "Various",
+    domain: "",
     lat: -26.20094307,
     lon: 28.03266937,
     description:

@@ -11,25 +11,26 @@ const catColors = {
   "Private initiatives": "#f95738",
   "Maker Spaces": "#4B6895",
   "4IR": "#7F24B8",
-  "Libraries": "#f4d35e",
+  Libraries: "#f4d35e",
   "Public-private partnerships": "#072ac8",
   "Artist studios": "#EEFA3B",
-  "Theatres": "#C2B8FA",
-  "Government": "#0EA5A5",
+  Theatres: "#C2B8FA",
+  Government: "#0EA5A5",
   "Government SEZs": "#10B981",
   "Academic partnerships": "#3B82F6",
   "International organisations": "#6366F1",
   "Corporate collections": "#F59E0B",
   "Commercial galleries": "#EC4899",
   "Non-profits": "#22C55E",
-  "Festivals": "#ef233c",
-  "Conferences": "#8B5CF6",
+  Festivals: "#ef233c",
+  Conferences: "#8B5CF6",
   "Trade Fairs / Markets": "#14B8A6",
   "Book Fairs": "#f5cac3",
   "Art Fairs": "#3a5a40",
   "Artist Residencies": "#97802D",
   "Project spaces": "#b9fbc0",
   "Museums / Galleries": "#1c1341",
+  "Awards / Programmes": "#6e094e",
 };
 
 // 2) Legend order (optional, but nice to keep things consistent)
@@ -100,6 +101,7 @@ export default function App() {
               "Artist Residencies",
               "Project spaces",
               "Museums / Galleries",
+              "Awards / Programmes",
             ]}
             dotRadius={4}
             dotOpacity={0.9}
