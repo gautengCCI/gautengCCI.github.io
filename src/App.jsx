@@ -16,7 +16,6 @@ const catColors = {
   "Artist studios": "#EEFA3B",
   Theatres: "#C2B8FA",
   Government: "#0EA5A5",
-  "Government SEZs": "#10B981",
   "Academic partnerships": "#3B82F6",
   "International organisations": "#6366F1",
   "Corporate collections": "#F59E0B",
@@ -80,7 +79,6 @@ export default function App() {
               "Art Fairs",
               // Organisations / infra
               "Government",
-              "Government SEZs",
               "Public-private partnerships",
               "Industry associations or networks",
               "Collective management organisations (CMO)",
