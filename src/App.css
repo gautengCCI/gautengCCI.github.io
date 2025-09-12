@@ -27,7 +27,7 @@ html, body {
 }
 
 .page {
-  min-height: 100%;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
 }
@@ -40,6 +40,8 @@ html, body {
 
 /* Optional footer styling */
 .pageFooter {
+  flex: 0 0 auto;
+
   border: none;
   background: #caffbf;
   color: #333;

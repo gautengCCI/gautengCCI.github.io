@@ -209,6 +209,12 @@
   background-size: 40px 40px;
 }
 
+.visitClear {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 /* Content in body sits above the overlay (only matters if you later show content in empty state) */
 .cardBody > * {
   position: relative;
@@ -244,7 +250,7 @@
 }
 
 .clearBtn {
-  margin: 4px 0 10px;
+  margin: 0;
   width: 10rem;
   font-size: 12px;
   padding: 6px 10px;
@@ -618,7 +624,7 @@
 /* Floating action button for mobile */
 .fab {
   position: absolute;
-left: 12px;
+  left: 12px;
   top: 12px;
   padding: 10px 14px;
   border-radius: 999px;
@@ -650,15 +656,16 @@ left: 12px;
   display: block;
 }
 
-
 /* === MOBILE EXCEPTION: two columns (body | image) only on small screens === */
 @media (max-width: 1024px) {
-    .wrap {
-        display: flex;
-        flex-direction: column;
-        min-height: 100svh;
-      }
-  .intro {display: none;}
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+  }
+  .intro {
+    display: none;
+  }
 
   .left {
     order: 1;
@@ -694,7 +701,6 @@ left: 12px;
     margin-block-start: 0;
     margin-block-end: 0;
   }
-
 
   .cardHasImage {
     grid-template-columns: 1fr 1fr;
@@ -771,9 +777,9 @@ left: 12px;
     align-items: center;
     justify-content: space-between;
     background: inherit;
-    min-height: 48px;   /* fixed height */
-    max-height: 48px;   /* fixed height */
-    overflow: hidden;   /* hide scrollbar */
+    min-height: 48px; /* fixed height */
+    max-height: 48px; /* fixed height */
+    overflow: hidden; /* hide scrollbar */
     box-sizing: border-box;
     flex: 0 0 auto;
   }
@@ -789,7 +795,7 @@ left: 12px;
     background-color: none;
     font-size: 14px;
     font-weight: 600;
-    line-height: 1;      /* keep it compact */
+    line-height: 1; /* keep it compact */
     white-space: nowrap; /* prevent wrapping -> no extra height */
     flex: 0 0 auto;
     cursor: pointer;
@@ -815,7 +821,9 @@ left: 12px;
     z-index: 2;
   }
 
-  .card { display: none;}
+  .card {
+    display: none;
+  }
 
   .cardEmpty {
     display: none;
@@ -864,120 +872,119 @@ left: 12px;
 }
 
 @media (max-width: 1024px) {
-    /* Make the left column just a single row for the sticky header */
-    .left {
-      /* keep it a grid, but with ONE row */
-      display: grid;
-      grid-template-rows: 48px;   /* match your header height */
-      gap: 0;                     /* kill the leftover spacer */
-      height: auto !important;    /* don’t stretch to viewport */
-      min-height: 0;
-      flex: 0 0 auto;             /* don’t grow in the column layout */
-      overflow: visible;          /* no inner scrollbars here */
-    }
-  
-    /* Hide the inline intro and card strongly so they don't create implicit tracks */
-    .left .intro,
-    .left .card,
-    .left .cardEmpty,
-    .left .cardBody,
-    .left .cardEmptyHint {
-      display: none !important;
-    }
-  
-    /* Compact, balanced header */
-    .leftHeader {
-      position: sticky;
-      top: 0;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 48px;
-      padding: 0 12px;
-      margin: 0;                 /* just in case */
-      overflow: hidden;          /* avoid header scrollbars */
-      background: inherit;
-      box-sizing: border-box;
-    }
-  
-    .title {
-      margin: 0;
-      padding: 0;
-      font-size: 14px;
-      line-height: 1.1;
-      min-width: 0;
-    }
-  
-    .aboutTopBtn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 12px;
-      font-size: 12px;
-      font-weight: 600;
-      line-height: 1;
-      white-space: nowrap;
-      flex: 0 0 auto;
-    }
-
-    .legendDrawer {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;               /* slides over the map */
-        max-height: 35svh;       /* how tall it can grow */
-        border-top-left-radius: 16px;
-        border-top-right-radius: 16px;
-        box-shadow: 0 -8px 30px rgba(0,0,0,0.25);
-        transition: transform 160ms ease-out; /* smooth snap */
-        padding: 0;              /* we’ll pad inner content */
-        background: #fff;
-        overflow: hidden;        /* content scrolls inside */
-        z-index: 100;            /* above map, below modals */
-      }
-    
-      .legendHandle {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        justify-content: center;
-        padding: 10px 12px;
-        border-bottom: 1px solid #eee;
-        cursor: grab;
-        touch-action: none;      /* allow vertical drag */
-        background: #fff;
-        position: sticky;
-        top: 0;
-        z-index: 1;
-      }
-      .legendGrip {
-        width: 40px;
-        height: 4px;
-        border-radius: 999px;
-        background: #d1d5db;
-      }
-      .legendHandleLabel {
-        font-weight: 700;
-        font-size: 13px;
-        color: #111;
-      }
-    
-      .legendInner {
-        max-height: calc(55svh - 40px); /* minus handle area */
-        overflow: auto;
-        padding: 12px;                  /* your original legend padding */
-      }
-
-      .pageFooter {
-        display: none;
-      }
-
-    
+  /* Make the left column just a single row for the sticky header */
+  .left {
+    /* keep it a grid, but with ONE row */
+    display: grid;
+    grid-template-rows: 48px; /* match your header height */
+    gap: 0; /* kill the leftover spacer */
+    height: auto !important; /* don’t stretch to viewport */
+    min-height: 0;
+    flex: 0 0 auto; /* don’t grow in the column layout */
+    overflow: visible; /* no inner scrollbars here */
   }
-  
-  /* Critical Safari fix: allow grid/flex children to shrink */
-.left, .map, .legend {
+
+  /* Hide the inline intro and card strongly so they don't create implicit tracks */
+  .left .intro,
+  .left .card,
+  .left .cardEmpty,
+  .left .cardBody,
+  .left .cardEmptyHint {
+    display: none !important;
+  }
+
+  /* Compact, balanced header */
+  .leftHeader {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 0 12px;
+    margin: 0; /* just in case */
+    overflow: hidden; /* avoid header scrollbars */
+    background: inherit;
+    box-sizing: border-box;
+  }
+
+  .title {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.1;
     min-width: 0;
   }
-  
+
+  .aboutTopBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
+  .legendDrawer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0; /* slides over the map */
+    max-height: 35svh; /* how tall it can grow */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 160ms ease-out; /* smooth snap */
+    padding: 0; /* we’ll pad inner content */
+    background: #fff;
+    overflow: hidden; /* content scrolls inside */
+    z-index: 100; /* above map, below modals */
+  }
+
+  .legendHandle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+    cursor: grab;
+    touch-action: none; /* allow vertical drag */
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .legendGrip {
+    width: 40px;
+    height: 4px;
+    border-radius: 999px;
+    background: #d1d5db;
+  }
+  .legendHandleLabel {
+    font-weight: 700;
+    font-size: 13px;
+    color: #111;
+  }
+
+  .legendInner {
+    max-height: calc(55svh - 40px); /* minus handle area */
+    overflow: auto;
+    padding: 12px; /* your original legend padding */
+  }
+
+  .pageFooter {
+    display: none;
+  }
+}
+
+/* Critical Safari fix: allow grid/flex children to shrink */
+.left,
+.map,
+.legend {
+  min-width: 0;
+}

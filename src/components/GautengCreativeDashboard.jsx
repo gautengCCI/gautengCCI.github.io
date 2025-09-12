@@ -540,24 +540,30 @@ export default function GautengCreativeDashboard({
                 {focused.p.description && (
                   <p className={s.cardText}>{focused.p.description}</p>
                 )}
-                {focused.p.website && (
-                  <a
-                    className={s.cardLink}
-                    href={focused.p.website}
-                    target="_blank"
-                    rel="noreferrer"
+                <div className={s.visitClear}>
+                  {focused.p.website && (
+                    <a
+                      className={s.cardLink}
+                      href={focused.p.website}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Visit website →
+                    </a>
+                  )}
+                  
+                  <button
+                    className={s.clearBtn}
+                    onClick={() => setFocused(null)}
                   >
-                    Visit website →
-                  </a>
-                )}
+                    Clear pin
+                  </button>
+                </div>
                 {focused.p.nomadic && (
-                  <p className={s.cardText}>
-                    <strong>{focused.p.nomadic}</strong>
-                  </p>
-                )}
-                <button className={s.clearBtn} onClick={() => setFocused(null)}>
-                  Clear pin
-                </button>
+                    <p className={s.cardText}>
+                      <strong>{focused.p.nomadic}</strong>
+                    </p>
+                  )}
               </div>
 
               {focused.p.image && (
@@ -797,16 +803,6 @@ export default function GautengCreativeDashboard({
                 </div>
                 {hover.p.description && (
                   <p className={s.cardText}>{hover.p.description}</p>
-                )}
-                {hover.p.website && (
-                  <a
-                    className={s.cardLink}
-                    href={hover.p.website}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Visit website →
-                  </a>
                 )}
               </div>
 

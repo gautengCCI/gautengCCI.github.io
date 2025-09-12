@@ -5,7 +5,7 @@ export default [
     name: "Gauteng Industrial Development Zone (IDZ)",
     category: "Government",
     type: "Government SEZs",
-    domain: ["Design", "Craft"],
+    domain: ["Design and creative services", "Craft"],
     lat: -26.2682,
     lon: 28.0807,
     description:
@@ -29,22 +29,24 @@ export default [
     id: "gfc",
     name: "Gauteng Film Commission (GFC)",
     category: "Government",
-    domain: "Film",
+    domain: ["Film", "Audio-visual and interactive media"],
     lat: -26.20558858,
     lon: 28.04211239,
-    description: "The Gauteng Film Commission (GFC) supports the province’s film and television industries by facilitating filming permits, scouting and managing locations, and providing incentives for productions. It also invests in training and development, offering workshops and masterclasses to expand the local skills base. For emerging filmmakers, the GFC reduces the barriers to producing content by connecting them with funding opportunities and industry networks, while also promoting Gauteng as a competitive filming destination internationally.",
-        website: "https://gautengfilm.org.za/",
+    description:
+      "The Gauteng Film Commission (GFC) supports the province’s film and television industries by facilitating filming permits, scouting and managing locations, and providing incentives for productions. It also invests in training and development, offering workshops and masterclasses to expand the local skills base. For emerging filmmakers, the GFC reduces the barriers to producing content by connecting them with funding opportunities and industry networks, while also promoting Gauteng as a competitive filming destination internationally.",
+    website: "https://gautengfilm.org.za/",
     image: "/images/gfc.jpeg",
   },
   {
     id: "nfvf",
     name: "National Film & Video Foundation",
     category: "Government",
-    domain: "Film",
+    domain: ["Film", "Audio-visual and interactive media"],
     lat: -26.14878626,
     lon: 28.06080834,
-    description: "The National Film & Video Foundation (NFVF) plays a national role but has a significant impact in Gauteng, where much of the country’s film and television sector is based. The NFVF funds all stages of the value chain, from script development and production to distribution and marketing, while also offering bursaries and supporting training providers. Its programmes are designed to build sustainability in the film industry and ensure that new voices—especially those from underrepresented communities—are able to find their place in the sector.",
-        website: "https://www.nfvf.co.za/",
+    description:
+      "The National Film & Video Foundation (NFVF) plays a national role but has a significant impact in Gauteng, where much of the country’s film and television sector is based. The NFVF funds all stages of the value chain, from script development and production to distribution and marketing, while also offering bursaries and supporting training providers. Its programmes are designed to build sustainability in the film industry and ensure that new voices—especially those from underrepresented communities—are able to find their place in the sector.",
+    website: "https://www.nfvf.co.za/",
     image: "/images/placeholder.jpg",
   },
   {
@@ -107,7 +109,7 @@ export default [
     lat: -26.14133135,
     lon: 27.78751369,
     description:
-      "Community venue with halls and rehearsal spaces used for training, performances and local creative entrepreneurship events.",
+      "The Kagiso Memorial & Recreation Centre, built to commemorate victims of apartheid-era violence, doubles as a cultural and community venue. It offers performance and event spaces that can be used by artists and cultural groups, even though its maintenance has at times been the subject of criticism and public concern. Despite these challenges, it remains one of the few publicly accessible cultural infrastructures in its area, and with consistent support could better serve as a hub for creative expression and remembrance.",
     website: "",
     image: "/images/placeholder.jpg",
   },
@@ -174,7 +176,7 @@ export default [
     lat: -26.00831762,
     lon: 28.23290447,
     description:
-      "Hands-on production and digital-skills facilities for makers; short courses and enterprise support linked to real commissions.",
+      "The Industrial Hive & Computer Centre was established to provide digital and technical training opportunities in a township context, equipping young people with skills relevant to both the creative industries and broader 4IR-linked sectors. At its best, it represents a vital piece of infrastructure: access to computers, internet connectivity, and equipment for digital production. While it has been affected by the broader challenges of crumbling infrastructure in small towns – with outages and interruptions often disrupting programming – it nevertheless remains an important site of access. For many young people, it is one of the few local spaces where creative potential can be nurtured through exposure to technology, even if that potential is not always fully realised.",
     website: "",
     image: "/images/placeholder.jpg",
   },
@@ -187,7 +189,7 @@ export default [
     lat: -25.40397465,
     lon: 28.28595182,
     description:
-      "Accredited training and trade testing that benefits set-building, fabrication and related creative production pipelines.",
+      "The Hammanskraal Skills Training and Trade Test Centre plays provides accredited training in trades such as carpentry, welding, and textiles, with applications across both industrial and creative sectors. Though it, too, struggles with operational difficulties caused by weak service delivery, it nonetheless represents a valuable platform for township economic development. For creative practitioners in areas like set-building, craft, and textiles, the centre provides equipment, space, and some level of structured training – resources that remain rare and hard to come by. Even in their imperfect state, such facilities offer a foundation for creativity that would otherwise be absent.",
     website: "",
     image: "/images/placeholder.jpg",
   },
@@ -322,7 +324,7 @@ export default [
     lat: -26.70945087,
     lon: 27.86252176,
     description:
-      "Facilities and programmes in design and media; student industry projects, internships and community innovation.",
+      "The Vaal University of Technology (VUT) has steadily grown as a hub for creative and technical education in Gauteng’s southern corridor. Its Faculty of Human Sciences includes design, multimedia, and communication programmes that equip students with practical and entrepreneurial skills. For the local ecosystem, VUT provides both a talent pipeline and research capacity, anchoring higher education infrastructure in a region otherwise underserved by cultural institutions.",
     website: "https://vut.ac.za/visual-arts-and-design/",
     image: "/images/vut.jpg",
   },
@@ -378,7 +380,7 @@ export default [
     lat: -26.20129495,
     lon: 28.31144142,
     description:
-      "Training, youth programmes and festivals; community theatre commissions and educator development in the arts.",
+      "The Sibikwa Arts Centre in Benoni is a pioneering community-based arts organisation that combines education, performance, and cultural activism. It runs training programmes in theatre and dance, outreach initiatives in schools, and community festivals that bring together diverse audiences. For decades, Sibikwa has played a key role in making arts education accessible to township youth, contributing to both social cohesion and professional development in the creative industries.",
     website: "https://www.sibikwa.co.za",
     image: "/images/sibikwa.jpg",
   },
@@ -414,7 +416,7 @@ export default [
     id: "human-rights-festival",
     name: "Human Rights Festival",
     categories: ["Festivals", "Cultural and natural heritage sites"],
-    domains: ["Civic culture", "Visual arts"],
+    domains: ["Visual arts", "Music"],
     lat: -26.18886842356017,
     lon: 28.042717564417718,
     website: "https://humanrightsfestival.co.za/",
@@ -467,11 +469,11 @@ export default [
     name: "Merafong Documentary Film Festival",
     category: "Festivals",
     type: "Film festival",
-    domain: "Film",
+    domain: ["Film", "Audio-visual and interactive media"],
     lat: -26.33293922,
     lon: 27.32145478,
     description:
-      "Doc screenings, training and community discussions; open calls for submissions and youth workshops.",
+      "The Merafong Documentary Film Festival, hosted by EXT Lab Media in partnership with the Gauteng Film Commission, was active in June 2024, staging film screenings across Merafong’s townships (e.g. Kokosi, Khutsong, Wedela) as part of Youth Month. It served as a vital platform for documentary storytelling rooted in local history, mining legacies, and civic issues. As of mid-2025, however, there are no publicly confirmed plans for a 2025 edition—no call for submissions or funding listing—and it is absent from the NFVF’s 2025/26 festival funding approvals. Despite this, the infrastructure and community networks built by the 2024 festival suggest it remains a meaningful asset, contingent on renewed institutional support, publicity, and sustainable resourcing.",
     website: "",
     image: "/images/placeholder.jpg",
   },
@@ -484,7 +486,7 @@ export default [
     lat: -26.07587031,
     lon: 28.06065483,
     description:
-      "Multi-disciplinary festival platforming theatre, music and visual arts; open calls and mentorship for schools and pros.",
+      "RedFest, hosted by Redhill School in Johannesburg, is an annual cultural festival that blends theatre, music, art, and film. While rooted in an educational institution, it opens its stages and exhibition spaces to professional and community artists, creating an intergenerational platform. For creatives, RedFest offers performance opportunities and exposure to new audiences, while also fostering a culture of appreciation for the arts among young people.",
     website: "https://www.redhillartsfestival.co.za/",
     image: "/images/redfest.jpg",
   },
@@ -497,7 +499,7 @@ export default [
     lon: 28.054394498214986,
     website: "https://fnbartjoburg.com/",
     description:
-      "Annual art fair with a talks and public programme, sector roundtables, and curated sections that platform emerging practitioners. Includes awards and open calls linked to the fair ecosystem.",
+      "FNB Art Joburg is South Africa’s leading contemporary art fair, anchored in Johannesburg. While its core remains an invitation-only platform for galleries, publishers, institutions and other entities, it has developed several initiatives that extend its ecosystem impact. The FNB Art Prize offers a solo exhibition at the Johannesburg Art Gallery for the winning artist, raising visibility and fostering critical dialogue. The Open City programme brings art into public spaces, expanding access beyond the fair’s exclusive walls. More recently, the BMW Young Collectors Co. has targeted new audiences, introducing younger buyers to collecting. Together, these initiatives ensure that the fair contributes to sustaining the art economy, nurturing both artists and audiences, even within the constraints of its high-end format.",
     type: "Art fair",
     image: "/images/artjoburg.jpg",
   },
@@ -523,7 +525,7 @@ export default [
     lat: -26.17697909,
     lon: 28.05015688,
     description:
-      "Annual art fair supporting education; open calls and sales channels for emerging and established artists.",
+      "The Roedean School (SA) Art Fair is a major fundraising and cultural event that combines fine art sales with educational engagement. It provides a platform for established and emerging artists to showcase their work to collectors, while proceeds support bursary programmes and school initiatives. By linking art patronage with education, the fair demonstrates how schools can play an active role in sustaining the creative economy.",
     website: "https://www.roedeanschool.co.za/events/roedean-art-fair/",
     image: "/images/roedean.jpg",
   },
@@ -533,11 +535,11 @@ export default [
     name: "Kingsmead Book Fair",
     category: "Book Fairs",
     type: "Fair",
-    domain: "",
+    domain: "Press, books and information",
     lat: -26.14276587,
     lon: 28.04548881,
     description:
-      "Talks, launches and workshops; visibility and networking for authors, illustrators and small publishers.",
+      "The Kingsmead Book Fair has become a leading literary event in Johannesburg, attracting both local and international writers. Its diverse programme of panels, readings, and workshops provides opportunities for dialogue across genres and disciplines, while also connecting writers directly with readers. For the creative ecosystem, the fair expands the literary audience and supports a culture of reading and debate.",
     website: "https://kingsmead.co.za/bookfair/",
     image: "/images/kingsmead.jpg",
   },
@@ -550,7 +552,7 @@ export default [
     lat: -26.23286934,
     lon: 27.90893946,
     description:
-      "Celebrates pop culture, gaming and tech-creative crossovers; community showcases, cosplay and indie dev exposure.",
+      "Afro-Geek Fest is an emerging platform that celebrates African innovation in gaming, technology, and digital culture. Bringing together coders, designers, gamers, and digital artists, it foregrounds African perspectives in industries often dominated by global North narratives. For Gauteng’s creatives, Afro-Geek Fest provides exposure, networking opportunities, and a sense of belonging to a wider continental movement that links technology and culture.",
     website: "",
     image: "/images/afrogeek.png",
   },
@@ -563,7 +565,7 @@ export default [
     lon: null,
     nomadic: true,
     description:
-      "Province-wide showcasing platform for bands and live music, activating existing community venues (e.g. jazz taverns) to support new and established talent. Aligned to Gauteng’s creative industries framework and music strategy.",
+      "The Puisano Live Music Programme is a provincial initiative designed to revitalise Gauteng’s live music scene. By activating existing community facilities such as jazz clubs and taverns, it provides stages for local bands and performers. The programme nurtures grassroots talent while also creating circuits for live music that sustain venues and broaden audience access. For many musicians, Puisano is one of the few consistent opportunities to perform and earn within the province.",
     website: null,
     domains: ["Music"],
     image: "/images/puisano.jpg",
@@ -577,7 +579,7 @@ export default [
     lon: null,
     nomadic: true,
     description:
-      "Gauteng programme spotlighting local theatre talent through showcases and capacity-building opportunities across community venues.",
+      "The Ishashalazi Theatre Festival is a provincial initiative that nurtures community and amateur theatre across Gauteng. It provides a platform for township theatre groups to present their work, often exploring urgent social themes. By giving visibility to grassroots productions and supporting theatre-makers with mentorship and networking opportunities, Ishashalazi contributes to sustaining a pipeline of talent outside of mainstream institutions.",
     website: null,
     domains: ["Performing arts"],
     image: "/images/ishashalazi.jpg",
@@ -590,7 +592,7 @@ export default [
     lat: -26.2029,
     lon: 28.0341, // Mary Fitzgerald Square, Newtown
     description:
-      "Africa’s largest hip-hop festival, anchoring a platform for live performance, urban art and youth culture with open calls and city activation.",
+      "The Hennessy Back To The City Festival SA is Johannesburg’s largest annual hip-hop gathering, staged on Freedom Day under the iconic Nelson Mandela Bridge. It celebrates all elements of hip-hop culture – music, graffiti, dance, and fashion – and has become a rite of passage for local talent. The festival not only showcases established artists but also provides a platform for emerging voices, reinforcing hip-hop as both a cultural and economic driver in Gauteng.",
     website: "https://www.backtothecityfestival.com",
     domains: ["Music"],
     image: "/images/backtothecity.jpg",
@@ -603,7 +605,7 @@ export default [
     lat: -26.1076,
     lon: 28.0567, // Sandton
     description:
-      "Flagship South African jazz festival presenting local and international artists alongside education and industry initiatives that strengthen the jazz ecosystem.",
+      "The Standard Bank Joy of Jazz festival is Johannesburg’s premier jazz event and one of Africa’s most respected music festivals. It presents a blend of international stars and South African legends alongside emerging talent, providing exposure and career-defining opportunities for local artists. For audiences, it cements Johannesburg’s identity as a jazz capital; for the ecosystem, it sustains jazz as both a cultural heritage and a living, evolving art form.",
     website: "https://www.joyofjazz.co.za",
     domains: ["Music"],
     image: "/images/placeholder.jpg",
@@ -616,9 +618,9 @@ export default [
     lat: -25.9979,
     lon: 28.0688, // Kyalami Grand Prix Circuit
     description:
-      "Major festival in Kyalami combining music, culinary showcases and fashion, with platforms for chefs, designers and performers.",
+      "The DStv Delicious Festival Powered by LottoStar is one of South Africa’s premier food and music festivals, held in Johannesburg. It combines performances by global and local stars with gourmet food experiences, drawing large and diverse audiences. For creatives, it offers opportunities to collaborate across music, culinary arts, and event design, while also highlighting Gauteng as a cultural tourism destination.",
     website: "https://www.dstvdelicious.com",
-    domains: ["Music", "Fashion"],
+    domains: ["Music", "Design and creative services"],
     image: "/images/dstv-delicious.jpg",
   },
   {
@@ -629,7 +631,7 @@ export default [
     lat: -26.2041,
     lon: 28.0473, // Johannesburg CBD (general)
     description:
-      "Province-wide cultural celebration creating temporary jobs and skills training across production, event management and creative trades.",
+      "The Gauteng Heritage Carnival is an annual event that brings together diverse communities to celebrate the province’s cultural heritage through parades, music, dance, and costume. It provides a stage for cultural groups and creatives to showcase traditional practices in a contemporary urban setting, strengthening social cohesion while affirming Gauteng’s identity as a multicultural hub.",
     website: null,
     domains: ["Cultural and natural heritage"],
     image: "/images/heritagecarnival.jpeg",
@@ -643,7 +645,7 @@ export default [
     lon: null,
     nomadic: true,
     description:
-      "City of Johannesburg’s multidisciplinary programme activating venues and public spaces with performance, visual arts and community workshops.",
+      "The Arts Alive Festival has been a cornerstone of Johannesburg’s cultural calendar since the early 1990s. Spanning music, theatre, dance, and visual arts, it provides a month-long programme of performances and exhibitions across the city. For local creatives, Arts Alive offers exposure and collaboration opportunities on an international stage, while audiences benefit from access to diverse and high-quality cultural experiences.",
     website: null,
     domains: [""],
     image: "/images/artsalive.jpg",
@@ -651,12 +653,12 @@ export default [
   {
     id: "soweto-theatre-fairs-markets",
     name: "Fairs & Markets at Soweto Theatre",
-    categories: ["Trade Fairs / Markets", "Festivals"],
+    categories: ["Trade Fairs / Markets", "Theatres"],
     type: "Creative market & events platform",
     lat: -26.2467,
     lon: 27.8896, // Soweto Theatre, Jabulani
     description:
-      "Regular fairs (e.g. Soweto Art & Craft Fair, Seven Colour Sundays) expand access for makers and food entrepreneurs, turning the theatre into a multi-use creative hub.",
+      "Regular fairs (e.g. Soweto Art & Craft Fair, Seven Colour Sundays) expand access for makers and food entrepreneurs, turning the theatre into a multi-use creative hub, extending the role of the venue beyond performance into community economic participation. These events bring together local artisans, food vendors, designers, and performers, providing market access and visibility for small creative businesses. They transform the theatre precinct into a vibrant cultural marketplace that integrates entrepreneurship with performance.",
     website: "https://www.sowetotheatre.com",
     domains: ["Craft"],
     image: "/images/sowetomarkets.jpg",
@@ -669,20 +671,20 @@ export default [
     lat: -25.7465,
     lon: 28.195, // SA State Theatre, Pretoria
     description:
-      "Thursday-night platform with live performance, screenings, open mic and a night market—supporting emerging artists and audience development.",
+      "Black Labone, held at the South African State Theatre, is a weekly open-mic platform every Thursday that has become a crucial stage for emerging musicians, poets, and performers. Its informal, low-barrier format allows young creatives to experiment and gain experience in front of live audiences, building confidence and community support. Over the years, it has grown into a beloved institution for discovering new talent.",
     website: "https://www.statetheatre.co.za",
     domains: ["Music", "Film"],
     image: "/images/blacklabone.jpg",
   },
   {
     id: "spring-jazz-nirox",
-    name: "NIROX SPRING JAZZ",
+    name: "Nirox Spring Jazz",
     categories: ["Festivals"],
     type: "Jazz at sculpture park",
     lat: -26.0079,
     lon: 27.7401, // NIROX Sculpture Park (Kromdraai)
     description:
-      "Seasonal jazz programme hosting local and international artists in an outdoor sculpture park setting, linking performance, place and audience development.",
+      "The Nirox Spring Jazz Festival, hosted at the Nirox Sculpture Park, brings together leading jazz musicians in an outdoor setting that merges music with art and landscape. The festival not only offers a stage for both established and experimental jazz artists but also situates performance within a unique cultural environment, reinforcing Gauteng’s role in sustaining South Africa’s jazz tradition.",
     website: "https://niroxarts.com",
     domains: ["Music"],
     image: "/images/jazzatnirox.jpg",
@@ -696,7 +698,7 @@ export default [
     lon: null,
     nomadic: true,
     description:
-      "Five-month mentorship for emerging artists in Gauteng: industry training, one-on-one creative mentorship and professional development to advance careers.",
+      "RMB Talent Unlocked is a visual arts mentorship programme run in partnership with the Bag Factory Artists’ Studios. It supports emerging artists with professional development, mentoring, and exhibition opportunities. By focusing on career sustainability and visibility, Talent Unlocked bridges the gap between emerging practice and professional recognition, making it an important contributor to the visual arts ecosystem.",
     website: "https://latitudes.online", // umbrella; specific programme page varies
     domains: ["Visual arts"],
     image: "/images/talentunlocked.jpg",
@@ -710,7 +712,7 @@ export default [
     lon: null,
     nomadic: true,
     description:
-      "Partnership with the Arts & Culture Trust supporting arts, culture and heritage development through entrepreneurial training, seed funding and project support.",
+      "The Nedbank Arts Affinity × ACT Thuthukisani Programme is a partnership between Nedbank and the Arts & Culture Trust that provides financial support, mentoring, and business development for arts practitioners. Thuthukisani is distinctive in focusing on entrepreneurship, equipping creatives with tools to generate income and grow their enterprises. By linking banking and arts funding, it demonstrates how financial institutions can contribute directly to strengthening the creative economy.",
     website: "https://act.org.za/thuthukisani/",
     domains: "",
     image: "/images/nedbankarts.jpeg",
@@ -761,7 +763,7 @@ export default [
     name: "Dramatic, Artistic and Literary Rights Organisation (DALRO)",
     category: "Collective management organisations (CMO)",
     type: "CMO",
-    domain: "",
+    domain: ["Visual arts", "Performing arts", "Press, books and information"],
     lat: -26.1266165,
     lon: 28.07315265,
     description:
@@ -802,7 +804,7 @@ export default [
     name: "South African Screen Federation (SASFED)",
     category: "Industry associations or networks",
     type: "Federation",
-    domain: "Film",
+    domain: ["Film", "Audio-visual and interactive media"],
     lat: -26.14002978,
     lon: 27.992318,
     description:
@@ -815,7 +817,7 @@ export default [
     name: "Association of Independent Publishers (AIP)",
     category: "Industry associations or networks",
     type: "Association",
-    domain: "",
+    domain: "Press, books and information",
     lat: -26.18042101,
     lon: 28.0074231,
     description:
@@ -828,7 +830,7 @@ export default [
     name: "National Association of Broadcasters (NAB)",
     category: "Industry associations or networks",
     type: "Association",
-    domain: "Film",
+    domain: ["Film", "Audio-visual and interactive media"],
     lat: -26.11363533,
     lon: 28.02109125,
     description:
@@ -871,7 +873,7 @@ export default [
     lat: -26.14538492,
     lon: 28.03687028,
     description:
-      "National body for architecture; awards, advocacy and practice resources benefitting built-environment creatives.",
+      "The South African Institute of Architects (SAIA) is the national professional body for architects, complementing the work of the Gauteng Institute (GIfA). It advocates for design excellence, heritage preservation, and professional development, ensuring that architecture continues to play a central role in shaping the built environment. For creatives, SAIA offers both recognition and a platform to influence policy and urban development.",
     website: "",
     image: "/images/placeholder.jpg",
   },
@@ -884,7 +886,7 @@ export default [
     lat: -26.02920592,
     lon: 27.8472116,
     description:
-      "Performer training, examinations and festivals; youth programmes and showcases build pathways into theatre.",
+      "TA-DA! Theatre Arts and Drama Academy provides performance training and theatre education for young people in Gauteng. Its workshops and productions combine skill-building with creative expression, offering a nurturing environment for children and youth to develop as performers. By investing in early talent, TA-DA! ensures that future generations have both the confidence and technical ability to pursue careers in the arts.",
     website: "http://www.tadatraining.co.za/",
     image: "/images/TADA.jpg",
   },
@@ -910,7 +912,7 @@ export default [
     lat: -26.14687847,
     lon: 28.03562722,
     description:
-      "Pan-African info portal and grants; open calls, mobility funds and training for music professionals.",
+      "The Music in Africa Foundation is a pan-African non-profit organisation based in Johannesburg that supports the music sector through knowledge exchange, mobility grants, showcases, and training. Its online portal serves as a critical hub for industry information, while its physical programmes connect South African musicians to continental and international markets. By fostering cross-border collaboration, it strengthens both Gauteng’s and Africa’s position in the global music industry.",
     website: "https://www.musicinafrica.net/",
     image: "/images/placeholder.jpg",
   },
@@ -919,7 +921,7 @@ export default [
     name: "SA Books Online",
     category: "Industry associations or networks",
     type: "Platform",
-    domain: "",
+    domain: "Press, books and information",
     lat: -26.11655888,
     lon: 28.04762837,
     description:
@@ -932,7 +934,7 @@ export default [
     name: "Print Media South Africa (PMSA)",
     category: "Industry associations or networks",
     type: "Association",
-    domain: "",
+    domain: "Press, books and information",
     lat: -26.11363939,
     lon: 28.02098809,
     description:
@@ -1003,7 +1005,7 @@ export default [
     lat: -26.18690867,
     lon: 28.04131142,
     description:
-      "Market access, product development and business support; regular open calls for craft and design producers.",
+      "The Craft and Design Institute (CDI), though Cape Town–based, has a significant presence in Gauteng through partnerships, showcases, and market access programmes. It provides business training, mentoring, and product development support to craft and design entrepreneurs, helping them navigate both local and international markets. For Gauteng creatives, CDI’s interventions often mean the difference between remaining informal and breaking into the formal design economy, with lasting impact on livelihoods.",
     website: "https://www.thecdi.org.za/",
     image: "/images/CDIJHB.jpg",
   },
@@ -1016,7 +1018,7 @@ export default [
     lat: -26.19276548,
     lon: 28.07110635,
     description:
-      "Network of makerspaces and social enterprises; open studios, training and circular-economy design projects.",
+      "Makers Valley in Johannesburg’s inner east is a growing community of makers, social entrepreneurs, and creatives committed to inclusive urban development. Centred around collaborative workspaces, co-operatives, and social enterprises, it provides affordable access to studio space, training, and markets. Makers Valley demonstrates how community-driven development can strengthen the creative economy while also addressing broader social issues like unemployment and urban renewal.",
     website: "https://www.makersvalley.org.za/",
     image: "/images/makersvalley.jpg",
   },
@@ -1029,7 +1031,7 @@ export default [
     lat: -26.2036979,
     lon: 28.03241445,
     description:
-      "Teacher training, learner programmes and exhibitions; provides curricula, kits and calls for facilitators.",
+      "The Imbali Visual Literacy Project, based in Johannesburg, has worked for decades to provide art education and training for children and young people, particularly those excluded from formal arts education. Its teaching centres and outreach programmes give learners practical skills in drawing, printmaking, textiles, and design, while also nurturing critical thinking and self-expression. Many of its graduates have gone on to pursue further study or careers in the creative industries, making Imbali a quiet but powerful driver of change.",
     website: "https://imbali.za.org/",
     image: "/images/imbali.jpg",
   },
@@ -1042,7 +1044,7 @@ export default [
     lat: -26.33076686,
     lon: 28.19618212,
     description:
-      "Community craft development and markets; training and sales days create direct income for artisans.",
+      "The Lesedi Lasechaba Arts and Crafts Centre is a community-based initiative dedicated to supporting traditional craft, beadwork, and design in Gauteng. It provides training and market access opportunities to artisans, many of whom are women sustaining households through creative work. By connecting heritage craft to contemporary markets, the centre helps preserve cultural traditions while also enabling economic participation.",
     website: "",
     image: "/images/placeholder.jpg",
   },
@@ -1055,7 +1057,7 @@ export default [
     lat: -26.36446807,
     lon: 28.1331584,
     description:
-      "Photography training and exhibitions in communities; scholarships and open calls for youth participation.",
+      "Of Soul and Joy is a photography education and mentorship programme based in Thokoza township. It provides young people with training, access to cameras and facilities, and professional guidance from established photographers. The programme has produced award-winning photographers and exhibitions that travel internationally, while also creating new pathways for township youth to enter the creative economy through visual storytelling.",
     website: "https://www.ofsoulandjoy.com/",
     image: "/images/ofsoulandjoy.jpg",
   },
@@ -1066,7 +1068,7 @@ export default [
     name: "Nirox Sculpture Park",
     category: ["Private initiatives", "Artist Residencies"],
     type: "Foundation / Park",
-    domain: "",
+    domain: ["Visual arts", "Music"],
     lat: -25.98435061,
     lon: 27.78514061,
     description:
@@ -1082,8 +1084,9 @@ export default [
     domain: "Visual arts",
     lat: -25.89914015,
     lon: 27.79085913,
-    description: "The Villa-Legodi Centre for Sculpture in the Cradle of Humankind, is dedicated specifically to the research, production, and exhibition of three-dimensional art. It provides residencies, workshops, and exhibition opportunities, allowing sculptors to experiment in a supportive and resource-rich environment. Its focus on sculpture fills a crucial gap in the South African arts ecosystem and strengthens Gauteng’s reputation as a site for material experimentation.",
-        website: "https://www.villa-legodi.com/",
+    description:
+      "The Villa-Legodi Centre for Sculpture in the Cradle of Humankind, is dedicated specifically to the research, production, and exhibition of three-dimensional art. It provides residencies, workshops, and exhibition opportunities, allowing sculptors to experiment in a supportive and resource-rich environment. Its focus on sculpture fills a crucial gap in the South African arts ecosystem and strengthens Gauteng’s reputation as a site for material experimentation.",
+    website: "https://www.villa-legodi.com/",
     image: "/images/villalegodi.jpg",
   },
   {
@@ -1095,7 +1098,7 @@ export default [
     lat: -26.10482828,
     lon: 28.05093182,
     description:
-      "Corporate collection and exhibition space; supports curated shows and artist talks with collectors.",
+      "The Sanlam Art Lounge functions as both a corporate gallery and a space for public engagement with contemporary art. By curating exhibitions that draw from its extensive corporate collection, as well as showcasing new commissions, it supports visibility for artists and offers audiences free access to high-quality exhibitions. In Gauteng, it represents a model of how corporate investment in art can create public value beyond private collections.",
     website: "https://blog.sanlam.co.za/sanlam-art-lounge-sandton/",
     image: "/images/sanlam.jpg",
   },
@@ -1108,7 +1111,7 @@ export default [
     lat: -26.19951964,
     lon: 28.03943158,
     description:
-      "Flagship gallery with major surveys and the Young Artist Awards; high-visibility platform for artists.",
+      "The Standard Bank Gallery in Johannesburg has a long history of hosting major exhibitions and supporting the arts through its sponsorship programmes. It plays a central role in the city’s cultural calendar, hosting both international touring exhibitions and landmark local retrospectives. The gallery is also tied to the Standard Bank Young Artist Award, which has launched the careers of many prominent South African creatives, ensuring that it remains a cornerstone of the ecosystem.",
     website:
       "https://sponsorships.standardbank.com/sbgs/sponsorship/arts-and-culture/gallery",
     image: "/images/standardbank.jpg",
@@ -1123,7 +1126,7 @@ export default [
     lon: null,
     website: "https://somethinggoodstudio.com/",
     description:
-      "Independent textile and design initiative collaborating with artists through open calls, the Young Designer Competition, and limited-edition product launches that extend creative practices into sustainable markets.",
+      "Something Good Studio is an independent textile and design initiative that collaborates with artists to create limited-edition products. Through open calls and its Young Designer Competition, it offers opportunities for emerging creatives to extend their practices into textiles, fashion, and product design. Each collection is launched as a limited edition, embedding sustainability into its model while expanding the reach of artists into retail markets. By bridging design, art, and entrepreneurship, Something Good Studio demonstrates how independent initiatives can build alternative pathways for creative careers.",
     type: "Collaborative textile design studio",
     image: "/images/somethinggood.jpg",
   },
@@ -1159,7 +1162,7 @@ export default [
     name: "Nando’s Creativity",
     category: "Private initiatives",
     type: "Corporate programme",
-    domain: ["Visual arts", "Design", "Music"],
+    domain: ["Visual arts", "Design and creative services", "Music"],
     lat: -26.18673493,
     lon: 28.0680888,
     description:
@@ -1189,7 +1192,7 @@ export default [
     lat: -26.1485,
     lon: 28.0837, // SABC HQ, Auckland Park
     description:
-      "A prominent public collection with an active loan schedule, the SABC Art Collection circulates artworks nationally and internationally, providing visibility for South African artists through collaborations with museums, galleries and embassies.",
+      "The SABC Art Collection is one of the largest corporate collections in South Africa, accumulated over decades by the public broadcaster. Frequently loaned to museums and institutions around the country, it remains a resource for exhibitions and research. Although the SABC has faced financial and institutional challenges, the collection itself represents a valuable cultural asset, ensuring that South African artists’ works are preserved, circulated, and publicly visible.",
     website: "https://www.sabcart.co.za/",
     domains: ["Visual arts"],
     image: "/images/sabc.jpg",
@@ -1231,7 +1234,7 @@ export default [
     lat: -26.20407063,
     lon: 28.03175692,
     description:
-      "Artist-led gallery and project space; open calls and curated programmes elevate emerging voices.",
+      "The Umhlabathi Collective is an artist-led initiative founded by a group of photographers in Gauteng. It has become a vital node for work that intersects visual storytelling, landscape, community, and identity. With photography at its centre, the Collective supports members through exhibitions, critical peer feedback, mentorship, and community outreach projects. Although operating in environments that sometimes face infrastructure and resource constraints, it continues to build meaningful connections between artists and audiences. By emphasising both craft and context, Umhlabathi Collective helps sustain a photographic practice in Gauteng that is rooted in place, committed to dialogue, and invested in the future of emerging visual artists.",
     website: "",
     image: "/images/umhlabathi.jpg",
   },
@@ -1246,7 +1249,7 @@ export default [
     dx: 8,
     dy: -6,
     description:
-      "Contemporary gallery championing new talent; exhibitions, editions and fair participation build markets.",
+      "BKhz, founded by artist Banele Khoza, is a gallery in Johannesburg that has quickly established itself as a vital platform for young artists. It combines exhibitions with mentorship, retail opportunities, and collaborative projects, positioning itself as both a commercial and nurturing space. BKhz is particularly important in providing visibility for artists who might not yet be represented by larger galleries, bridging gaps in the art ecosystem.",
     website: "https://bkhz.art/",
     image: "/images/bkhz.jpg",
   },
@@ -1261,7 +1264,7 @@ export default [
     dx: 8,
     dy: -6,
     description:
-      "Internationally networked gallery; career-building exhibitions and global fair access for represented artists.",
+      "Stevenson is a leading contemporary gallery that in its Johannesburg space has integrated an inclusive curatorial approach and willingness to experiment with format. What began as a side-gallery initiative (and has since become independent), The Purpose is Discourse, curated by Aza Mbovane and Mosa Molapo, invites discussion, activations, and collaborations that reflect critically on the complexities of South Africa’s art ecosystem. By providing space for dialogue and emerging curatorial voices, Stevenson broadens the scope of what a commercial gallery can contribute to the cultural landscape.",
     website: "https://www.stevenson.info/",
     image: "/images/imissmyself.jpg",
   },
@@ -1276,7 +1279,7 @@ export default [
     dx: 8,
     dy: -6,
     description:
-      "Blue-chip gallery offering museum-level exposure; commissions, international placements and publications.",
+      "The Goodman Gallery, with almost six decades of history, is a blue-chip gallery that continues to shape South Africa’s art scene. It maintains one of the few accessible art libraries in the country, cared for by an in-house archivist, making decades of cultural knowledge publicly available. The gallery’s programme reflects on the tension between global growth and local fragility in the art sector. Through initiatives such as Working Title, which brings together artists and collectors to imagine sustainable futures, Goodman demonstrates how collecting can be an investment not only in objects but in cultural memory, resilience, and the next generation of African creativity.",
     website: "https://goodman-gallery.com/",
     image: "/images/goodman.jpeg",
   },
@@ -1289,7 +1292,7 @@ export default [
     lat: null,
     lon: null,
     description:
-      "Contemporary project space; open calls and collaborative shows platform experimental practice.",
+      "BLVCK BLOCK is an independent, artist-run space in Johannesburg that provides a platform for emerging artists and experimental practices. Its programming often pushes boundaries, foregrounding younger voices and non-traditional forms. By offering exhibition opportunities and community engagement outside of mainstream institutions, BLVCK BLOCK contributes to a more diverse and dynamic arts scene in the province.",
     website: "",
     nomadic: "This entity is either nomadic or has no fixed space",
     image: "/images/blvckblock.jpeg",
@@ -1317,8 +1320,7 @@ export default [
     domain: "Performing arts",
     lat: -26.20635495,
     lon: 28.16089404,
-    description:
-      "The Dumisani Masilela Theatre in Ekurhuleni is a smaller but significant venue that honours the legacy of the late artist and provides a space for local performance and training. It is deeply embedded in its community, offering a platform for youth theatre and cultural projects that might not otherwise find institutional support.",
+    description: "The Dumisani Masilela Theatre in Ekurhuleni is a small but deeply significant community venue, named in honour of the late actor and musician. It provides a stage for youth theatre, cultural projects, and training initiatives, ensuring that local talent has opportunities to develop and be seen. In addition to its cultural programming, the theatre has become a site of technological innovation through its involvement in a 4IR Mixed Reality training programme. Equipped with some of the country’s leading 4IR library technologies, it offers young creatives access to cutting-edge digital tools, positioning the theatre as both a cultural anchor and a laboratory for future-facing skills.",
     website: "",
     image: "/images/dumisani.png",
   },
@@ -1330,8 +1332,7 @@ export default [
     domain: "Performing arts",
     lat: -25.74710798,
     lon: 28.19425262,
-    description:
-      "The South African State Theatre in Pretoria is the largest theatre complex in Africa and remains one of the country’s most important performing arts institutions. It runs professional productions alongside developmental programmes, such as incubators for young performers, scriptwriters, and directors. By providing a professional platform as well as training opportunities, the State Theatre supports both established and emerging talent, ensuring a continuous pipeline of creative practitioners.",
+    description: "The South African State Theatre in Pretoria is the largest theatre complex in Africa and remains one of the country’s most important performing arts institutions. Alongside its professional productions and developmental incubators for performers, writers, and directors, it has also become a pioneer in the digitisation of live performance. Since 2014, the State Theatre has been recording its shows, a foresight that created a lifeline during the COVID-19 lockdowns and has since grown into a substantial digital archive. The scale of this collection now enables the theatre to consider launching its own dedicated TV channel, extending its reach beyond the auditorium and reinforcing its role as both a live and digital cultural institution.",
     website: "https://www.statetheatre.co.za/",
     image: "/images/statetheatre.jpg",
   },
@@ -1344,7 +1345,7 @@ export default [
     lon: 28.03282184907603,
     website: "https://markettheatre.co.za/",
     description:
-      "Iconic theatre institution offering training programmes, open calls for new plays, residencies and public festivals. A key supportive space for playwrights, actors and directors developing original work.",
+      "The Market Theatre, founded in 1976, is an iconic cultural institution in Johannesburg known as “The Theatre of the Struggle.” It has historically provided a platform for anti-apartheid voices and continues today as a centre for progressive, socially engaged performance. With multiple stages, a theatre laboratory, and a photography workshop, the Market nurtures new writing, emerging performers, and community engagement. Its enduring influence comes from its dual role: a professional theatre with global recognition and a training ground for new talent.",
     type: "Theatre",
     image: "/images/markettheatre.jpg",
   },
@@ -1412,7 +1413,7 @@ export default [
     lat: -26.20100772,
     lon: 28.05369011,
     description:
-      "Large studio building with regular open-studio days; discovery platform for collectors and curators.",
+      "August House in Johannesburg is a large, multi-storey building of artist studios that has become one of the city’s most important creative hubs. It houses a diverse mix of practitioners, from painters and sculptors to photographers and designers. August House supports the ecosystem not just by providing affordable studio space but also by hosting open studio events, allowing the public to engage directly with artists in their working environments.",
     website: "https://augusthouse.co.za/",
     image: "/images/augusthouse.jpg",
   },
@@ -1425,7 +1426,7 @@ export default [
     lat: -26.20011782,
     lon: 28.04266927,
     description:
-      "Artist studios and project space; showcases and collaborative exhibitions build visibility.",
+      "Asisebenze Art Atelier Studios occupies a historic building in Johannesburg and provides space for artists working across visual and performance mediums. It offers affordable studios, exhibition space, and opportunities for collaboration, with a particular focus on inclusivity and supporting emerging practitioners.",
     website: "https://asisebenze.com/",
     image: "/images/asisebenze.jpg",
   },
@@ -1438,7 +1439,7 @@ export default [
     lat: -26.19827525,
     lon: 28.06397721,
     description:
-      "Affordable studios; periodic open days and exhibitions connect artists to audiences.",
+      "Ellis House is a large-scale studio building in Johannesburg that has become a vibrant hub for artists, designers, and cultural workers. It hosts open days and exhibitions that activate the building and make creative production accessible to broader audiences. Together with August House and Asisebenze, Ellis House contributes to the ecosystem of inner-city Johannesburg, where affordable space and community energy foster a thriving creative economy.",
     website: "https://www.ellishouse.co.za/",
     image: "/images/ellishouse.jpg",
   },
@@ -1451,7 +1452,7 @@ export default [
     lat: -26.21677509,
     lon: 28.04764408,
     description:
-      "Studio cluster and gallery-style displays; open studios and sales events for emerging artists.",
+      "Oovookoo is a creative collective and platform that merges visual art, fashion, music, and performance to produce experimental cultural projects. Emerging out of Johannesburg’s youth culture, it prioritises collaboration and interdisciplinary practice, often working in non-traditional spaces. Oovookoo exemplifies the DIY and entrepreneurial spirit of Gauteng’s younger creative generation, blurring the boundaries between art, lifestyle, and cultural production.",
     website: "https://oovookoo.com/",
     image: "/images/placeholder.jpg",
   },
@@ -1471,14 +1472,14 @@ export default [
   // ——— Government (additional) ———
   {
     id: "nac",
-    name: "National Arts Council of South Africa",
+    name: "National Arts Council of South Africa (NAC)",
     category: "Government",
     type: "Public entity",
     domain: "",
     lat: -26.20094307,
     lon: 28.03266937,
     description:
-      "Project and organisational grants across disciplines; periodic open calls and touring support.",
+      "The National Arts Council of South Africa (NAC) is the central government agency responsible for funding and supporting the arts. Headquartered in Johannesburg, it administers grants across disciplines including theatre, music, visual art, literature, and dance. For creatives, the NAC remains one of the few consistent sources of public funding, enabling projects that otherwise would not have been realised. Despite facing its own institutional challenges, the Council continues to provide infrastructure for creativity by supporting festivals, productions, and training opportunities across Gauteng and the country.",
     website: "https://www.nac.org.za/",
     image: "/images/placeholder.jpg",
   },
@@ -1511,17 +1512,90 @@ export default [
     image: "/images/johannesburglibrary.jpeg",
   },
 
+  {
+    id: "springs-art-gallery",
+    name: "Springs Art Gallery",
+    categories: ["Museums / Galleries", "Government",],
+    type: "Municipal gallery & project space",
+    lat: -26.2539,
+    lon: 28.4429,
+    description:
+      "Housed in the Springs Library building (Cnr 5th St & 6th Ave), this municipal gallery programmes community-focused, juried and touring exhibitions, and activates the East Rand’s public art ecosystem with workshops and partnerships. It provides scarce, decentralised infrastructure for artists outside central Johannesburg.",
+    website: "https://www.art.co.za/galleries/springs-art-gallery",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "moses-molelekwa-arts-centre",
+    name: "Moses Molelekwa Arts Centre",
+    categories: ["Theatres", "Incubators or creative hubs",],
+    type: "Community arts & culture centre",
+    lat: -26.00047,
+    lon: 28.22904,
+    description:
+      "A flagship township hub in Tembisa offering rehearsal and performance spaces, music and theatre development, and community festivals. It strengthens local circuits for live arts and youth training while anchoring municipal cultural infrastructure on the East Rand.",
+    website: "https://www.facebook.com/MosesMolelekwaArtsCentre/",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "open-window-makerspace",
+    name: "Open Window MakerSpace",
+    categories: ["Maker Spaces", "Academic partnerships", "4IR"],
+    type: "Higher-education makerspace & fabrication labs",
+    lat: -25.8579,
+    lon: 28.1906,
+    description:
+      "Open Window’s MakerSpace combines a Fab Lab, print studio and wood/metal workshop – laser cutting, 3D printing (FDM & resin), risograph, large-format print – giving student designers, filmmakers and animators production-grade tools and a clear pipeline from study to creative industry.",
+    website: "https://www.openwindow.co.za/makerspace-dashboard/84922/",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "house4hack-centurion",
+    name: "House4Hack",
+    categories: ["Maker Spaces", "4IR"],
+    type: "Community hackerspace",
+    lat: -25.8336,
+    lon: 28.2063,
+    description:
+      "South Africa’s pioneering hackerspace, based at 4 Burger Ave, Lyttelton Manor. It provides a member-led prototyping environment with electronics benches and 3D printers, regular open evenings, and a culture of peer-to-peer learning that supports creative technologists, indie hardware, and experimental product designers.",
+    website: "https://www.house4hack.co.za/",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "tmfaa-partner-residencies",
+    name: "TMFAA Partner Residencies",
+    categories: ["Artist Residencies", "Awards / Programmes",],
+    type: "Residency placements linked to TMFAA ecosystem",
+    lat: null,
+    lon: null,
+    description:
+      "Residency opportunities connected to the Thami Mnyele Fine Arts Awards ecosystem place selected artists with partner studios and galleries, building professional capacity beyond the prize exhibition. These placements create mentorship, production time and market access for East Rand artists.",
+    website: "https://tmfaa.ekurhuleni.gov.za/",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    id: "thami-mnyele-fine-arts-awards",
+    name: "Thami Mnyele Fine Arts Awards (Ekurhuleni)",
+    categories: ["Awards / Programmes", "Government",],
+    type: "Annual contemporary art award & exhibition",
+    lat: null,
+    lon: null,
+    description:
+      "A major municipal contemporary art competition run by the City of Ekurhuleni. TMFAA offers significant cash prizes, an Ekurhuleni Prize exhibition and partner opportunities, sustaining a recognised platform for artists outside central Johannesburg and feeding talent into residencies and galleries.",
+    website: "https://tmfaa.ekurhuleni.gov.za/about_tmfaa",
+    image: "/images/placeholder.jpg",
+  },
+
   ...[
     ["alberton-library", "Alberton Library", -26.26381561, 28.1236083],
     ["boksburg-library", "Boksburg Library", -26.21977053, 28.25250035],
-    // ["bracken-library", "Bracken Library", -26.32577964, 28.099242],
+    ["bracken-library", "Bracken Library", -26.32577964, 28.099242],
     // ["dinwiddie-library", "Dinwiddie Library", -26.25684543, 28.16537136],
     // ["elsburg-library", "Elsburg Library", -26.24493351, 28.20108745],
     // ["leondale-library", "Leondale Library", -26.30266352, 28.18168154],
     // ["palm-ridge-library", "Palm Ridge Library", -26.38740749, 28.14313477],
     // ["reiger-park-library", "Reiger Park Library", -26.22860582, 28.22766727],
     // ["spruitview-library", "Spruitview Library", -26.32339695, 28.17954454],
-    // ["thokoza-library", "Thokoza Library", -26.3582741, 28.1331834],
+    ["thokoza-library", "Thokoza Library", -26.3582741, 28.1331834],
     ["vosloorus-library", "Vosloorus Library", -26.34989472, 28.1991432],
     // ["zonkizizwe-library", "Zonkizizwe Library", -26.40490076, 28.1889459],
     ["germiston-library", "Germiston Library", -26.2167335, 28.1643704],
@@ -1534,7 +1608,7 @@ export default [
     lat,
     lon,
     description:
-      "Public library with makerspace/tech programming; offers digital-skills workshops and community creative labs.",
+      "The municipal libraries in Ekurhuleni have collectively become notable for their forward-thinking adoption of Fourth Industrial Revolution (4IR) technologies. Equipped with advanced digital tools and software, these libraries extend beyond their traditional role to serve as hubs for innovation and skills development. As noted by practitioners in the non-profit sector, Ekurhuleni has been unusually successful in ensuring that public funds translate into actual installations and equipment, making its libraries leaders in the cultural infrastructure of the province.",
     website: "",
     image: "/images/placeholder.jpg",
   })),
