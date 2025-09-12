@@ -435,7 +435,7 @@ export default [
     lon: 28.05335878,
     description:
       "Decorex Joburg is one of the country’s largest décor and design trade fairs, hosted annually at the Sandton Convention Centre. Beyond its commercial function, it has become a platform for South African designers to showcase sustainable practices, innovations in product development, and collaborative brand partnerships. Curated sections such as 100% Design Africa highlight local design talent and place them alongside global trends, while the Future Talks programme offers accredited professional development for architects and designers. For emerging practitioners, it is a rare opportunity to access new markets and connect directly with buyers and peers.",
-    website: "https://www.decorex.co.za/joburg/",
+    website: "https://www.decorex.co.za/joburg/en-gb.html",
     image: "/images/decorex.jpg",
   },
   {
@@ -497,7 +497,7 @@ export default [
     domains: ["Visual arts"],
     lat: -26.106243620213196,
     lon: 28.054394498214986,
-    website: "https://fnbartjoburg.com/",
+    website: "https://artjoburg.com/",
     description:
       "FNB Art Joburg is South Africa’s leading contemporary art fair, anchored in Johannesburg. While its core remains an invitation-only platform for galleries, publishers, institutions and other entities, it has developed several initiatives that extend its ecosystem impact. The FNB Art Prize offers a solo exhibition at the Johannesburg Art Gallery for the winning artist, raising visibility and fostering critical dialogue. The Open City programme brings art into public spaces, expanding access beyond the fair’s exclusive walls. More recently, the BMW Young Collectors Co. has targeted new audiences, introducing younger buyers to collecting. Together, these initiatives ensure that the fair contributes to sustaining the art economy, nurturing both artists and audiences, even within the constraints of its high-end format.",
     type: "Art fair",
@@ -619,7 +619,7 @@ export default [
     lon: 28.0688, // Kyalami Grand Prix Circuit
     description:
       "The DStv Delicious Festival Powered by LottoStar is one of South Africa’s premier food and music festivals, held in Johannesburg. It combines performances by global and local stars with gourmet food experiences, drawing large and diverse audiences. For creatives, it offers opportunities to collaborate across music, culinary arts, and event design, while also highlighting Gauteng as a cultural tourism destination.",
-    website: "https://www.dstvdelicious.com",
+    website: "https://deliciousfestival.com/",
     domains: ["Music", "Design and creative services"],
     image: "/images/dstv-delicious.jpg",
   },
@@ -672,7 +672,7 @@ export default [
     lon: 28.195, // SA State Theatre, Pretoria
     description:
       "Black Labone, held at the South African State Theatre, is a weekly open-mic platform every Thursday that has become a crucial stage for emerging musicians, poets, and performers. Its informal, low-barrier format allows young creatives to experiment and gain experience in front of live audiences, building confidence and community support. Over the years, it has grown into a beloved institution for discovering new talent.",
-    website: "https://www.statetheatre.co.za",
+    website: "https://www.instagram.com/blacklabone/?hl=en",
     domains: ["Music", "Film"],
     image: "/images/blacklabone.jpg",
   },
@@ -1219,7 +1219,7 @@ export default [
     lon: 28.0473, // Johannesburg Art Gallery for prize exhibition
     description:
       "Awarded annually since 2011, the FNB Art Prize supports the continent’s cultural landscape through a cash award and solo exhibition at the Johannesburg Art Gallery. Artists are nominated by galleries participating in FNB Art Joburg, expanding recognition and institutional opportunities for contemporary African practice.",
-    website: "https://fnbartjoburg.com",
+    website: "https://artjoburg.com/category/fnb-art-prize/",
     domains: ["Visual arts"],
     image: "/images/lindo.jpeg",
   },
@@ -1506,7 +1506,7 @@ export default [
     lat: -26.2043,
     lon: 28.0473,
     description:
-      "Established in 1934, the Johannesburg Public Library is an architectural and cultural landmark in the city’s civic core. After a long closure due to renovation and accessibility upgrades, it has recently reopened, restoring public access to its collections and reading rooms. It continues to offer exhibitions, educational programmes and digital services—with renewed energy and partnerships strengthening its role in public knowledge infrastructure.",
+      "Established in 1934, the Johannesburg Public Library is an architectural and cultural landmark in the city’s civic core. After a long closure due to renovation and accessibility upgrades, it has recently reopened, restoring public access to its collections and reading rooms. It continues to offer exhibitions, educational programmes and digital services – with renewed energy and partnerships strengthening its role in public knowledge infrastructure.",
     website:
       "https://joburg.org.za/services_/Libraries/Pages/Johannesburg-Public-Library.aspx",
     image: "/images/johannesburglibrary.jpeg",
