@@ -170,7 +170,7 @@ export default [
   {
     id: "industrial-hive",
     name: "Industrial Hive & Computer Centre",
-    category: "Incubators or creative hubs",
+    category: ["Incubators or creative hubs", "4IR"],
     type: "Training centre",
     domain: "",
     lat: -26.00831762,
@@ -359,7 +359,7 @@ export default [
   {
     id: "victoria-yards",
     name: "Victoria Yards",
-    category: ["Public-private partnerships", "Artist studios"],
+    category: ["Public-private partnerships", "Artist studios", "Trade Fairs / Markets"],
     type: "Precinct",
     domain: "",
     lat: -26.1887,
@@ -402,7 +402,7 @@ export default [
   {
     id: "basha-uhuru-freedom-festival",
     name: "Basha Uhuru Freedom Festival",
-    categories: ["Festivals", "Project spaces"],
+    categories: ["Festivals", "Trade Fairs / Markets"],
     domains: ["Music", "Visual arts", "Design and creative services"],
     lat: -26.18886842356017,
     lon: 28.042717564417718,
@@ -415,7 +415,7 @@ export default [
   {
     id: "human-rights-festival",
     name: "Human Rights Festival",
-    categories: ["Festivals", "Cultural and natural heritage sites"],
+    categories: ["Festivals", "Cultural and natural heritage sites", "Trade Fairs / Markets"],
     domains: ["Visual arts", "Music"],
     lat: -26.18886842356017,
     lon: 28.042717564417718,
@@ -587,7 +587,7 @@ export default [
   {
     id: "back-to-the-city",
     name: "Hennessy Back To The City Festival SA",
-    categories: ["Festivals", "Art Fairs"],
+    categories: ["Festivals",],
     type: "Hip-hop culture festival",
     lat: -26.2029,
     lon: 28.0341, // Mary Fitzgerald Square, Newtown
@@ -666,12 +666,11 @@ export default [
   {
     id: "black-labone",
     name: "Black Labone at the State Theatre",
-    categories: ["Festivals", "Theatres"],
+    categories: ["Festivals", "Theatres", "Trade Fairs / Markets"],
     type: "Weekly creative platform",
     lat: -25.7465,
     lon: 28.195, // SA State Theatre, Pretoria
-    description:
-      "Black Labone, held at the South African State Theatre, is a weekly open-mic platform every Thursday that has become a crucial stage for emerging musicians, poets, and performers. Its informal, low-barrier format allows young creatives to experiment and gain experience in front of live audiences, building confidence and community support. Over the years, it has grown into a beloved institution for discovering new talent.",
+    description: "Black Labone, held every Thursday at the South African State Theatre, is a weekly open-mic platform that has become a crucial stage for emerging musicians, poets, and performers. Its informal, low-barrier format allows young creatives to experiment and gain experience in front of live audiences, building confidence and community support. Running in parallel to the performances is an active night market, where local vendors showcase food, crafts, and fashion, transforming the event into a vibrant cultural gathering. Over the years, this combination of live performance and market has turned Black Labone into a beloved institution — a space where new talent is discovered, and community life is animated through both creativity and commerce.",
     website: "https://www.instagram.com/blacklabone/?hl=en",
     domains: ["Music", "Film"],
     image: "/images/blacklabone.jpg",
@@ -1051,7 +1050,7 @@ export default [
   {
     id: "of-soul-and-joy",
     name: "Of Soul and Joy Photo Project",
-    category: "Non-profits",
+    category: ["Non-profits", "Incubators or creative hubs",],
     type: "Photography education",
     domain: ["Visual arts", "Photography"],
     lat: -26.36446807,
@@ -1120,7 +1119,7 @@ export default [
   {
     id: "something-good-studio",
     name: "Something Good Studio",
-    categories: ["Private initiatives"],
+    categories: ["Design / Creative studios", "Awards / Programmes", ],
     domains: ["Design and creative services", "Visual arts"],
     lat: null,
     lon: null,
@@ -1264,7 +1263,7 @@ export default [
     dx: 8,
     dy: -6,
     description:
-      "Stevenson is a leading contemporary gallery that in its Johannesburg space has integrated an inclusive curatorial approach and willingness to experiment with format. What began as a side-gallery initiative (and has since become independent), The Purpose is Discourse, curated by Aza Mbovane and Mosa Molapo, invites discussion, activations, and collaborations that reflect critically on the complexities of South Africa’s art ecosystem. By providing space for dialogue and emerging curatorial voices, Stevenson broadens the scope of what a commercial gallery can contribute to the cultural landscape.",
+      "Stevenson is a leading contemporary gallery that – in its Johannesburg space – has integrated an inclusive curatorial approach and willingness to experiment with format. What began as a side-gallery initiative (and has since become independent), The Purpose is Discourse, curated by Aza Mbovane and Mosa Molapo, invites discussion, activations, and collaborations that reflect critically on the complexities of South Africa’s art ecosystem. By providing space for dialogue and emerging curatorial voices, Stevenson broadens the scope of what a commercial gallery can contribute to the cultural landscape.",
     website: "https://www.stevenson.info/",
     image: "/images/imissmyself.jpg",
   },
@@ -1293,7 +1292,7 @@ export default [
     lon: null,
     description:
       "BLVCK BLOCK is an independent, artist-run space in Johannesburg that provides a platform for emerging artists and experimental practices. Its programming often pushes boundaries, foregrounding younger voices and non-traditional forms. By offering exhibition opportunities and community engagement outside of mainstream institutions, BLVCK BLOCK contributes to a more diverse and dynamic arts scene in the province.",
-    website: "",
+    website: "https://www.instagram.com/blockblvck/?hl=en",
     nomadic: "This entity is either nomadic or has no fixed space",
     image: "/images/blvckblock.jpeg",
   },
@@ -1304,7 +1303,7 @@ export default [
     name: "Soweto Theatre",
     category: "Theatres",
     type: "Municipal theatre",
-    domain: "",
+    domain: "Performing arts",
     lat: -26.24886835,
     lon: 27.85985357,
     description:
@@ -1527,7 +1526,7 @@ export default [
   {
     id: "moses-molelekwa-arts-centre",
     name: "Moses Molelekwa Arts Centre",
-    categories: ["Theatres", "Incubators or creative hubs",],
+    categories: ["Theatres",],
     type: "Community arts & culture centre",
     lat: -26.00047,
     lon: 28.22904,
@@ -1548,18 +1547,18 @@ export default [
     website: "https://www.openwindow.co.za/makerspace-dashboard/84922/",
     image: "/images/placeholder.jpg",
   },
-  {
-    id: "house4hack-centurion",
-    name: "House4Hack",
-    categories: ["Maker Spaces", "4IR"],
-    type: "Community hackerspace",
-    lat: -25.8336,
-    lon: 28.2063,
-    description:
-      "South Africa’s pioneering hackerspace, based at 4 Burger Ave, Lyttelton Manor. It provides a member-led prototyping environment with electronics benches and 3D printers, regular open evenings, and a culture of peer-to-peer learning that supports creative technologists, indie hardware, and experimental product designers.",
-    website: "https://www.house4hack.co.za/",
-    image: "/images/placeholder.jpg",
-  },
+  // {
+  //   id: "house4hack-centurion",
+  //   name: "House4Hack",
+  //   categories: ["Maker Spaces", "4IR"],
+  //   type: "Community hackerspace",
+  //   lat: -25.8336,
+  //   lon: 28.2063,
+  //   description:
+  //     "South Africa’s pioneering hackerspace, based at 4 Burger Ave, Lyttelton Manor. It provides a member-led prototyping environment with electronics benches and 3D printers, regular open evenings, and a culture of peer-to-peer learning that supports creative technologists, indie hardware, and experimental product designers.",
+  //   website: "https://www.house4hack.co.za/",
+  //   image: "/images/placeholder.jpg",
+  // },
   {
     id: "tmfaa-partner-residencies",
     name: "TMFAA Partner Residencies",
@@ -1584,6 +1583,47 @@ export default [
     website: "https://tmfaa.ekurhuleni.gov.za/about_tmfaa",
     image: "/images/placeholder.jpg",
   },
+  {
+    id: "thebe-magugu",
+    name: "Thebe Magugu / Magugu House",
+    categories: ["Design / Creative studios"],
+    type: "Fashion designer studio & showroom",
+    lat: -26.1247,
+    lon: 28.0499,
+    domains: ["Design and creative services",],
+    description:
+    "Based in Johannesburg, Thebe Magugu is an internationally acclaimed fashion designer and the first African winner of the prestigious LVMH Prize (2019). His work merges contemporary silhouettes with African heritage narratives, often incorporating research into South Africa’s political and cultural history. Beyond his collections, Magugu contributes to the creative ecosystem through initiatives such as Faculty Press, an editorial project documenting African cultural stories, and collaborations with artists and global brands. By mentoring younger designers and employing local artisans, his studio functions not only as a fashion house but as a cultural hub, extending South African creativity into global circuits while sustaining local production.",
+    website: "https://thebemagugu.com/",
+    image: "/images/thebe.jpg"
+  },
+  {
+    id: "homegrown-shandis",
+    name: "Homegrown Shandis",
+    categories: ["Design / Creative studios"],
+    type: "Fashion retail & social enterprise",
+    lat: -26.1885,
+    lon: 28.0427,
+    domains: ["Design and creative services",],
+    description:
+      "Homegrown Shandis is a Johannesburg-based fashion retail company located in the Transwerke building at Constitution Hill. It employs township elders to pass on traditional crocheting techniques to young trainees, producing shoes that are sold as high-end design objects. By combining intergenerational knowledge transfer with contemporary retail, the initiative sustains heritage craft, provides employment, and creates pathways for young creatives to participate in the fashion economy. It exemplifies how social enterprise models can strengthen the ecosystem by blending cultural heritage with market innovation.",
+    website: "https://homegrownshandis.com/",
+    image: "/images/homegrown.jpg"
+  },
+
+  {
+    id: "hidden-hand-studios",
+    name: "Hidden Hand Studios",
+    categories: ["Design / Creative studios"],
+    type: "Independent animation studio",
+    lat: -26.2041,
+    lon: 28.0473,
+    domain: ["Film", "Audio-visual and interactive media"],
+    description:
+      "Co-founded by Soweto-born animator Lesego Vorster after his studies at Gobelins in Paris, Hidden Hand Studios has become a major presence in Johannesburg’s animation sector. Vorster’s work, especially his widely recognised 'Vovo style', has influenced multiple episodes of Disney+’s 'Kizazi Moto: Generation Fire'. In March 2025 he won the 'Children’s & Family Emmy Award for Outstanding Individual Achievement in Animation – Character Design' for his short ‘You Give Me Heart’, making him one of the few South African animators to receive this international recognition. Beyond commercial work, Vorster teaches animation in Soweto in his spare time and serves as Art Director for the Tshimologong Development Studio internship programme, mentoring new talent. Hidden Hand embodies both the creative potential and the funding challenges of animation in Gauteng: while its aesthetic and influence are globally visible, limited funding for local IP development often means studios serve more as creative labour providers rather than originators of large-scale South African content.",
+    website: "http://hiddenhand.co.za/",
+    image: "/images/lesego.jpeg"
+  },
+  
 
   ...[
     ["alberton-library", "Alberton Library", -26.26381561, 28.1236083],
@@ -1595,7 +1635,7 @@ export default [
     // ["palm-ridge-library", "Palm Ridge Library", -26.38740749, 28.14313477],
     // ["reiger-park-library", "Reiger Park Library", -26.22860582, 28.22766727],
     // ["spruitview-library", "Spruitview Library", -26.32339695, 28.17954454],
-    ["thokoza-library", "Thokoza Library", -26.3582741, 28.1331834],
+    // ["thokoza-library", "Thokoza Library", -26.3582741, 28.1331834],
     ["vosloorus-library", "Vosloorus Library", -26.34989472, 28.1991432],
     // ["zonkizizwe-library", "Zonkizizwe Library", -26.40490076, 28.1889459],
     ["germiston-library", "Germiston Library", -26.2167335, 28.1643704],

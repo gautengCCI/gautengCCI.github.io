@@ -30,6 +30,7 @@ const catColors = {
   "Project spaces": "#b9fbc0",
   "Museums / Galleries": "#1c1341",
   "Awards / Programmes": "#6e094e",
+  "Design / Creative studios": "#a77862",
 };
 
 // 2) Legend order (optional, but nice to keep things consistent)
@@ -87,6 +88,7 @@ export default function App() {
               "International organisations",
               "Non-profits",
               "Private initiatives",
+              "Design / Creative studios",
               // Places / spaces
               "Commercial galleries",
               "Corporate collections",
@@ -103,7 +105,7 @@ export default function App() {
             ]}
             dotRadius={4}
             dotOpacity={0.9}
-            initialZoom={isMobile ? 2.2 : 1.5}
+            initialZoom={isMobile ? 2.8 : 1.8}
           />
         </div>
       </main>
