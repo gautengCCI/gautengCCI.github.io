@@ -1278,7 +1278,7 @@ export default [
     dx: 8,
     dy: -6,
     description:
-      "The Goodman Gallery, with almost six decades of history, is a blue-chip gallery that continues to shape South Africa’s art scene. It maintains one of the few accessible art libraries in the country, cared for by an in-house archivist, making decades of cultural knowledge publicly available. The gallery’s programme reflects on the tension between global growth and local fragility in the art sector. Through initiatives such as Working Title, which brings together artists and collectors to imagine sustainable futures, Goodman demonstrates how collecting can be an investment not only in objects but in cultural memory, resilience, and the next generation of African creativity.",
+      "The Goodman Gallery, with almost six decades of history, is a blue-chip gallery that continues to shape South Africa’s art scene. In Johannesburg, it maintains one of the few accessible art libraries in the country, cared for by an in-house archivist, making decades of cultural knowledge publicly available. The gallery’s programme reflects on the tension between global growth and local fragility in the art sector. Through initiatives such as Working Title, which brings together artists and collectors to imagine sustainable futures, Goodman demonstrates how collecting can be an investment not only in objects but in cultural memory, resilience, and the next generation of African creativity.",
     website: "https://goodman-gallery.com/",
     image: "/images/goodman.jpeg",
   },
