@@ -1291,7 +1291,7 @@ export default [
     lat: null,
     lon: null,
     description:
-      "BLVCK BLOCK is an independent, artist-run space in Johannesburg that provides a platform for emerging artists and experimental practices. Its programming often pushes boundaries, foregrounding younger voices and non-traditional forms. By offering exhibition opportunities and community engagement outside of mainstream institutions, BLVCK BLOCK contributes to a more diverse and dynamic arts scene in the province.",
+      "BLVCK BLOCK is an independent, artist-run initiative in Johannesburg that provides a platform for emerging artists and experimental practices. Its programming often pushes boundaries, foregrounding younger voices and non-traditional forms. By offering exhibition opportunities and community engagement outside of mainstream institutions, BLVCK BLOCK contributes to a more diverse and dynamic arts scene in the province.",
     website: "https://www.instagram.com/blockblvck/?hl=en",
     nomadic: "This entity is either nomadic or has no fixed space",
     image: "/images/blvckblock.jpeg",
@@ -1622,6 +1622,18 @@ export default [
       "Co-founded by Soweto-born animator Lesego Vorster after his studies at Gobelins in Paris, Hidden Hand Studios has become a major presence in Johannesburg’s animation sector. Vorster’s work, especially his widely recognised 'Vovo style', has influenced multiple episodes of Disney+’s 'Kizazi Moto: Generation Fire'. In March 2025 he won the 'Children’s & Family Emmy Award for Outstanding Individual Achievement in Animation – Character Design' for his short ‘You Give Me Heart’, making him one of the few South African animators to receive this international recognition. Beyond commercial work, Vorster teaches animation in Soweto in his spare time and serves as Art Director for the Tshimologong Development Studio internship programme, mentoring new talent. Hidden Hand embodies both the creative potential and the funding challenges of animation in Gauteng: while its aesthetic and influence are globally visible, limited funding for local IP development often means studios serve more as creative labour providers rather than originators of large-scale South African content.",
     website: "http://hiddenhand.co.za/",
     image: "/images/lesego.jpeg"
+  },
+  {
+    id: "serati-ltd",
+    name: "Serati Ltd",
+    categories: ["Design / Creative studios"],
+    type: "Slow fashion label",
+    lat: null,
+    lon: null,
+    description:
+      "Serati Ltd is the slow fashion label founded by textile designer and artist Ditiro Mashigo. The name derives from a Sepedi idiom meaning 'one who does what their heart desires,' reflecting Mashigo’s commitment to making garments that honour both personal and planetary healing. Rooted in indigenous knowledge systems, Serati embraces natural fibres, botanical dyeing, and artisanal techniques as a way to reconnect with environment and heritage. Each collection is guided by dreams and ancestral intuition, such as the kimono inspired by a memory of Mashigo’s late grandmother. In 2019 she was commissioned to design costumes for the Grammy Award-winning Soweto Gospel Choir, employing over 15 women for the project. She later collaborated with Mr Price Home on a signature homeware line, expanding Serati’s storytelling into domestic design. Mashigo describes Serati as a form of narrative practice, where garments become vessels of spirit, soil, and identity. The label operates nomadically, staging projects, collaborations, and exhibitions across different platforms rather than a fixed studio base.",
+    website: "https://www.ditiromashigo.co.za/",
+    image: "/images/serati.jpg"
   },
   
 
