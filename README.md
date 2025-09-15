@@ -114,17 +114,13 @@ Data entries live in `/data/dataset.js`. Each entry follows this structure:
   name: "Bag Factory Artist Studios",
   category: ["Artist studio", "Non-profit"], // multiple allowed
   type: "Non-profit",
-  domain: ["Visual arts"],
+  domain: ["Visual arts"], // multiple allowed
   lat: -26.2304,      // omit for nomadic entries
   lon: 28.0123,       // omit for nomadic entries
   description: "Bag Factory Artist Studios is a non-profit contemporary art organisation and residency that supports artists with open calls, awards, and exchange opportunities...",
   website: "https://bagfactoryart.org.za",
   image: "/images/bagfactory.jpg",
 }
-
-
-
-
 
 
 
