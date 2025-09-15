@@ -1,12 +1,38 @@
-# React + Vite
+# Gauteng Creative Sector Supportive Infrastructure Map
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive data-driven map visualising the supportive infrastructure for the Cultural and Creative Industries (CCIs) in Gauteng, South Africa.  
+The project highlights **government entities, associations, incubators, hubs, festivals, awards, residencies, and other initiatives** that create opportunities for creatives — from open calls and mentorship programmes to collections and partnerships.  
 
-Currently, two official plugins are available:
+The map was developed by [INCCA](https://incca.org.za), drawing on research from the **2024 Inclusive Economies Programme**, a collaboration between the **Gauteng City-Region Observatory (GCRO)** and the **Gauteng Department of Economic Development (GDED)**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Interactive Map** – Explore CCIs infrastructure across Gauteng’s districts and cities.  
+- **Filter by Category & Domain** – Narrow results to specific kinds of infrastructure (festivals, hubs, residencies, etc.).  
+- **Responsive Design** – Optimised for both desktop and mobile (including custom modals for details and lists).  
+- **Multi-Category Entries** – Organisations that straddle categories (e.g. *Artist Studio + Non-Profit*) are represented with gradient dots.  
+- **Nomadic Spaces** – Initiatives without a fixed location appear in the list view with a *“Nomadic / no fixed site”* badge.  
+- **Details Panel** – Click dots or filter chips to view descriptions, links, and images of entries.  
+
+---
+
+## 🗂️ Data Structure
+
+Data entries live in `/data/dataset.js`. Each entry follows this structure:
+
+```js
+{
+  id: "bag-factory",
+  name: "Bag Factory Artist Studios",
+  category: ["Artist studio", "Non-profit"], // multiple allowed
+  type: "Non-profit",
+  domain: ["Visual arts"],
+  lat: -26.2304,      // omit for nomadic entries
+  lon: 28.0123,       // omit for nomadic entries
+  description: "Bag Factory Artist Studios is a non-profit contemporary art organisation and residency that supports artists with open calls, awards, and exchange opportunities.",
+  website: "https://bagfactoryart.org.za",
+  image: "https://vansa.co.za/wp-content/uploads/2018/03/Bag_Factory_exterior.jpg",
+  nomadic: false
+}
