@@ -1,9 +1,6 @@
 # Gauteng Creative Sector Supportive Infrastructure Map
 
-An interactive data-driven map visualising the supportive infrastructure for the Cultural and Creative Industries (CCIs) in Gauteng, South Africa.  
-The project highlights **government entities, associations, incubators, hubs, festivals, awards, residencies, and other initiatives** that create opportunities for creatives — from open calls and mentorship programmes to collections and partnerships.  
-
-The map was developed by [INCCA](https://incca.org.za), drawing on research from the **2024 Inclusive Economies Programme**, a collaboration between the **Gauteng City-Region Observatory (GCRO)** and the **Gauteng Department of Economic Development (GDED)**.
+An interactive data-driven map visualising the supportive infrastructure for the Cultural and Creative Industries (CCIs) in Gauteng, South Africa. It visualises key mechanisms that support the creative industries sector Gauteng, South Africa’s most populous and economically vibrant province — from government entities, associations, incubators, and hubs to galleries, academic partnerships, and private initiatives. While not exhaustive, it highlights selected examples where innovative infrastructure and programming, based on our research, appear to be strengthening the Cultural and Creative Industries. The map was developed by [INCCA](https://incca.org.za), drawing on research from the **2024 Inclusive Economies Programme**, a collaboration between the **Gauteng City-Region Observatory (GCRO)** and the **Gauteng Department of Economic Development (GDED)**.
 
 ---
 
