@@ -1605,7 +1605,7 @@ export default [
     lon: 28.0427,
     domains: ["Design and creative services",],
     description:
-      "Homegrown Shandis is a Johannesburg-based fashion retail company located in the Transwerke building at Constitution Hill. It employs township elders to pass on traditional crocheting techniques to young trainees, producing shoes that are sold as high-end design objects. By combining intergenerational knowledge transfer with contemporary retail, the initiative sustains heritage craft, provides employment, and creates pathways for young creatives to participate in the fashion economy. It exemplifies how social enterprise models can strengthen the ecosystem by blending cultural heritage with market innovation.",
+      "Homegrown Shandis is a Johannesburg-based fashion retail company located in the Transwerke building at Constitution Hill. It employs township elders to pass on traditional techniques (such as crocheting) to young trainees, producing shoes that are sold as high-end design objects. By combining intergenerational knowledge transfer with contemporary retail, the initiative sustains heritage craft, provides employment, and creates pathways for young creatives to participate in the fashion economy. It exemplifies how social enterprise models can strengthen the ecosystem by blending cultural heritage with market innovation.",
     website: "https://homegrownshandis.com/",
     image: "/images/homegrown.jpg"
   },

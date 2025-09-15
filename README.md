@@ -31,11 +31,6 @@ The map was developed by [INCCA](https://incca.org.za), drawing on research from
 - **Research Commissioners:** GCRO & GDED research teams
 - **Research interviewees** participating organisations, individuals and entities across Gauteng  
 
-### Acknowledgements
-- Partner organisations and practitioners who reviewed entries and supplied updates, imagery, and links  
-
-> If you would like your organisation credited, or to supply an official logo/image and caption, please open an issue or PR (see **Contributing** below).
-
 ---
 
 ## 🤝 Contributing
@@ -49,8 +44,8 @@ We welcome contributions that improve accuracy, add missing initiatives, or enha
 
 ### 2. Scope & inclusion criteria
 Entries should be entities or initiatives that **support** CCIs, e.g.:  
-- **Yes:** hubs, incubators, public programmes, networks, recurring awards, residencies, tertiary/skills programmes tied to CCIs  
-- **Sometimes:** museums, galleries, theatres, libraries — *only when* they run support programmes (e.g. residencies, open calls)  
+- **Yes:** hubs, incubators, public programmes, networks, recurring awards, residencies, non-profits, tertiary/skills programmes tied to CCIs  
+- **Sometimes:** museums, galleries, theatres, libraries, commercial venues or entities — *only when* they run supportive programmes, have innovative platforms, are a social enterprise or provides supportive infrastructure (e.g. residencies, open calls)  
 - **No:** purely commercial venues or one-off events without clear sector support
 
 ### 3. Taxonomy (required)
