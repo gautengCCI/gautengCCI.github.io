@@ -33,6 +33,6 @@ Data entries live in `/data/dataset.js`. Each entry follows this structure:
   lon: 28.0123,       // omit for nomadic entries
   description: "Bag Factory Artist Studios is a non-profit contemporary art organisation and residency that supports artists with open calls, awards, and exchange opportunities.",
   website: "https://bagfactoryart.org.za",
-  image: "https://vansa.co.za/wp-content/uploads/2018/03/Bag_Factory_exterior.jpg",
+  image: "/images/bagfactory.jpg",
   nomadic: false
 }
